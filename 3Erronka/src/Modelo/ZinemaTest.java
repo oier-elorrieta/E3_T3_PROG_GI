@@ -11,7 +11,20 @@ public class ZinemaTest {
 	public static void setUpBeforeClass() throws Exception {
 	
 	}
-
+	
+	@Test
+	public void getIdTest() {
+		Zinema z1 = new Zinema(1, "Elorrieta Zinema", "San Ignazio", 658659874, null, "elorrietazinema@gmail.com", "17:00-23:00");
+		assertEquals(1, z1.getId());
+	}
+	
+	@Test
+	public void setIdTest() {
+		Zinema z1 = new Zinema(1, "Elorrieta Zinema", "San Ignazio", 658659874, null, "elorrietazinema@gmail.com", "17:00-23:00");
+		z1.setId(01);
+		assertEquals(01, z1.getId());
+	}
+	
 	@Test
 	public void getIzenaTest() {
 		Zinema z1 = new Zinema(1, "Elorrieta Zinema", "San Ignazio", 658659874, null, "elorrietazinema@gmail.com", "17:00-23:00");
@@ -26,16 +39,16 @@ public class ZinemaTest {
 	}
 	
 	@Test
-	public void getKokapenaTest() {
+	public void getHelbideaTest() {
 		Zinema z1 = new Zinema(1, "Elorrieta Zinema", "San Ignazio", 658659874, null, "elorrietazinema@gmail.com", "17:00-23:00");
-		assertEquals("San Ignazio", z1.getKokapena());
+		assertEquals("San Ignazio", z1.getHelbidea());
 	}
 	
 	@Test
 	public void setKokapenaTest() {
 		Zinema z1 = new Zinema(1, "Elorrieta Zinema", "San Ignazio", 658659874, null, "elorrietazinema@gmail.com", "17:00-23:00");
-		z1.setKokapena("Leioa");
-		assertEquals("Leioa", z1.getKokapena());
+		z1.setHelbidea("Leioa");
+		assertEquals("Leioa", z1.getHelbidea());
 	}
 	
 	@Test

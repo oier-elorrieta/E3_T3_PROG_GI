@@ -11,17 +11,26 @@ public class Zinema {
 	private Aretoa[] aretoa;
 	private String emaila;
 	private String ordutegia;
+	private String helbidea;
 	
-	public Zinema(int id, String izena, String kokapena, int tlf, Aretoa[] aretoa, String emaila, String ordutegia) {
+	public Zinema(int id, String izena, String helbidea, int tlf, Aretoa[] aretoa, String emaila, String ordutegia) {
 		this.id = id;
 		this.izena = izena;
-		this.kokapena = kokapena;
+		this.kokapena = helbidea;
 		this.tlf = tlf;
 		this.aretoa = aretoa;
 		this.emaila = emaila;
 		this.ordutegia = ordutegia;
 	}
-
+	
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public String getIzena() {
 		return izena;
 	}
@@ -30,12 +39,12 @@ public class Zinema {
 		this.izena = izena;
 	}
 
-	public String getKokapena() {
-		return kokapena;
+	public String getHelbidea() {
+		return helbidea;
 	}
 
-	public void setKokapena(String kokapena) {
-		this.kokapena = kokapena;
+	public void setHelbidea(String helbidea) {
+		this.helbidea = helbidea;
 	}
 
 	public int getTlf() {

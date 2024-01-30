@@ -5,12 +5,12 @@ import java.util.Objects;
 public class Sarrera {
 	private int id;
 	private String data;
-	private Pelikula filma;
+	private Pelikula[] filma;
 	private String ordutegia;
-	private Aretoa areto;
+	private Aretoa[] areto;
 	private double prezioa;
 	
-	public Sarrera(int id, String data, Pelikula filma, String ordutegia, Aretoa areto, double prezioa) {
+	public Sarrera(int id, String data, Pelikula[] filma, String ordutegia, Aretoa[] areto, double prezioa) {
 		this.id = id;
 		this.data = data;
 		this.filma = filma;
@@ -35,11 +35,11 @@ public class Sarrera {
 		this.data = data;
 	}
 
-	public Pelikula getFilma() {
+	public Pelikula[] getFilma() {
 		return filma;
 	}
 
-	public void setFilma(Pelikula filma) {
+	public void setFilma(Pelikula[] filma) {
 		this.filma = filma;
 	}
 
@@ -51,11 +51,11 @@ public class Sarrera {
 		this.ordutegia = ordutegia;
 	}
 
-	public Aretoa getAreto() {
+	public Aretoa[] getAreto() {
 		return areto;
 	}
 
-	public void setAreto(Aretoa areto) {
+	public void setAreto(Aretoa[] areto) {
 		this.areto = areto;
 	}
 
