@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class Testak {
+public class ZinemaTest {
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
