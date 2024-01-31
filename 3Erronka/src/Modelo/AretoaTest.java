@@ -7,10 +7,6 @@ import org.junit.Test;
 
 public class AretoaTest {
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
 	@Test
 	public void getIdTest() {
 		Aretoa a1 = new Aretoa(1, "Areto1", null, "10/02/2024", "17:00-23:00");
@@ -47,7 +43,7 @@ public class AretoaTest {
 	}
 	
 	@Test
-	public void setAretoaTest() {
+	public void setPelikulaTest() {
 		Pelikula[] p1 = new Pelikula[] {
 		        new Pelikula(1, "Areto1", "Drama", 100, 9.5)
 		    };

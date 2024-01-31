@@ -8,15 +8,15 @@ public class Sarrera {
 	private Pelikula[] filma;
 	private String ordutegia;
 	private Aretoa[] areto;
-	private double prezioa;
+	private double totala;
 	
-	public Sarrera(int id, String data, Pelikula[] filma, String ordutegia, Aretoa[] areto, double prezioa) {
+	public Sarrera(int id, String data, Pelikula[] filma, String ordutegia, Aretoa[] areto, double totala) {
 		this.id = id;
 		this.data = data;
 		this.filma = filma;
 		this.ordutegia = ordutegia;
 		this.areto = areto;
-		this.prezioa = prezioa;
+		this.totala = totala;
 	}
 
 	public int getId() {
@@ -60,22 +60,22 @@ public class Sarrera {
 	}
 
 	public double getPrezioa() {
-		return prezioa;
+		return totala;
 	}
 
 	public void setPrezioa(double prezioa) {
-		this.prezioa = prezioa;
+		this.totala = prezioa;
 	}
 
 	@Override
 	public String toString() {
 		return "Sarrera [id=" + id + ", data=" + data + ", filma=" + filma + ", ordutegia=" + ordutegia + ", areto="
-				+ areto + ", prezioa=" + prezioa + "]";
+				+ areto + ", prezioa=" + totala + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(areto, data, filma, id, ordutegia, prezioa);
+		return Objects.hash(areto, data, filma, id, ordutegia, totala);
 	}
 
 	@Override
@@ -89,7 +89,7 @@ public class Sarrera {
 		Sarrera other = (Sarrera) obj;
 		return Objects.equals(areto, other.areto) && Objects.equals(data, other.data)
 				&& Objects.equals(filma, other.filma) && id == other.id && Objects.equals(ordutegia, other.ordutegia)
-				&& Double.doubleToLongBits(prezioa) == Double.doubleToLongBits(other.prezioa);
+				&& Double.doubleToLongBits(totala) == Double.doubleToLongBits(other.totala);
 	}
 	
 }

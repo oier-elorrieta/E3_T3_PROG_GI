@@ -6,11 +6,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class PelikulaTest {
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
+	
 	@Test
 	public void getIdTest() {
 		Pelikula p1 = new Pelikula(1, "Hulk", "Zientzia-fikzioa", 105, 8.25);

@@ -6,12 +6,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class ZinemaTest {
-	
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	
-	}
-	
+
 	@Test
 	public void getIdTest() {
 		Zinema z1 = new Zinema(1, "Elorrieta Zinema", "San Ignazio", 658659874, null, "elorrietazinema@gmail.com", "17:00-23:00");

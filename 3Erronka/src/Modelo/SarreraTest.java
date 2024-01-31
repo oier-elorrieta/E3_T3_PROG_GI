@@ -7,10 +7,6 @@ import org.junit.Test;
 
 public class SarreraTest {
 
-    @BeforeClass
-    public static void setUpBeforeClass() throws Exception {
-    }
-
     @Test
     public void getIdTest() {
         Sarrera s1 = new Sarrera(1, "30/01/24", null, "14:00-00:00", null, 5.50);
@@ -45,7 +41,6 @@ public class SarreraTest {
         Sarrera s1 = new Sarrera (1, "30/01/24", p1, "14:00-00:00", null, 5.50);
         assertArrayEquals(p1, s1.getFilma());
     }
-    
     
     @Test
     public void setPelikulaTest() {

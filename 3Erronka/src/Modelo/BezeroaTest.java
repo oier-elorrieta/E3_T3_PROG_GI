@@ -7,10 +7,6 @@ import org.junit.Test;
 
 public class BezeroaTest {
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
 	@Test
 	public void getNANtest() {
 		Bezeroa b1 = new Bezeroa("15852645K", "Laura", "Garcia", 'E', "1234");

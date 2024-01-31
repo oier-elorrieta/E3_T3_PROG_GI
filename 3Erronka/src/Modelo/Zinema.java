@@ -16,7 +16,7 @@ public class Zinema {
 	public Zinema(int id, String izena, String helbidea, int tlf, Aretoa[] aretoa, String emaila, String ordutegia) {
 		this.id = id;
 		this.izena = izena;
-		this.kokapena = helbidea;
+		this.helbidea = helbidea;
 		this.tlf = tlf;
 		this.aretoa = aretoa;
 		this.emaila = emaila;
