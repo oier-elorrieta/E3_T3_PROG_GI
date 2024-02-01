@@ -71,4 +71,28 @@ public class BezeroaTest {
 		b1.setPasahitza("11111");
 		assertEquals("11111", b1.getPasahitza());
 	}
+	
+	@Test
+    public void toStringTest() {
+        Bezeroa bezeroa = new Bezeroa("12345678A", "Unai", "Souto", 'M', "1234");
+        String esperotakoa = "Bezeroa [NAN=12345678A, izena=Unai, abizena=Souto, sexua=M, pasahitza=1234]";
+        assertEquals(esperotakoa, bezeroa.toString());
+    }
+
+    /*@Test
+    public void testHashCode() {
+        Bezeroa bezeroa1 = new Bezeroa("12345678A", "Unai", "Souto", 'M', "1234");
+        Bezeroa bezeroa2 = new Bezeroa("12345678A", "Unai", "Souto", 'M', "1234");
+        assertEquals(bezeroa1.hashCode(), bezeroa2.hashCode());
+    }*/
+
+    @Test
+    public void equalsTest() {
+        Bezeroa bezeroa1 = new Bezeroa("12345678A", "Unai", "Souto", 'M', "1234");
+        Bezeroa bezeroa2 = new Bezeroa("12345678A", "Unai", "Souto", 'M', "1234");
+        Bezeroa bezeroa3 = new Bezeroa("87654321B", "Aitor", "Mentxaka", 'M', "123");
+
+        assertTrue(bezeroa1.equals(bezeroa2));
+        assertFalse(bezeroa1.equals(bezeroa3));
+    }
 }

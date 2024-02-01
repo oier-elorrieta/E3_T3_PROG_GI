@@ -106,4 +106,47 @@ public class ZinemaTest {
 		z1.setOrdutegia("11:00-12:00");
 		assertEquals("11:00-12:00", z1.getOrdutegia());
 	}
+
+	 @Test
+	    public void testToString() {
+	        Aretoa[] aretoak1 = {
+	        		new Aretoa(1, "Aretoa1", null, "01/02/2024", "18:00"), 
+	        		new Aretoa(2, "Aretoa2", null, "02/02/2024", "20:30")};
+	        Zinema zinema1 = new Zinema(1, "Zinema1", "Helbidea1", 123456789, aretoak1, "emaila1", "ordutegia1");
+
+	        String expected = "Zinema [id=1, izena=Zinema1, kokapena=null, tlf=123456789, aretoa="
+	        		+ "[Aretoa [id=1, izena=Aretoa1, pelikulak=null, data=01/02/2024, ordutegia=18:00], "
+	        		+ "Aretoa [id=2, izena=Aretoa2, pelikulak=null, data=02/02/2024, ordutegia=20:30]], "
+	        		+ "emaila=emaila1, ordutegia=ordutegia1]";
+	        assertEquals(expected, zinema1.toString());
+	    }
+
+	    /*@Test
+	    public void testHashCode() {
+	        Aretoa[] aretoak1 = {new Aretoa(1, "Aretoa1", null, "Data1", "Ordutegia1"), new Aretoa(2, "Aretoa2", null, "Data2", "Ordutegia2")};
+	        Zinema zinema1 = new Zinema(1, "Zinema1", "Helbidea1", 123456789, aretoak1, "emaila1", "ordutegia1");
+	        Zinema zinema2 = new Zinema(1, "Zinema1", "Helbidea1", 123456789, aretoak1, "emaila1", "ordutegia1");
+	        Zinema zinema3 = new Zinema(2, "Zinema2", "Helbidea2", 987654321, aretoak1, "emaila2", "ordutegia2");
+
+	        assertEquals(zinema1.hashCode(), zinema2.hashCode());
+	        assertNotEquals(zinema1.hashCode(), zinema3.hashCode());
+	    }*/
+
+	    @Test
+	    public void testEquals() {
+	        Aretoa[] aretoak1 = {
+	        		new Aretoa(1, "Aretoa1", null, "01/02/2024", "18:00"), 
+	        		new Aretoa(2, "Aretoa2", null, "01/02/2024", "17:00")};
+	        
+	        Aretoa[] aretoak2 = {
+	        		new Aretoa(3, "Aretoa3", null, "01/02/2024", "18:00"), 
+	        		new Aretoa(4, "Aretoa4", null, "01/02/2024", "17:00")};
+	        
+	        Zinema zinema1 = new Zinema(1, "Zinema1", "Helbidea1", 123456789, aretoak1, "emaila1", "ordutegia1");
+	        Zinema zinema2 = new Zinema(1, "Zinema1", "Helbidea1", 123456789, aretoak1, "emaila1", "ordutegia1");
+	        Zinema zinema3 = new Zinema(2, "Zinema2", "Helbidea2", 987654321, aretoak2, "emaila2", "ordutegia2");
+
+	        assertTrue(zinema1.equals(zinema2));
+	        assertFalse(zinema1.equals(zinema3));
+	    }
 }

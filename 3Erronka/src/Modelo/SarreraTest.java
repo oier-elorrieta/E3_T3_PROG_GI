@@ -84,4 +84,28 @@ public class SarreraTest {
         s1.setPrezioa(6.90);
         assertEquals(6.90, s1.getPrezioa(), 0.001);
     }
+    
+    @Test
+    public void testToString() {
+        Sarrera sarrera = new Sarrera(1, "2024-02-01", 123, "18:00", 5, 10.50);
+        String esperotakoa = "Sarrera [id=1, data=2024-02-01, filma=123, ordutegia=18:00, areto=5, prezioa=10.5]";
+        assertEquals(esperotakoa, sarrera.toString());
+    }
+
+    /*@Test
+    public void testHashCode() {
+        Sarrera sarrera1 = new Sarrera(1, "2024-02-01", 123, "18:00", 5, 10.50);
+        Sarrera sarrera2 = new Sarrera(1, "2024-02-01", 123, "18:00", 5, 10.50);
+        assertEquals(sarrera1.hashCode(), sarrera2.hashCode());
+    }*/
+
+    @Test
+    public void testEquals() {
+        Sarrera sarrera1 = new Sarrera(1, "2024-02-01", 123, "18:00", 5, 10.50);
+        Sarrera sarrera2 = new Sarrera(1, "2024-02-01", 123, "18:00", 5, 10.50);
+        Sarrera sarrera3 = new Sarrera(2, "2024-02-02", 456, "20:00", 7, 15.75);
+
+        assertTrue(sarrera1.equals(sarrera2));
+        assertFalse(sarrera1.equals(sarrera3));
+    }
 }

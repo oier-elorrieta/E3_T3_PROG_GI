@@ -65,4 +65,28 @@ public class PelikulaTest {
 		p1.setPrezioa(10.5);
 		 assertEquals(10.5, p1.getPrezioa(), 0.001);
 	}
+	
+	@Test
+    public void testToString() {
+        Pelikula pelikula = new Pelikula(1, "Hulk", "Sci-fi", 120, 5.75);
+        String esperotakoa = "Pelikula [id=1, izena=Hulk, generoa=Sci-fi, iraupena=120, prezioa=5.75]";
+        assertEquals(esperotakoa, pelikula.toString());
+    }
+
+    /*@Test
+    public void testHashCode() {
+        Pelikula pelikula1 = new Pelikula(1, "Hulk", "Sci-fi", 120, 5.75);
+        Pelikula pelikula2 = new Pelikula(1, "Hulk", "Sci-fi", 120, 5.75);
+        assertEquals(pelikula1.hashCode(), pelikula2.hashCode());
+    }*/
+
+    @Test
+    public void testEquals() {
+        Pelikula pelikula1 = new Pelikula(1, "Hulk", "Sci-fi", 120, 5.75);
+        Pelikula pelikula2 = new Pelikula(1, "Hulk", "Sci-fi", 120, 5.75);
+        Pelikula pelikula3 = new Pelikula(2, "Planeta Simios", "Sci-fi", 162, 7.0);
+
+        assertTrue(pelikula1.equals(pelikula2));
+        assertFalse(pelikula1.equals(pelikula3));
+    }
 }
