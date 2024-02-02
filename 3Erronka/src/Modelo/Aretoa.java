@@ -6,14 +6,14 @@ import java.util.Objects;
 public class Aretoa {
 	private int id;
 	private String izena;
-	private Pelikula[] pelikulak;
+	private Saioa[] saioak;
 	private String data;
 	private String ordutegia;
 	
-	public Aretoa (int id, String izena, Pelikula[] pelikulak, String data, String ordutegia) {
+	public Aretoa (int id, String izena, Saioa[] saioak, String data, String ordutegia) {
 		this.id = id;
 		this.izena = izena;
-		this.pelikulak = pelikulak;
+		this.saioak = saioak;
 		this.data = data;
 		this.ordutegia = ordutegia;
 	}
@@ -34,12 +34,12 @@ public class Aretoa {
 		this.izena = izena;
 	}
 
-	public Pelikula[] getPelikulak() {
-		return pelikulak;
+	public Saioa[] getSaioak() {
+		return saioak;
 	}
 
-	public void setPelikulak(Pelikula[] pelikulak) {
-		this.pelikulak = pelikulak;
+	public void setSaioak(Saioa[] saioak) {
+		this.saioak = saioak;
 	}
 
 	public String getData() {
@@ -60,13 +60,8 @@ public class Aretoa {
 
 	@Override
 	public String toString() {
-		return "Aretoa [id=" + id + ", izena=" + izena + ", pelikulak=" + Arrays.toString(pelikulak) + ", data=" + data
+		return "Aretoa [id=" + id + ", izena=" + izena + ", pelikulak=" + Arrays.toString(saioak) + ", data=" + data
 				+ ", ordutegia=" + ordutegia + "]";
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(data, id, izena, ordutegia);
 	}
 
 	@Override

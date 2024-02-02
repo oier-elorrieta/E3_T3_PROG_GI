@@ -7,6 +7,7 @@ import org.junit.Test;
 
 public class AretoaTest {
 
+	//***** ID TEST *****
 	@Test
 	public void getIdTest() {
 		Aretoa a1 = new Aretoa(1, "Areto1", null, "10/02/2024", "17:00-23:00");
@@ -20,8 +21,9 @@ public class AretoaTest {
 		assertEquals(3, a1.getId());
 	}
 
+	//***** IZENA TEST *****
 	@Test
-	public void geIzenaTest() {
+	public void getIzenaTest() {
 		Aretoa a1 = new Aretoa(1, "Areto1", null, "10/02/2024", "17:00-23:00");
 		assertEquals("Areto1", a1.getIzena());
 	}
@@ -33,24 +35,28 @@ public class AretoaTest {
 		assertEquals("Areto77", a1.getIzena());
 	}
 
+	//***** SAIOA TEST *****
 	@Test
-	public void getPelikulaTest() {
-		Pelikula[] p1 = new Pelikula[] { new Pelikula(1, "Areto1", "Drama", 100, 9.5) };
-		Aretoa a2 = new Aretoa(1, "Areto1", p1, "10/02/2024", "17:00-23:00");
-		assertArrayEquals(p1, a2.getPelikulak());
+	public void getSaioaTest() {
+		Saioa[] saioak = new Saioa[]{
+	            new Saioa(1, "17:00-18:30", "02/02/2024", null)
+	        };
+	    Aretoa a1 = new Aretoa(1, "Areto1", saioak, "10/02/2024", "17:00-23:00");
+	    assertArrayEquals(saioak, a1.getSaioak());
 	}
 
+	//***** PELIKULA TEST *****
 	@Test
 	public void setPelikulaTest() {
-		Pelikula[] p1 = new Pelikula[] { new Pelikula(1, "Areto1", "Drama", 100, 9.5) };
-		Aretoa a2 = new Aretoa(1, "Areto1", p1, "10/02/2024", "17:00-23:00");
-		Pelikula pelikulaBerria = new Pelikula(2, "Areto1", "Drama", 100, 9.5);
-		Pelikula[] pelikulaBerriak = new Pelikula[] { pelikulaBerria };
-
-		a2.setPelikulak(pelikulaBerriak);
-		assertArrayEquals(pelikulaBerriak, a2.getPelikulak());
+		Saioa[] saioak = new Saioa[]{
+	            new Saioa(1, "17:00-18:30", "02/02/2024", null)
+	        };
+		Aretoa a1 = new Aretoa(1, "Areto1", null, "10/02/2024", "17:00-23:00");
+		a1.setSaioak(saioak);
+		assertArrayEquals(saioak, a1.getSaioak());
 	}
 
+	//***** DATA TEST *****
 	@Test
 	public void getDataTest() {
 		Aretoa a1 = new Aretoa(1, "Areto1", null, "10/02/2024", "17:00-23:00");
@@ -64,6 +70,7 @@ public class AretoaTest {
 		assertEquals("01/01/2020", a1.getData());
 	}
 
+	//***** ORDUTEGIA TEST *****
 	@Test
 	public void getOrdutegiaTest() {
 		Aretoa a1 = new Aretoa(1, "Areto1", null, "10/02/2024", "17:00-23:00");
@@ -77,51 +84,38 @@ public class AretoaTest {
 		assertEquals("10:00-18:00", a1.getOrdutegia());
 	}
 
+	//***** TOSTRING TEST *****
 	@Test
 	public void toStringTest() {
-		Pelikula[] pelikulak = { 
-				new Pelikula(1, "Hulk", "Sci-fi", 120, 5.75),
-				new Pelikula(3, "Handia", "Drama", 129, 5.75) };
-		Aretoa aretoa = new Aretoa(1, "Zinema Aretoa", pelikulak, "2024-02-01", "18:00");
+		Saioa[] saioak = new Saioa[]{
+	            new Saioa(1, "17:00-18:30", "02/02/2024", null)
+	        };
+		Aretoa aretoa = new Aretoa(1, "Zinema Aretoa", saioak, "2024-02-01", "18:00");
 
 		String esperotakoa = "Aretoa [id=1, izena=Zinema Aretoa, pelikulak="
-				+ "[Pelikula [id=1, izena=Hulk, generoa=Sci-fi, iraupena=120, prezioa=5.75], "
-				+ "Pelikula [id=3, izena=Handia, generoa=Drama, iraupena=129, prezioa=5.75]], "
-				+ "data=2024-02-01, ordutegia=18:00]";
+				+ "[Saioa [id=1, ordutegia=17:00-18:30, data=02/02/2024, pelikula=null]], data=2024-02-01, ordutegia=18:00]";
 
 		assertEquals(esperotakoa, aretoa.toString());
 	}
 	
+	//***** EQUALS TEST *****
 	@Test
     public void equalsTest() {
-        Pelikula[] pelikulak1 = {
-            new Pelikula(1, "Hulk", "Sci-fi", 120, 5.75),
-            new Pelikula(2, "Handia", "Drama", 150, 8.25)
-        };
-        Pelikula[] pelikulak2 = {
-            new Pelikula(3, "Frankenstein", "Sci-fi", 136, 6.5),
-            new Pelikula(4, "Planeta Simios", "Sci-fi", 162, 7.0)
-        };
+		Saioa[] saioak1 = new Saioa[]{
+	            new Saioa(1, "17:00-18:30", "02/02/2024", null),
+	            new Saioa(2, "17:00-18:30", "02/02/2024", null)
+	        };
+		Saioa[] saioak2 = new Saioa[]{
+	            new Saioa(3, "17:00-18:30", "02/02/2024", null),
+	            new Saioa(4, "17:00-18:30", "02/02/2024", null)
+	        };
 
-        Aretoa aretoa1 = new Aretoa(1, "Zinema Aretoa", pelikulak1, "2024-02-01", "18:00");
-        Aretoa aretoa2 = new Aretoa(1, "Zinema Aretoa", pelikulak2, "2024-02-01", "18:00");
-        Aretoa aretoa3 = new Aretoa(2, "Zinema Aretoa", pelikulak2, "2024-02-01", "18:00");
+        Aretoa aretoa1 = new Aretoa(1, "Zinema Aretoa", saioak1, "2024-02-01", "18:00");
+        Aretoa aretoa2 = new Aretoa(1, "Zinema Aretoa", saioak1, "2024-02-01", "18:00");
+        Aretoa aretoa3 = new Aretoa(2, "Zinema Aretoa", saioak2, "2024-02-01", "18:00");
 
         assertTrue(aretoa1.equals(aretoa2)); // mismos valores, deberían ser iguales
         assertFalse(aretoa1.equals(aretoa3)); // diferente ID, deberían ser diferentes
+        assertFalse(aretoa1.equals(null));
     }
-
-	/*@Test
-	public void hashCodeTest() {
-		Pelikula[] pelikulak = { 
-				new Pelikula(1, "Hulk", "Sci-fi", 120, 5.75),
-				new Pelikula(3, "Handia", "Drama", 129, 5.75) };
-		Aretoa areto1 = new Aretoa(1, "Zinema Aretoa", pelikulak, "2024-02-01", "18:00");
-		Aretoa areto2 = new Aretoa(1, "Zinema Aretoa", pelikulak, "2024-02-01", "18:00");
-
-		int hashcode1 = areto1.hashCode();
-		int hashcode2 = areto2.hashCode();
-
-		assertEquals(hashcode1, hashcode2);
-	}*/
 }

@@ -64,11 +64,6 @@ public class Bezeroa {
 	}
 
 	@Override
-	public int hashCode() {
-		return Objects.hash(NAN, abizena, izena, pasahitza, sexua);
-	}
-
-	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;

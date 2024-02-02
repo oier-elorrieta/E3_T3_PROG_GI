@@ -7,6 +7,7 @@ import org.junit.Test;
 
 public class BezeroaTest {
 
+	//***** NAN TEST *****
 	@Test
 	public void getNANtest() {
 		Bezeroa b1 = new Bezeroa("15852645K", "Laura", "Garcia", 'E', "1234");
@@ -20,6 +21,7 @@ public class BezeroaTest {
 		assertEquals("77747747P", b1.getNAN());
 	}
 	
+	//***** IZENA TEST *****
 	@Test
 	public void getIzenatest() {
 		Bezeroa b1 = new Bezeroa("15852645K", "Laura", "Garcia", 'E', "1234");
@@ -33,6 +35,7 @@ public class BezeroaTest {
 		assertEquals("Juanjo", b1.getIzena());
 	}
 	
+	//***** ABIZENA TEST *****
 	@Test
 	public void getAbizenatest() {
 		Bezeroa b1 = new Bezeroa("15852645K", "Laura", "Garcia", 'E', "1234");
@@ -46,6 +49,7 @@ public class BezeroaTest {
 		assertEquals("Torres", b1.getAbizena());
 	}
 	
+	//***** SEXUA TEST *****
 	@Test
 	public void getSexuaTest() {
 		Bezeroa b1 = new Bezeroa("15852645K", "Laura", "Garcia", 'E', "1234");
@@ -59,6 +63,7 @@ public class BezeroaTest {
 		assertEquals('G', b1.getSexua());
 	}
 	
+	//***** PASAHITZA TEST *****
 	@Test
 	public void getPasahitzaTest() {
 		Bezeroa b1 = new Bezeroa("15852645K", "Laura", "Garcia", 'E', "1234");
@@ -72,6 +77,7 @@ public class BezeroaTest {
 		assertEquals("11111", b1.getPasahitza());
 	}
 	
+	//***** TOSTRING TEST *****
 	@Test
     public void toStringTest() {
         Bezeroa bezeroa = new Bezeroa("12345678A", "Unai", "Souto", 'M', "1234");
@@ -79,13 +85,7 @@ public class BezeroaTest {
         assertEquals(esperotakoa, bezeroa.toString());
     }
 
-    /*@Test
-    public void testHashCode() {
-        Bezeroa bezeroa1 = new Bezeroa("12345678A", "Unai", "Souto", 'M', "1234");
-        Bezeroa bezeroa2 = new Bezeroa("12345678A", "Unai", "Souto", 'M', "1234");
-        assertEquals(bezeroa1.hashCode(), bezeroa2.hashCode());
-    }*/
-
+	//***** EQUALS TEST *****
     @Test
     public void equalsTest() {
         Bezeroa bezeroa1 = new Bezeroa("12345678A", "Unai", "Souto", 'M', "1234");
@@ -94,5 +94,6 @@ public class BezeroaTest {
 
         assertTrue(bezeroa1.equals(bezeroa2));
         assertFalse(bezeroa1.equals(bezeroa3));
+        assertFalse(bezeroa1.equals(null));
     }
 }

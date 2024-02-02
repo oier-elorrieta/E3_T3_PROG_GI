@@ -6,7 +6,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class SarreraTest {
-
+	
+	//***** ID TEST *****
     @Test
     public void getIdTest() {
         Sarrera s1 = new Sarrera(1, "30/01/24", 5, "14:00-00:00", 2, 5.50);
@@ -20,6 +21,7 @@ public class SarreraTest {
         assertEquals(4, s1.getId());
     }
 
+    //***** DATA TEST *****
     @Test
     public void getDataTest() {
         Sarrera s1 = new Sarrera(1, "30/01/24", 5, "14:00-00:00", 2, 5.50);
@@ -33,6 +35,7 @@ public class SarreraTest {
         assertEquals("31/01/24", s1.getData());
     }
     
+    //***** PELIKULA TEST *****
     @Test
     public void getPelikulaTest() {
         Sarrera s1 = new Sarrera(1, "30/01/24", 5, "14:00-00:00", 2, 5.50);
@@ -46,6 +49,7 @@ public class SarreraTest {
         assertEquals(4, s1.getFilma());
     }
     
+    //***** ORDUTEGIA TEST *****
     @Test
     public void getOrdutegiaTest() {
         Sarrera s1 = new Sarrera(1, "30/01/24", 5, "14:00-00:00", 2, 5.50);
@@ -59,6 +63,7 @@ public class SarreraTest {
         assertEquals("15:00-20:00", s1.getOrdutegia());
     }
     
+    //***** ARETOA TEST *****
     @Test
     public void getAretoaTest() {
         Sarrera s1 = new Sarrera(1, "30/01/24", 5, "14:00-00:00", 2, 5.50);
@@ -72,6 +77,7 @@ public class SarreraTest {
         assertEquals(6, s1.getAreto());
     }
     
+    //***** PREZIOA TEST *****
     @Test
     public void getPrezioaTest() {
         Sarrera s1 = new Sarrera(1, "30/01/24", 5, "14:00-00:00", 2, 5.50);
@@ -85,6 +91,7 @@ public class SarreraTest {
         assertEquals(6.90, s1.getPrezioa(), 0.001);
     }
     
+    //***** TOSTRING TEST *****
     @Test
     public void testToString() {
         Sarrera sarrera = new Sarrera(1, "2024-02-01", 123, "18:00", 5, 10.50);
@@ -92,13 +99,7 @@ public class SarreraTest {
         assertEquals(esperotakoa, sarrera.toString());
     }
 
-    /*@Test
-    public void testHashCode() {
-        Sarrera sarrera1 = new Sarrera(1, "2024-02-01", 123, "18:00", 5, 10.50);
-        Sarrera sarrera2 = new Sarrera(1, "2024-02-01", 123, "18:00", 5, 10.50);
-        assertEquals(sarrera1.hashCode(), sarrera2.hashCode());
-    }*/
-
+    //***** EQUALS TEST *****
     @Test
     public void testEquals() {
         Sarrera sarrera1 = new Sarrera(1, "2024-02-01", 123, "18:00", 5, 10.50);

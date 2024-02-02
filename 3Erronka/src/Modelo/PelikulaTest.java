@@ -7,6 +7,7 @@ import org.junit.Test;
 
 public class PelikulaTest {
 	
+	//***** ID TEST *****
 	@Test
 	public void getIdTest() {
 		Pelikula p1 = new Pelikula(1, "Hulk", "Zientzia-fikzioa", 105, 8.25);
@@ -20,6 +21,7 @@ public class PelikulaTest {
 		assertEquals(9, p1.getId());
 	}
 	
+	//***** IZENA TEST *****
 	@Test
 	public void getIzenaTest() {
 		Pelikula p1 = new Pelikula(1, "Hulk", "Zientzia-fikzioa", 105, 8.25);
@@ -33,6 +35,7 @@ public class PelikulaTest {
 		assertEquals("Handia", p1.getIzena());
 	}
 	
+	//***** GENEROA TEST *****
 	@Test
 	public void getGeneroaTest() {
 		Pelikula p1 = new Pelikula(1, "Hulk", "Zientzia-fikzioa", 105, 8.25);
@@ -46,6 +49,7 @@ public class PelikulaTest {
 		assertEquals("Drama", p1.getGeneroa());
 	}
 	
+	//***** IRAUPENA TEST *****
 	@Test
 	public void getIraupenaTest() {
 		Pelikula p1 = new Pelikula(1, "Hulk", "Zientzia-fikzioa", 105, 8.25);
@@ -59,6 +63,7 @@ public class PelikulaTest {
 		assertEquals(60, p1.getIraupena());
 	}
 	
+	//***** PREZIOA TEST *****
 	@Test
 	public void setPrezioaTest() {
 		Pelikula p1 = new Pelikula(1, "Hulk", "Zientzia-fikzioa", 105, 8.25);
@@ -66,6 +71,7 @@ public class PelikulaTest {
 		 assertEquals(10.5, p1.getPrezioa(), 0.001);
 	}
 	
+	//***** TOSTRING TEST *****
 	@Test
     public void testToString() {
         Pelikula pelikula = new Pelikula(1, "Hulk", "Sci-fi", 120, 5.75);
@@ -73,13 +79,7 @@ public class PelikulaTest {
         assertEquals(esperotakoa, pelikula.toString());
     }
 
-    /*@Test
-    public void testHashCode() {
-        Pelikula pelikula1 = new Pelikula(1, "Hulk", "Sci-fi", 120, 5.75);
-        Pelikula pelikula2 = new Pelikula(1, "Hulk", "Sci-fi", 120, 5.75);
-        assertEquals(pelikula1.hashCode(), pelikula2.hashCode());
-    }*/
-
+	//***** EQUALS TEST *****
     @Test
     public void testEquals() {
         Pelikula pelikula1 = new Pelikula(1, "Hulk", "Sci-fi", 120, 5.75);

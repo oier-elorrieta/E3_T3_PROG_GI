@@ -64,11 +64,6 @@ public class Pelikula {
 	}
 
 	@Override
-	public int hashCode() {
-		return Objects.hash(generoa, id, iraupena, izena, prezioa);
-	}
-
-	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;

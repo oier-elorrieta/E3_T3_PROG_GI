@@ -75,11 +75,6 @@ public class Sarrera {
 	}
 
 	@Override
-	public int hashCode() {
-		return Objects.hash(areto, data, filma, id, ordutegia, totala);
-	}
-
-	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
