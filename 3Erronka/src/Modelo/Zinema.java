@@ -8,29 +8,31 @@ public class Zinema {
 	private String izena;
 	private String kokapena;
 	private int tlf;
-	private Aretoa[] aretoa;
+	private Aretoa[] aretoak;
+	private Saioa[] saioak;
 	private String emaila;
 	private String ordutegia;
 	private String helbidea;
 	
-	public Zinema(int id, String izena, String helbidea, int tlf, Aretoa[] aretoa, String emaila, String ordutegia) {
+	public Zinema(int id, String izena, String helbidea, int tlf, Aretoa[] aretoak, Saioa[] saioak, String emaila, String ordutegia) {
 		this.id = id;
 		this.izena = izena;
 		this.helbidea = helbidea;
 		this.tlf = tlf;
-		this.aretoa = aretoa;
+		this.aretoak = aretoak;
+		this.saioak = saioak;
 		this.emaila = emaila;
 		this.ordutegia = ordutegia;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public String getIzena() {
 		return izena;
 	}
@@ -39,12 +41,12 @@ public class Zinema {
 		this.izena = izena;
 	}
 
-	public String getHelbidea() {
-		return helbidea;
+	public String getKokapena() {
+		return kokapena;
 	}
 
-	public void setHelbidea(String helbidea) {
-		this.helbidea = helbidea;
+	public void setKokapena(String kokapena) {
+		this.kokapena = kokapena;
 	}
 
 	public int getTlf() {
@@ -56,11 +58,19 @@ public class Zinema {
 	}
 
 	public Aretoa[] getAretoak() {
-		return aretoa;
+		return aretoak;
 	}
 
-	public void setAretoak(Aretoa[] aretoa) {
-		this.aretoa = aretoa;
+	public void setAretoak(Aretoa[] aretoak) {
+		this.aretoak = aretoak;
+	}
+
+	public Saioa[] getSaioak() {
+		return saioak;
+	}
+
+	public void setSaioak(Saioa[] saioak) {
+		this.saioak = saioak;
 	}
 
 	public String getEmaila() {
@@ -79,10 +89,18 @@ public class Zinema {
 		this.ordutegia = ordutegia;
 	}
 
+	public String getHelbidea() {
+		return helbidea;
+	}
+
+	public void setHelbidea(String helbidea) {
+		this.helbidea = helbidea;
+	}
+
 	@Override
 	public String toString() {
-		return "Zinema [id=" + id + ", izena=" + izena + ", kokapena=" + kokapena + ", tlf=" + tlf + ", aretoa="
-				+ Arrays.toString(aretoa) + ", emaila=" + emaila + ", ordutegia=" + ordutegia + "]";
+		return "Zinema [id=" + id + ", izena=" + izena + ", kokapena=" + kokapena + ", tlf=" + tlf + ", aretoak="
+				+ Arrays.toString(aretoak) + ", saioak=" + Arrays.toString(saioak) + ", emaila=" + emaila + ", ordutegia=" + ordutegia + "]";
 	}
 
 	@Override

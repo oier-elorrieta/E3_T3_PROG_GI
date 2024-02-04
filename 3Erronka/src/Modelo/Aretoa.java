@@ -60,7 +60,7 @@ public class Aretoa {
 
 	@Override
 	public String toString() {
-		return "Aretoa [id=" + id + ", izena=" + izena + ", pelikulak=" + Arrays.toString(saioak) + ", data=" + data
+		return "Aretoa [id=" + id + ", izena=" + izena + ", saioak=" + Arrays.toString(saioak) + ", data=" + data
 				+ ", ordutegia=" + ordutegia + "]";
 	}
 

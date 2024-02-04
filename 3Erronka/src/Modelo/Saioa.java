@@ -7,12 +7,14 @@ public class Saioa {
 	private String ordutegia;
 	private String data;
 	private Pelikula pelikula;
+	private Aretoa aretoa;
 	
-	public Saioa(int id, String ordutegia, String data, Pelikula pelikula) {
+	public Saioa(int id, String ordutegia, String data, Pelikula pelikula, Aretoa aretoa) {
 		this.id = id;
 		this.ordutegia = ordutegia;
 		this.data = data;
 		this.pelikula = pelikula;
+		this.aretoa = aretoa;
 	}
 
 	public int getId() {
@@ -46,16 +48,27 @@ public class Saioa {
 	public void setPelikula(Pelikula pelikula) {
 		this.pelikula = pelikula;
 	}
+	
+	public Aretoa getSaioa() {
+		return aretoa;
+	}
+
+	public void setSaioa(Aretoa aretoa) {
+		this.aretoa = aretoa;
+	}
+
+	public Aretoa getAretoa() {
+		return aretoa;
+	}
+
+	public void setAretoa(Aretoa aretoa) {
+		this.aretoa = aretoa;
+	}
 
 	@Override
 	public String toString() {
-		return "Saioa [id=" + id + ", ordutegia=" + ordutegia + ", data=" + data + ", pelikula=" + pelikula + "]";
+		return "Saioa [id=" + id + ", ordutegia=" + ordutegia + ", data=" + data + ", pelikula=" + pelikula + ", aretoa="+ aretoa +"]";
 	}
-
-	/*@Override
-	public int hashCode() {
-		return Objects.hash(data, id, ordutegia, pelikula);
-	}*/
 
 	@Override
 	public boolean equals(Object obj) {

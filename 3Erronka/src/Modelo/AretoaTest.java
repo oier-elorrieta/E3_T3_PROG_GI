@@ -37,9 +37,9 @@ public class AretoaTest {
 
 	//***** SAIOA TEST *****
 	@Test
-	public void getSaioaTest() {
+	public void getSaioakTest() {
 		Saioa[] saioak = new Saioa[]{
-	            new Saioa(1, "17:00-18:30", "02/02/2024", null)
+	            new Saioa(1, "17:00-18:30", "02/02/2024", null, null)
 	        };
 	    Aretoa a1 = new Aretoa(1, "Areto1", saioak, "10/02/2024", "17:00-23:00");
 	    assertArrayEquals(saioak, a1.getSaioak());
@@ -49,7 +49,7 @@ public class AretoaTest {
 	@Test
 	public void setPelikulaTest() {
 		Saioa[] saioak = new Saioa[]{
-	            new Saioa(1, "17:00-18:30", "02/02/2024", null)
+	            new Saioa(1, "17:00-18:30", "02/02/2024", null, null)
 	        };
 		Aretoa a1 = new Aretoa(1, "Areto1", null, "10/02/2024", "17:00-23:00");
 		a1.setSaioak(saioak);
@@ -88,12 +88,12 @@ public class AretoaTest {
 	@Test
 	public void toStringTest() {
 		Saioa[] saioak = new Saioa[]{
-	            new Saioa(1, "17:00-18:30", "02/02/2024", null)
+	            new Saioa(1, "17:00-18:30", "02/02/2024", null, null)
 	        };
 		Aretoa aretoa = new Aretoa(1, "Zinema Aretoa", saioak, "2024-02-01", "18:00");
 
-		String esperotakoa = "Aretoa [id=1, izena=Zinema Aretoa, pelikulak="
-				+ "[Saioa [id=1, ordutegia=17:00-18:30, data=02/02/2024, pelikula=null]], data=2024-02-01, ordutegia=18:00]";
+		String esperotakoa = "Aretoa [id=1, izena=Zinema Aretoa, saioak="
+				+ "[Saioa [id=1, ordutegia=17:00-18:30, data=02/02/2024, pelikula=null, aretoa=null]], data=2024-02-01, ordutegia=18:00]";
 
 		assertEquals(esperotakoa, aretoa.toString());
 	}
@@ -102,12 +102,12 @@ public class AretoaTest {
 	@Test
     public void equalsTest() {
 		Saioa[] saioak1 = new Saioa[]{
-	            new Saioa(1, "17:00-18:30", "02/02/2024", null),
-	            new Saioa(2, "17:00-18:30", "02/02/2024", null)
+	            new Saioa(1, "17:00-18:30", "02/02/2024", null, null),
+	            new Saioa(2, "17:00-18:30", "02/02/2024", null, null)
 	        };
 		Saioa[] saioak2 = new Saioa[]{
-	            new Saioa(3, "17:00-18:30", "02/02/2024", null),
-	            new Saioa(4, "17:00-18:30", "02/02/2024", null)
+	            new Saioa(3, "17:00-18:30", "02/02/2024", null, null),
+	            new Saioa(4, "17:00-18:30", "02/02/2024", null, null)
 	        };
 
         Aretoa aretoa1 = new Aretoa(1, "Zinema Aretoa", saioak1, "2024-02-01", "18:00");
