@@ -6,14 +6,12 @@ import java.util.Objects;
 public class Aretoa {
 	private int id;
 	private String izena;
-	private Saioa[] saioak;
 	private String data;
 	private String ordutegia;
 	
-	public Aretoa (int id, String izena, Saioa[] saioak, String data, String ordutegia) {
+	public Aretoa (int id, String izena, String data, String ordutegia) {
 		this.id = id;
 		this.izena = izena;
-		this.saioak = saioak;
 		this.data = data;
 		this.ordutegia = ordutegia;
 	}
@@ -34,14 +32,6 @@ public class Aretoa {
 		this.izena = izena;
 	}
 
-	public Saioa[] getSaioak() {
-		return saioak;
-	}
-
-	public void setSaioak(Saioa[] saioak) {
-		this.saioak = saioak;
-	}
-
 	public String getData() {
 		return data;
 	}
@@ -60,7 +50,7 @@ public class Aretoa {
 
 	@Override
 	public String toString() {
-		return "Aretoa [id=" + id + ", izena=" + izena + ", saioak=" + Arrays.toString(saioak) + ", data=" + data
+		return "Aretoa [id=" + id + ", izena=" + izena +  ", data=" + data
 				+ ", ordutegia=" + ordutegia + "]";
 	}
 

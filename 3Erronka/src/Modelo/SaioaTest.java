@@ -69,14 +69,14 @@ public class SaioaTest {
 	// ***** ARETOA TEST *****
 		@Test
 		public void getAretoaTest() {
-			Aretoa aretoa = new Aretoa (1, "Areto1", null, "10/02/2024", "17:00-23:00");
+			Aretoa aretoa = new Aretoa (1, "Areto1", "10/02/2024", "17:00-23:00");
 			Saioa s1 = new Saioa(1, "17:00-18:30", "02/02/2024", null, aretoa);
 			assertEquals(aretoa, s1.getAretoa());
 		}
 
 		@Test
 		public void setAretoaTest() {
-			Aretoa aretoa = new Aretoa (1, "Areto1", null, "10/02/2024", "17:00-23:00");
+			Aretoa aretoa = new Aretoa (1, "Areto1", "10/02/2024", "17:00-23:00");
 			Saioa s1 = new Saioa(1, "17:00-18:30", "02/02/2024", null, null);
 			s1.setAretoa(aretoa);
 			assertEquals(aretoa, s1.getAretoa());
@@ -85,7 +85,6 @@ public class SaioaTest {
 	//***** TOSTRING TEST *****
 	@Test
 	public void toStringTest() {
-		Pelikula p1 = new Pelikula(1, "Handia", "Drama", 129, 5.75);
 		Saioa s1 = new Saioa(1, "17:00-18:30", "02/02/2024", null, null);
 
 		String esperotakoa = "Saioa [id=1, ordutegia=17:00-18:30, data=02/02/2024, pelikula=null, aretoa=null]";

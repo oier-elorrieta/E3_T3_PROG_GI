@@ -41,14 +41,14 @@ public class Zinema {
 		this.izena = izena;
 	}
 
-	public String getKokapena() {
-		return kokapena;
+	public String getHelbidea() {
+		return helbidea;
 	}
 
-	public void setKokapena(String kokapena) {
-		this.kokapena = kokapena;
+	public void setHelbidea(String helbidea) {
+		this.helbidea = helbidea;
 	}
-
+	
 	public int getTlf() {
 		return tlf;
 	}
@@ -89,17 +89,10 @@ public class Zinema {
 		this.ordutegia = ordutegia;
 	}
 
-	public String getHelbidea() {
-		return helbidea;
-	}
-
-	public void setHelbidea(String helbidea) {
-		this.helbidea = helbidea;
-	}
 
 	@Override
 	public String toString() {
-		return "Zinema [id=" + id + ", izena=" + izena + ", kokapena=" + kokapena + ", tlf=" + tlf + ", aretoak="
+		return "Zinema [id=" + id + ", izena=" + izena + ", helbidea=" + helbidea + ", tlf=" + tlf + ", aretoak="
 				+ Arrays.toString(aretoak) + ", saioak=" + Arrays.toString(saioak) + ", emaila=" + emaila + ", ordutegia=" + ordutegia + "]";
 	}
 

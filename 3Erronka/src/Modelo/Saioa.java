@@ -48,14 +48,6 @@ public class Saioa {
 	public void setPelikula(Pelikula pelikula) {
 		this.pelikula = pelikula;
 	}
-	
-	public Aretoa getSaioa() {
-		return aretoa;
-	}
-
-	public void setSaioa(Aretoa aretoa) {
-		this.aretoa = aretoa;
-	}
 
 	public Aretoa getAretoa() {
 		return aretoa;

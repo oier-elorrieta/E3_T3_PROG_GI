@@ -88,5 +88,6 @@ public class PelikulaTest {
 
         assertTrue(pelikula1.equals(pelikula2));
         assertFalse(pelikula1.equals(pelikula3));
+        assertFalse(pelikula1.equals(null));
     }
 }

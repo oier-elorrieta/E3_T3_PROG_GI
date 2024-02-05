@@ -74,7 +74,7 @@ public class ZinemaTest {
 	// ***** ARETOA TEST *****
 	@Test
 	public void getAretoaTest() {
-		Aretoa[] aretoak = new Aretoa[] { new Aretoa(1, "Areto1", null, "10/02/2024", "17:00-23:00") };
+		Aretoa[] aretoak = new Aretoa[] { new Aretoa(1, "Areto1", "10/02/2024", "17:00-23:00") };
 		Zinema z1 = new Zinema(1, "Elorrieta Zinema", "San Ignazio", 658659874, aretoak, null, "elorrietazinema@gmail.com",
 				"17:00-23:00");
 		assertArrayEquals(aretoak, z1.getAretoak());
@@ -82,7 +82,7 @@ public class ZinemaTest {
 
 	@Test
 	public void setAretoaTest() {
-		Aretoa[] aretoak = new Aretoa[] { new Aretoa(1, "Areto1", null, "10/02/2024", "17:00-23:00") };
+		Aretoa[] aretoak = new Aretoa[] { new Aretoa(1, "Areto1", "10/02/2024", "17:00-23:00") };
 		Zinema z1 = new Zinema(1, "Elorrieta Zinema", "San Ignazio", 658659874, null, null, "elorrietazinema@gmail.com",
 				"17:00-23:00");
 		z1.setAretoak(aretoak);
@@ -144,7 +144,7 @@ public class ZinemaTest {
 	public void testToString() {
 		Zinema z1 = new Zinema(1, "Elorrieta Zinema", "San Ignazio", 658659874, null, null, "elorrietazinema@gmail.com",
 				"17:00-23:00");
-		String esperotakoa = "Zinema [id=1, izena=Elorrieta Zinema, kokapena=null, tlf=658659874, aretoak=null, saioak=null, emaila=elorrietazinema@gmail.com, "
+		String esperotakoa = "Zinema [id=1, izena=Elorrieta Zinema, helbidea=San Ignazio, tlf=658659874, aretoak=null, saioak=null, emaila=elorrietazinema@gmail.com, "
 				+ "ordutegia=17:00-23:00]";
 		assertEquals(esperotakoa, z1.toString());
 	}

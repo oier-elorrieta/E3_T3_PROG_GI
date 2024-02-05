@@ -108,5 +108,6 @@ public class SarreraTest {
 
         assertTrue(sarrera1.equals(sarrera2));
         assertFalse(sarrera1.equals(sarrera3));
+        assertFalse(sarrera1.equals(null));
     }
 }
