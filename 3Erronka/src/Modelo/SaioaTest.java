@@ -51,7 +51,7 @@ public class SaioaTest {
 	//***** PELIKULA TEST *****
 	@Test
 	public void getPelikulaTest() {
-		Pelikula p1 = new Pelikula(1, "Handia", "Drama", 129, 5.75);
+		Pelikula p1 = new Pelikula(1, "Handia", "Drama", 129);
 		
 		Saioa s1 = new Saioa(1, "17:00-18:30", "02/02/2024", p1, null);
 		assertEquals(p1, s1.getPelikula());
@@ -59,7 +59,7 @@ public class SaioaTest {
 	
 	@Test
 	public void setPelikulaTest() {
-		Pelikula p1 = new Pelikula(1, "Handia", "Drama", 129, 5.75);
+		Pelikula p1 = new Pelikula(1, "Handia", "Drama", 129);
 		Saioa s1 = new Saioa(1, "17:00-18:30", "02/02/2024", null, null);
 		
 		s1.setPelikula(p1);
@@ -69,14 +69,14 @@ public class SaioaTest {
 	// ***** ARETOA TEST *****
 		@Test
 		public void getAretoaTest() {
-			Aretoa aretoa = new Aretoa (1, "Areto1", "10/02/2024", "17:00-23:00");
+			Aretoa aretoa = new Aretoa (1, "Areto1");
 			Saioa s1 = new Saioa(1, "17:00-18:30", "02/02/2024", null, aretoa);
 			assertEquals(aretoa, s1.getAretoa());
 		}
 
 		@Test
 		public void setAretoaTest() {
-			Aretoa aretoa = new Aretoa (1, "Areto1", "10/02/2024", "17:00-23:00");
+			Aretoa aretoa = new Aretoa (1, "Areto1");
 			Saioa s1 = new Saioa(1, "17:00-18:30", "02/02/2024", null, null);
 			s1.setAretoa(aretoa);
 			assertEquals(aretoa, s1.getAretoa());
@@ -95,13 +95,13 @@ public class SaioaTest {
 	@Test
     public void equalsTest() {
 
-		Pelikula p1 = new Pelikula(1, "Handia", "Drama", 129, 5.75);
+		Pelikula p1 = new Pelikula(1, "Handia", "Drama", 129);
 		Saioa s1 = new Saioa(1, "17:00-18:30", "02/02/2024", p1, null);
 		Saioa s2 = new Saioa(1, "17:00-18:30", "02/02/2024", p1, null);
 		Saioa s3 = new Saioa(2, "17:00-18:30", "02/02/2024", p1, null);
 
-        assertTrue(s1.equals(s2)); // mismos valores, deberían ser iguales
-        assertFalse(s1.equals(s3)); // diferente ID, deberían ser diferentes
+        assertTrue(s1.equals(s2)); // balore desberdinak, berdinak izan beharko dira
+        assertFalse(s1.equals(s3)); // Id desberdina, desberdinak izan beharko dira
         assertFalse(s1.equals(null));
     }
 

@@ -5,19 +5,14 @@ import java.util.Objects;
 public class Sarrera {
 	private int id;
 	private String data;
-	private int filma;
-	private String ordutegia;
-	private int areto;
-	private double totala;
+	private Saioa saioa;
+	private double prezioa;
 	
-	public Sarrera(int id, String data, int filma, String ordutegia, int areto, double totala) {
+	public Sarrera(int id, String data, Saioa saioa, double prezioa) {
 		this.id = id;
 		this.data = data;
-		this.filma = filma;
-		this.ordutegia = ordutegia;
-		this.areto = areto;
-		//seria prezio
-		this.totala = totala;
+		this.saioa = saioa;
+		this.prezioa = prezioa;
 	}
 
 	public int getId() {
@@ -36,42 +31,25 @@ public class Sarrera {
 		this.data = data;
 	}
 
-	public int getFilma() {
-		return filma;
+	public Saioa getSaioa() {
+		return saioa;
 	}
 
-	public void setFilma(int filma) {
-		this.filma = filma;
-	}
-
-	public String getOrdutegia() {
-		return ordutegia;
-	}
-
-	public void setOrdutegia(String ordutegia) {
-		this.ordutegia = ordutegia;
-	}
-
-	public int getAreto() {
-		return areto;
-	}
-
-	public void setAreto(int areto) {
-		this.areto = areto;
+	public void setSaioa(Saioa saioa) {
+		this.saioa = saioa;
 	}
 
 	public double getPrezioa() {
-		return totala;
+		return prezioa;
 	}
 
 	public void setPrezioa(double prezioa) {
-		this.totala = prezioa;
+		this.prezioa = prezioa;
 	}
 
 	@Override
 	public String toString() {
-		return "Sarrera [id=" + id + ", data=" + data + ", filma=" + filma + ", ordutegia=" + ordutegia + ", areto="
-				+ areto + ", prezioa=" + totala + "]";
+		return "Sarrera [id=" + id + ", data=" + data + ", saioa=" + saioa + ", prezioa=" + prezioa + "]";
 	}
 
 	@Override
@@ -83,9 +61,13 @@ public class Sarrera {
 		if (getClass() != obj.getClass())
 			return false;
 		Sarrera other = (Sarrera) obj;
-		return Objects.equals(areto, other.areto) && Objects.equals(data, other.data)
-				&& Objects.equals(filma, other.filma) && id == other.id && Objects.equals(ordutegia, other.ordutegia)
-				&& Double.doubleToLongBits(totala) == Double.doubleToLongBits(other.totala);
+		return Objects.equals(data, other.data) && id == other.id
+				&& Double.doubleToLongBits(prezioa) == Double.doubleToLongBits(other.prezioa)
+				&& Objects.equals(saioa, other.saioa);
 	}
+
+	
+
+	
 	
 }

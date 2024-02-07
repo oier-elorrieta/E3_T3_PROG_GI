@@ -6,14 +6,10 @@ import java.util.Objects;
 public class Aretoa {
 	private int id;
 	private String izena;
-	private String data;
-	private String ordutegia;
 	
-	public Aretoa (int id, String izena, String data, String ordutegia) {
+	public Aretoa (int id, String izena) {
 		this.id = id;
 		this.izena = izena;
-		this.data = data;
-		this.ordutegia = ordutegia;
 	}
 
 	public int getId() {
@@ -31,27 +27,9 @@ public class Aretoa {
 	public void setIzena(String izena) {
 		this.izena = izena;
 	}
-
-	public String getData() {
-		return data;
-	}
-
-	public void setData(String data) {
-		this.data = data;
-	}
-
-	public String getOrdutegia() {
-		return ordutegia;
-	}
-
-	public void setOrdutegia(String ordutegia) {
-		this.ordutegia = ordutegia;
-	}
-
 	@Override
 	public String toString() {
-		return "Aretoa [id=" + id + ", izena=" + izena +  ", data=" + data
-				+ ", ordutegia=" + ordutegia + "]";
+		return "Aretoa [id=" + id + ", izena=" + izena + "]";
 	}
 
 	@Override
@@ -63,8 +41,8 @@ public class Aretoa {
 		if (getClass() != obj.getClass())
 			return false;
 		Aretoa other = (Aretoa) obj;
-		return Objects.equals(data, other.data) && id == other.id && Objects.equals(izena, other.izena)
-				&& Objects.equals(ordutegia, other.ordutegia);
+		return id == other.id && Objects.equals(izena, other.izena);
 	}
-	
+
+		
 }

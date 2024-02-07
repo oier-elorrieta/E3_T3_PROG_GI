@@ -9,8 +9,9 @@ public class Erosketa {
 	private String data;
 	private String desk;
 	private double diru_totala;
+	private Sarrera[] sarrerak;
 	
-	public Erosketa(int id, int kant, String data, String desk, double diru_totala) {
+	public Erosketa(int id, int kant, Sarrera[] sarrerak, String data, String desk, double diru_totala) {
 		this.id = id;
 		this.kant = kant;
 		this.data = data;
@@ -32,6 +33,14 @@ public class Erosketa {
 
 	public void setKant(int kant) {
 		this.kant = kant;
+	}
+	
+	public Sarrera[] getSarrerak() {
+		return sarrerak;
+	}
+
+	public void setSarrerak(Sarrera[] sarrerak) {
+		this.sarrerak = sarrerak;
 	}
 
 	public String getData() {
