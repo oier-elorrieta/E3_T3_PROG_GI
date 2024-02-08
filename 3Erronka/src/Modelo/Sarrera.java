@@ -1,14 +1,15 @@
 package Modelo;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Sarrera {
 	private int id;
-	private String data;
+	private LocalDate data;
 	private Saioa saioa;
 	private double prezioa;
 	
-	public Sarrera(int id, String data, Saioa saioa, double prezioa) {
+	public Sarrera(int id, LocalDate data, Saioa saioa, double prezioa) {
 		this.id = id;
 		this.data = data;
 		this.saioa = saioa;
@@ -23,11 +24,11 @@ public class Sarrera {
 		this.id = id;
 	}
 
-	public String getData() {
+	public LocalDate getData() {
 		return data;
 	}
 
-	public void setData(String data) {
+	public void setData(LocalDate data) {
 		this.data = data;
 	}
 

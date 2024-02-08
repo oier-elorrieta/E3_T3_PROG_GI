@@ -1,51 +1,62 @@
-package Modelo;
+package Testak;
 
 import static org.junit.Assert.*;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 import org.junit.Test;
+
+import Modelo.Aretoa;
+import Modelo.Pelikula;
+import Modelo.Saioa;
 
 public class SaioaTest {
 
 	//***** ID TEST *****
 	@Test
 	public void getIdTest() {
-		Saioa s1 = new Saioa(1, "17:00-18:30", "02/02/2024", null, null);
+		Saioa s1 = new Saioa(1, null, null, null, null);
 		assertEquals(1, s1.getId());
 	}
 
 	@Test
 	public void setIdTest() {
-		Saioa s1 = new Saioa(1, "17:00-18:30", "02/02/2024", null, null);
+		Saioa s1 = new Saioa(1, null, null, null, null);
 		s1.setId(2);
 		assertEquals(2, s1.getId());
 	}
 
 	//***** ORDUTEGIA TEST *****
 	@Test
-	public void getOrdutegiaTest() {		
-		Saioa s1 = new Saioa(1, "17:00-18:30", "02/02/2024", null, null);
-		assertEquals("17:00-18:30", s1.getOrdutegia());
+	public void getOrdutegiaTest() {
+		LocalTime ordua = LocalTime.of(14, 30);
+		Saioa s1 = new Saioa(1, ordua, null, null, null);
+		assertEquals(ordua, s1.getOrdutegia());
 	}
 
 	@Test
 	public void setOrdutegiaTest() {
-		Saioa s1 = new Saioa(1, "17:00-18:30", "02/02/2024", null, null);
-		s1.setOrdutegia("18:30-20:00");
-		assertEquals("18:30-20:00", s1.getOrdutegia());
+		LocalTime ordua = LocalTime.of(14, 30);
+		Saioa s1 = new Saioa(1, null, null, null, null);
+		s1.setOrdutegia(ordua);
+		assertEquals(ordua, s1.getOrdutegia());
 	}
 	
 	//***** DATA TEST *****
 	@Test
 	public void getDataTest() {
-		Saioa s1 = new Saioa(1, "17:00-18:30", "02/02/2024", null, null);
-		assertEquals("02/02/2024", s1.getData());
+		LocalDate data = LocalDate.of(2024, 02, 8);
+		Saioa s1 = new Saioa(1, null, data, null, null);
+		assertEquals(data, s1.getData());
 	}
 	
 	@Test
 	public void setDataTest() {
-		Saioa s1 = new Saioa(1, "17:00-18:30", "02/02/2024", null, null);
-		s1.setData("03/02/2024");
-		assertEquals("03/02/2024", s1.getData());
+		LocalDate data = LocalDate.of(2024, 02, 8);
+		Saioa s1 = new Saioa(1, null, null, null, null);
+		s1.setData(data);
+		assertEquals(data, s1.getData());
 	}
 
 	//***** PELIKULA TEST *****
@@ -53,14 +64,14 @@ public class SaioaTest {
 	public void getPelikulaTest() {
 		Pelikula p1 = new Pelikula(1, "Handia", "Drama", 129);
 		
-		Saioa s1 = new Saioa(1, "17:00-18:30", "02/02/2024", p1, null);
+		Saioa s1 = new Saioa(1, null, null, p1, null);
 		assertEquals(p1, s1.getPelikula());
 	}
 	
 	@Test
 	public void setPelikulaTest() {
 		Pelikula p1 = new Pelikula(1, "Handia", "Drama", 129);
-		Saioa s1 = new Saioa(1, "17:00-18:30", "02/02/2024", null, null);
+		Saioa s1 = new Saioa(1, null, null, null, null);
 		
 		s1.setPelikula(p1);
 		assertEquals(p1, s1.getPelikula());
@@ -70,14 +81,14 @@ public class SaioaTest {
 		@Test
 		public void getAretoaTest() {
 			Aretoa aretoa = new Aretoa (1, "Areto1");
-			Saioa s1 = new Saioa(1, "17:00-18:30", "02/02/2024", null, aretoa);
+			Saioa s1 = new Saioa(1, null, null, null, aretoa);
 			assertEquals(aretoa, s1.getAretoa());
 		}
 
 		@Test
 		public void setAretoaTest() {
 			Aretoa aretoa = new Aretoa (1, "Areto1");
-			Saioa s1 = new Saioa(1, "17:00-18:30", "02/02/2024", null, null);
+			Saioa s1 = new Saioa(1, null, null, null, null);
 			s1.setAretoa(aretoa);
 			assertEquals(aretoa, s1.getAretoa());
 		}
@@ -85,9 +96,11 @@ public class SaioaTest {
 	//***** TOSTRING TEST *****
 	@Test
 	public void toStringTest() {
-		Saioa s1 = new Saioa(1, "17:00-18:30", "02/02/2024", null, null);
+		LocalTime ordua = LocalTime.of(14, 30);
+		LocalDate data = LocalDate.of(2024, 02, 8);
+		Saioa s1 = new Saioa(1, ordua, data, null, null);
 
-		String esperotakoa = "Saioa [id=1, ordutegia=17:00-18:30, data=02/02/2024, pelikula=null, aretoa=null]";
+		String esperotakoa = "Saioa [id=1, ordutegia=14:30, data=2024-02-08, pelikula=null, aretoa=null]";
 		assertEquals(esperotakoa, s1.toString());
 	}
 	
@@ -96,9 +109,11 @@ public class SaioaTest {
     public void equalsTest() {
 
 		Pelikula p1 = new Pelikula(1, "Handia", "Drama", 129);
-		Saioa s1 = new Saioa(1, "17:00-18:30", "02/02/2024", p1, null);
-		Saioa s2 = new Saioa(1, "17:00-18:30", "02/02/2024", p1, null);
-		Saioa s3 = new Saioa(2, "17:00-18:30", "02/02/2024", p1, null);
+		LocalTime ordua = LocalTime.of(14, 30);
+		LocalDate data = LocalDate.of(2024, 02, 8);
+		Saioa s1 = new Saioa(1, ordua, data, p1, null);
+		Saioa s2 = new Saioa(1, ordua, data, p1, null);
+		Saioa s3 = new Saioa(2, ordua, data, p1, null);
 
         assertTrue(s1.equals(s2)); // balore desberdinak, berdinak izan beharko dira
         assertFalse(s1.equals(s3)); // Id desberdina, desberdinak izan beharko dira

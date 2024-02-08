@@ -1,15 +1,17 @@
 package Modelo;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Objects;
 
 public class Saioa {
 	private int id;
-	private String ordutegia;
-	private String data;
+	private LocalTime ordutegia;
+	private LocalDate data;
 	private Pelikula pelikula;
 	private Aretoa aretoa;
 	
-	public Saioa(int id, String ordutegia, String data, Pelikula pelikula, Aretoa aretoa) {
+	public Saioa(int id, LocalTime ordutegia, LocalDate data, Pelikula pelikula, Aretoa aretoa) {
 		this.id = id;
 		this.ordutegia = ordutegia;
 		this.data = data;
@@ -25,19 +27,19 @@ public class Saioa {
 		this.id = id;
 	}
 
-	public String getOrdutegia() {
+	public LocalTime getOrdutegia() {
 		return ordutegia;
 	}
 
-	public void setOrdutegia(String ordutegia) {
+	public void setOrdutegia(LocalTime ordutegia) {
 		this.ordutegia = ordutegia;
 	}
 
-	public String getData() {
+	public LocalDate getData() {
 		return data;
 	}
 
-	public void setData(String data) {
+	public void setData(LocalDate data) {
 		this.data = data;
 	}
 

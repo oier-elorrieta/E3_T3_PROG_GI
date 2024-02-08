@@ -1,8 +1,10 @@
-package Modelo;
+package Testak;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import Modelo.Erosketa;
 
 public class ErosketaTest {
 

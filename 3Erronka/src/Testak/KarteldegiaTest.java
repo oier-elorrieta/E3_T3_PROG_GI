@@ -1,6 +1,10 @@
-package Modelo;
+package Testak;
 
 import org.junit.Test;
+
+import Modelo.Karteldegia;
+import Modelo.Pelikula;
+
 import static org.junit.Assert.*;
 
 import org.junit.Test;

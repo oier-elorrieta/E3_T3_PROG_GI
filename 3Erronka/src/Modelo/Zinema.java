@@ -11,10 +11,9 @@ public class Zinema {
 	private Aretoa[] aretoak;
 	private Saioa[] saioak;
 	private String emaila;
-	private String ordutegia;
 	private String helbidea;
 	
-	public Zinema(int id, String izena, String helbidea, int tlf, Aretoa[] aretoak, Saioa[] saioak, String emaila, String ordutegia) {
+	public Zinema(int id, String izena, String helbidea, int tlf, Aretoa[] aretoak, Saioa[] saioak, String emaila) {
 		this.id = id;
 		this.izena = izena;
 		this.helbidea = helbidea;
@@ -22,7 +21,6 @@ public class Zinema {
 		this.aretoak = aretoak;
 		this.saioak = saioak;
 		this.emaila = emaila;
-		this.ordutegia = ordutegia;
 	}
 
 	public int getId() {
@@ -81,19 +79,10 @@ public class Zinema {
 		this.emaila = emaila;
 	}
 
-	public String getOrdutegia() {
-		return ordutegia;
-	}
-
-	public void setOrdutegia(String ordutegia) {
-		this.ordutegia = ordutegia;
-	}
-
-
 	@Override
 	public String toString() {
 		return "Zinema [id=" + id + ", izena=" + izena + ", helbidea=" + helbidea + ", tlf=" + tlf + ", aretoak="
-				+ Arrays.toString(aretoak) + ", saioak=" + Arrays.toString(saioak) + ", emaila=" + emaila + ", ordutegia=" + ordutegia + "]";
+				+ Arrays.toString(aretoak) + ", saioak=" + Arrays.toString(saioak) + ", emaila=" + emaila + "]";
 	}
 
 	@Override
@@ -105,10 +94,12 @@ public class Zinema {
 		if (getClass() != obj.getClass())
 			return false;
 		Zinema other = (Zinema) obj;
-		return Objects.equals(emaila, other.emaila) && Objects.equals(izena, other.izena)
-				&& Objects.equals(kokapena, other.kokapena) && Objects.equals(ordutegia, other.ordutegia)
-				&& tlf == other.tlf;
+		return Arrays.equals(aretoak, other.aretoak) && Objects.equals(emaila, other.emaila)
+				&& Objects.equals(helbidea, other.helbidea) && id == other.id && Objects.equals(izena, other.izena)
+				&& Objects.equals(kokapena, other.kokapena) && Arrays.equals(saioak, other.saioak) && tlf == other.tlf;
 	}
+
+	
 	
 	
 }
