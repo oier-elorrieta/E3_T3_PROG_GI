@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.BorderLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ZinemaMenu extends JFrame {
 
@@ -38,6 +40,10 @@ public class ZinemaMenu extends JFrame {
         botoiPanela.add(btnYArtea);
         
         JButton btnEZinema = new JButton("Elorrieta Zinema");
+        btnEZinema.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	}
+        });
         botoiPanela.add(btnEZinema);
         
         JButton btnCMaxCenter = new JButton("Cinesa MaxCenter");
