@@ -79,7 +79,7 @@ public class MenuaFilma extends JFrame {
         splitPane_2.setLeftComponent(splitPane_1);
 
         // Etiqueta para indicar la selección de género
-        JLabel lblSartuNahiDuzun = new JLabel("Sartu nahi duzun generoa:    ");
+        JLabel lblSartuNahiDuzun = new JLabel("Sartu nahi duzun pelikula:    ");
         lblSartuNahiDuzun.setFont(new Font("Tahoma", Font.PLAIN, 15));
         splitPane_1.setLeftComponent(lblSartuNahiDuzun);
 
