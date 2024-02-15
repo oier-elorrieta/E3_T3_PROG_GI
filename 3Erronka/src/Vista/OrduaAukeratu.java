@@ -14,7 +14,7 @@ import java.io.IOException;
  * La clase MenuaG representa la interfaz gráfica para seleccionar un género de películas.
  * Extiende JFrame para crear la ventana principal.
  */
-public class MenuaFilma extends JFrame {
+public class OrduaAukeratu extends JFrame {
 
     private JPanel contentPane; // Panel principal de la ventana
     public String autatutakoGeneroa = ""; // Variable para almacenar el género seleccionado
@@ -37,7 +37,7 @@ public class MenuaFilma extends JFrame {
      * Constructor de la clase MenuaG.
      * Inicializa y configura la interfaz gráfica para seleccionar un género de películas.
      */
-    public MenuaFilma() {
+    public OrduaAukeratu() {
         // Configuración de la ventana
         ImageIcon icono = new ImageIcon("img/logo.jpg"); // Cambia la ruta por la de tu imagen
         setIconImage(icono.getImage());
@@ -49,7 +49,7 @@ public class MenuaFilma extends JFrame {
         contentPane.setLayout(new BorderLayout(0, 0));
 
         // Configuración del encabezado
-        JLabel lblNewLabel_3 = new JLabel("Aukeratu nahi duzun pelikula");
+        JLabel lblNewLabel_3 = new JLabel("Aukeratu ordua");
         lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
         lblNewLabel_3.setFont(new Font("Times New Roman", Font.BOLD, 32));
         contentPane.add(lblNewLabel_3, BorderLayout.NORTH);
@@ -62,9 +62,9 @@ public class MenuaFilma extends JFrame {
         panel.add(splitPane);
 
         // Botón para avanzar
-        JButton btnGordePelikula = new JButton("Aurrera");
+        JButton btnGordeOrdua = new JButton("Aurrera");
   
-        splitPane.setRightComponent(btnGordePelikula);
+        splitPane.setRightComponent(btnGordeOrdua);
 
         // Botón para retroceder
         JButton btnAtzera = new JButton("Atzera");
@@ -79,7 +79,7 @@ public class MenuaFilma extends JFrame {
         splitPane_2.setLeftComponent(splitPane_1);
 
         // Etiqueta para indicar la selección de género
-        JLabel lblSartuNahiDuzun = new JLabel("  Sartu nahi duzun pelikula:    ");
+        JLabel lblSartuNahiDuzun = new JLabel("  Sartu nahi duzun ordua:    ");
         lblSartuNahiDuzun.setFont(new Font("Tahoma", Font.PLAIN, 15));
         splitPane_1.setLeftComponent(lblSartuNahiDuzun);
 
