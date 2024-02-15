@@ -3,65 +3,75 @@ package Modelo;
 import java.util.Objects;
 
 public class Bezeroa {
-	private String NAN;
-	private String izena;
-	private String abizena;
-	private char sexua;
-	private String pasahitza;
-	
-	public Bezeroa(String NAN, String izena, String abizena, char sexua, String pasahitza) {
-		this.NAN = NAN;
-		this.izena = izena;
-		this.abizena = abizena;
-		this.sexua = sexua;
-		this.pasahitza = pasahitza;
-	}
+    private String NAN;
+    private String izena;
+    private String abizena;
+    private char sexua;
+    private String erabiltzailea;
+    private String pasahitza;
+    
+    public Bezeroa(String NAN, String izena, String abizena, char sexua, String erabiltzailea, String pasahitza) {
+        this.NAN = NAN;
+        this.izena = izena;
+        this.abizena = abizena;
+        this.sexua = sexua;
+        this.erabiltzailea = erabiltzailea;
+        this.pasahitza = pasahitza;
+    }
 
-	public String getNAN() {
-		return NAN;
-	}
+    public String getNAN() {
+        return NAN;
+    }
 
-	public void setNAN(String nAN) {
-		NAN = nAN;
-	}
+    public void setNAN(String nAN) {
+        NAN = nAN;
+    }
 
-	public String getIzena() {
-		return izena;
-	}
+    public String getIzena() {
+        return izena;
+    }
 
-	public void setIzena(String izena) {
-		this.izena = izena;
-	}
+    public void setIzena(String izena) {
+        this.izena = izena;
+    }
 
-	public String getAbizena() {
-		return abizena;
-	}
+    public String getAbizena() {
+        return abizena;
+    }
 
-	public void setAbizena(String abizena) {
-		this.abizena = abizena;
-	}
+    public void setAbizena(String abizena) {
+        this.abizena = abizena;
+    }
 
-	public char getSexua() {
-		return sexua;
-	}
+    public char getSexua() {
+        return sexua;
+    }
 
-	public void setSexua(char sexua) {
-		this.sexua = sexua;
-	}
+    public void setSexua(char sexua) {
+        this.sexua = sexua;
+    }
+    
+    public String getErabiltzailea() {
+        return erabiltzailea;
+    }
 
-	public String getPasahitza() {
-		return pasahitza;
-	}
+    public void setErabiltzailea(String erabiltzailea) {
+        this.erabiltzailea = erabiltzailea;
+    }
+    
+    public String getPasahitza() {
+        return pasahitza;
+    }
 
-	public void setPasahitza(String pasahitza) {
-		this.pasahitza = pasahitza;
-	}
+    public void setPasahitza(String pasahitza) {
+        this.pasahitza = pasahitza;
+    }
 
-	@Override
-	public String toString() {
-		return "Bezeroa [NAN=" + NAN + ", izena=" + izena + ", abizena=" + abizena + ", sexua=" + sexua + ", pasahitza="
-				+ pasahitza + "]";
-	}
+    @Override
+    public String toString() {
+        return "Bezeroa [NAN=" + NAN + ", izena=" + izena + ", abizena=" + abizena + ", sexua=" + sexua
+                + ", erabiltzailea=" + erabiltzailea + ", pasahitza=" + pasahitza + "]";
+    }
 
 	@Override
 	public boolean equals(Object obj) {
@@ -73,8 +83,10 @@ public class Bezeroa {
 			return false;
 		Bezeroa other = (Bezeroa) obj;
 		return Objects.equals(NAN, other.NAN) && Objects.equals(abizena, other.abizena)
-				&& Objects.equals(izena, other.izena) && Objects.equals(pasahitza, other.pasahitza)
-				&& sexua == other.sexua;
+				&& Objects.equals(erabiltzailea, other.erabiltzailea) && Objects.equals(izena, other.izena)
+				&& Objects.equals(pasahitza, other.pasahitza) && sexua == other.sexua;
 	}
-	
+
+    
+    
 }

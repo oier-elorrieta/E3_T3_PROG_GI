@@ -69,7 +69,7 @@ public class PelikulaTest {
 	@Test
     public void testToString() {
         Pelikula pelikula = new Pelikula(1, "Hulk", "Zientzia-fikzioa", 105);
-        String esperotakoa = "Pelikula [id=1, izena=Hulk, generoa=Zientzia-fikzioa, iraupena=105]";
+        String esperotakoa = "\nPelikula [id=1, izena=Hulk, generoa=Zientzia-fikzioa, iraupena=105]";
         assertEquals(esperotakoa, pelikula.toString());
     }
 

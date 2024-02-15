@@ -42,7 +42,7 @@ public class MenuaFilma extends JFrame {
         ImageIcon icono = new ImageIcon("img/logo.jpg"); // Cambia la ruta por la de tu imagen
         setIconImage(icono.getImage());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 507, 351);
+        setBounds(100, 100, 800, 450);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
@@ -51,7 +51,7 @@ public class MenuaFilma extends JFrame {
         // Configuración del encabezado
         JLabel lblNewLabel_3 = new JLabel("Aukeratu nahi duzun pelikula");
         lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-        lblNewLabel_3.setFont(new Font("Times New Roman", Font.BOLD, 32));
+        lblNewLabel_3.setFont(new Font("Times New Roman", Font.BOLD, 48));
         contentPane.add(lblNewLabel_3, BorderLayout.NORTH);
 
         // Configuración del panel inferior
@@ -62,9 +62,9 @@ public class MenuaFilma extends JFrame {
         panel.add(splitPane);
 
         // Botón para avanzar
-        JButton btnGordePelikula = new JButton("Aurrera");
+        JButton btnGordeGeneroa = new JButton("Aurrera");
   
-        splitPane.setRightComponent(btnGordePelikula);
+        splitPane.setRightComponent(btnGordeGeneroa);
 
         // Botón para retroceder
         JButton btnAtzera = new JButton("Atzera");
@@ -79,7 +79,7 @@ public class MenuaFilma extends JFrame {
         splitPane_2.setLeftComponent(splitPane_1);
 
         // Etiqueta para indicar la selección de género
-        JLabel lblSartuNahiDuzun = new JLabel("  Sartu nahi duzun pelikula:    ");
+        JLabel lblSartuNahiDuzun = new JLabel("Sartu nahi duzun pelikula:    ");
         lblSartuNahiDuzun.setFont(new Font("Tahoma", Font.PLAIN, 15));
         splitPane_1.setLeftComponent(lblSartuNahiDuzun);
 
