@@ -1,4 +1,4 @@
-package Modelo.DatuBasea;
+ package Modelo.DatuBasea;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -21,7 +21,8 @@ public class AretoDAO {
         if (konektatu != null) {
             try {
                 Statement s1 = konektatu.createStatement();
-                String sql = "SELECT * FROM aretoa";
+                String sql = "select distinct id_aretoa, areto_izena\r\n"
+                		+ "from aretoa;";
                 ResultSet lerroak = s1.executeQuery(sql);
                 while (lerroak.next()) {
                     id_aretoa = lerroak.getInt("id_aretoa"); 
