@@ -9,7 +9,7 @@ import java.sql.Statement;
 public class Konexioa {
 
 	// Datu basearen konexio datuak
-	private static final String url = "jdbc:mysql://localhost:3307/E3_talde3";
+	private static final String url = "jdbc:mysql://localhost:33067/E3_talde3";
 	private static final String erabiltzailea = "root";
 	private static final String pasahitza = "";
 

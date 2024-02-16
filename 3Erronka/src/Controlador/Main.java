@@ -17,7 +17,7 @@ public class Main {
 
 	// Ejemplo de cómo usar el método
 	public static void main(String[] args) {
-		try {
+		/*try {
 			OngiEtorri vOngiEtorri = new OngiEtorri();
 			vOngiEtorri.setVisible(true);
 			
@@ -40,14 +40,14 @@ public class Main {
 			frame.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 		
-            /*Zinema[] zinemak = null;
+            Zinema[] zinemak = null;
 			ZinemaDAO ZinemaDao = new ZinemaDAO();
             zinemak = ZinemaDao.zinemakJaso(); 
             for (int i = 0;i<zinemak.length;i++) {
             System.out.println(zinemak[i]);
-            }*/
+            }
 		
         }
 }
