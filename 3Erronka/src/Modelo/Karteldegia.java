@@ -5,8 +5,8 @@ import java.util.Arrays;
 public class Karteldegia {
 
 	private Pelikula[] pelikulak;
-	
-	public Karteldegia(Pelikula [] pelikulak) {
+
+	public Karteldegia(Pelikula[] pelikulak) {
 		this.pelikulak = pelikulak;
 	}
 
@@ -16,6 +16,17 @@ public class Karteldegia {
 
 	public void setPelikulak(Pelikula[] pelikulak) {
 		this.pelikulak = pelikulak;
+	}
+
+	public Pelikula getPelikulaId(int id) {
+		Pelikula p1 = null;
+		// Aqui buscas la peli dentro del array por id. Si la encuentra, la retornas.
+		for (int i = 0; i <this.pelikulak.length; i++) {
+			if (id == pelikulak[i].getId()) {
+				p1 = pelikulak[i];
+			}
+		}
+		return p1;
 	}
 
 	@Override
@@ -34,6 +45,5 @@ public class Karteldegia {
 		Karteldegia other = (Karteldegia) obj;
 		return Arrays.equals(pelikulak, other.pelikulak);
 	}
-	
-	
+
 }

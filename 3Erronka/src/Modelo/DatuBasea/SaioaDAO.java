@@ -14,6 +14,7 @@ import Modelo.Saioa;
 public class SaioaDAO {
 	private Saioa[] saioak = null;
 	private Karteldegia karteldegi = new Karteldegia(null);
+	private Pelikula pelikula = null;
 	private int id_saioa = 0;
 	private LocalTime ordutegia;
 	private LocalDate saioEguna;
@@ -31,13 +32,13 @@ public class SaioaDAO {
 				String sql = "SELECT * FROM saioa";
 				ResultSet lerroak = s1.executeQuery(sql);
 				while (lerroak.next()) {
-					id_saioa = lerroak.getInt("id_filma");
+					id_saioa = lerroak.getInt("id_saioa");
 					ordutegia = lerroak.getTime("ordutegia").toLocalTime();
 					saioEguna = lerroak.getDate("saioaren_eguna").toLocalDate();
-					//pelikula_id = 
-					
+					pelikula_id = lerroak.getInt("id_filma");
+					pelikula = karteldegi.getPelikulaId(pelikula_id);
 
-					//pelikulak[kont] = new Pelikula(id, izena, generoa, iraupena);
+					saioak[kont] = new Saioa (id_saioa, ordutegia, saioEguna, pelikula, null);
 					kont++;
 				}
 			} catch (SQLException e) {
