@@ -13,6 +13,7 @@ import Modelo.Saioa;
 
 public class SaioaDAO {
 	private Saioa[] saioak = null;
+	private Karteldegia karteldegi = new Karteldegia(null);
 	private int id_saioa = 0;
 	private LocalTime ordutegia;
 	private LocalDate saioEguna;
@@ -33,7 +34,8 @@ public class SaioaDAO {
 					id_saioa = lerroak.getInt("id_filma");
 					ordutegia = lerroak.getTime("ordutegia").toLocalTime();
 					saioEguna = lerroak.getDate("saioaren_eguna").toLocalDate();
-					//pelikula_id = ;
+					//pelikula_id = 
+					
 
 					//pelikulak[kont] = new Pelikula(id, izena, generoa, iraupena);
 					kont++;

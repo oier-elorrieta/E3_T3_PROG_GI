@@ -9,17 +9,21 @@ import Modelo.Karteldegia;
 import Modelo.Pelikula;
 import Modelo.Zinema;
 import Modelo.DatuBasea.ZinemaDAO;
+import Vista.ZinemaMenu;
 
 public class Main {
 
 	// Ejemplo de cómo usar el método
 	public static void main(String[] args) {
-            Zinema[] zinemak = null;
+            /*Zinema[] zinemak = null;
 			ZinemaDAO ZinemaDao = new ZinemaDAO();
             zinemak = ZinemaDao.zinemakJaso(); 
             for (int i = 0;i<zinemak.length;i++) {
             System.out.println(zinemak[i]);
-            }
+            }*/
+		
+		ZinemaMenu lehioa = new ZinemaMenu();
+		lehioa.setVisible(true);
         }
 }
 

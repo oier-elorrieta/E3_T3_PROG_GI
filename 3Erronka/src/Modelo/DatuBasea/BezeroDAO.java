@@ -7,7 +7,7 @@ import java.sql.Statement;
 import Modelo.Bezeroa;
 
 public class BezeroDAO {
-    private Bezeroa[] bezeroak; 
+    private Bezeroa[] bezeroak = new Bezeroa[4];
     private int kont = 0;
     private String NAN = "";
     private String bezero_izena = "";

@@ -13,6 +13,7 @@ import java.sql.Statement;
 public class ZinemaDAO {
 	private Zinema[] zinemak = new Zinema[4];
 	private Aretoa[] aretoak = null;
+	
 	private String emaila;
 	private int tlf;
 	private String helbidea;
@@ -39,6 +40,7 @@ public class ZinemaDAO {
 					AretoDAO areto = new AretoDAO();
 					aretoak = areto.aretoakJaso();
 					
+	
 					
 					Zinema zinema = new Zinema(id, izena, helbidea, tlf, aretoak, null, emaila); // Nota: aretoak y saioak															// recuperamos aqui
 					zinemak[kont] = zinema;
