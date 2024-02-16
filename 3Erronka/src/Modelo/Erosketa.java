@@ -10,15 +10,13 @@ public class Erosketa {
 	private String desk;
 	private double diru_totala;
 	private Sarrera[] sarrerak;
-	private char non;
 	
-	public Erosketa(int id, int kant, Sarrera[] sarrerak, String data, String desk, double diru_totala, char non) {
+	public Erosketa(int id, int kant, Sarrera[] sarrerak, String data, String desk, double diru_totala) {
 		this.id = id;
 		this.kant = kant;
 		this.data = data;
 		this.desk = desk;
 		this.diru_totala = diru_totala;
-		this.non = non;
 	}
 	
 	public int getId() {
@@ -67,14 +65,6 @@ public class Erosketa {
 
 	public void setDiru_totala(double diru_totala) {
 		this.diru_totala = diru_totala;
-	}
-	
-	public int getNon() {
-		return non;
-	}
-
-	public void setNon(char non) {
-		this.non = non;
 	}
 
 	@Override

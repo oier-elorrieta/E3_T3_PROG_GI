@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import Modelo.Bezeroa;
 import Modelo.Erosketa;
 
 public class ErosketaTest {
@@ -91,20 +90,6 @@ public class ErosketaTest {
 		assertEquals(esperotakoa, e1.toString());
 	}
 	
-	//***** NON TEST *****
-	@Test
-    public void getNonTest() {
-        Erosketa b1 = new Erosketa(1, 4, null, "02/02/2024", "deskriptzioa", 24.3);
-        assertEquals('Online', b1.getNon());
-    }
-    
-    @Test
-    public void setNonTest() {
-        Erosketa b1 = new Erosketa(1, 4, null, "02/02/2024", "deskriptzioa", 24.3);
-        b1.setNon('Online');
-        assertEquals('Online', b1.getNon());
-    }
-		
 	//***** EQUALS TEST *****
 	@Test
     public void equalsTest() {

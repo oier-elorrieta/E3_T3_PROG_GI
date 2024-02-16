@@ -63,7 +63,17 @@ public class Login extends JFrame {
         txt_pass.setColumns(10);
 
         // Botón de inicio de sesión
-        JButton btnLogin = new JButton("Sesioa hasi");
+        JButton btnLogin = new JButton("Saioa hasi");
+        btnLogin.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		try {
+                    ZinemaMenu frame = new ZinemaMenu();
+                    frame.setVisible(true);
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
+        	}
+        });
        
         btnLogin.setBounds(221, 239, 118, 23);
         contentPane.add(btnLogin);

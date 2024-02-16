@@ -50,7 +50,12 @@ public class ZinemaMenu extends JFrame {
 		}
 		btnYArtea.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				try {
+                    MenuaFilma frame = new MenuaFilma();
+                    frame.setVisible(true);
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
 			}
 		});
 
@@ -64,6 +69,12 @@ public class ZinemaMenu extends JFrame {
 		}
 		btnEZinema.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+                    MenuaFilma frame = new MenuaFilma();
+                    frame.setVisible(true);
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
 			}
 		});
 		botoiPanela.add(btnEZinema);
@@ -79,6 +90,12 @@ public class ZinemaMenu extends JFrame {
 		}
 		btnCMaxCenter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+                    MenuaFilma frame = new MenuaFilma();
+                    frame.setVisible(true);
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
 			}
 		});
 		botoiPanela.add(btnCMaxCenter);
@@ -94,6 +111,12 @@ public class ZinemaMenu extends JFrame {
 		}
 		btnYMegaPark.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+                    MenuaFilma frame = new MenuaFilma();
+                    frame.setVisible(true);
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
 			}
 		});
 		botoiPanela.add(btnYMegaPark);
