@@ -1,5 +1,6 @@
 package Modelo.DatuBasea;
 
+import Modelo.Aretoa;
 import Modelo.Zinema;
 import Modelo.DatuBasea.Konexioa;
 
@@ -11,6 +12,7 @@ import java.sql.Statement;
 
 public class ZinemaDAO {
 	private Zinema[] zinemak = new Zinema[4];
+	private Aretoa[] aretoak = null;
 	private String emaila;
 	private int tlf;
 	private String helbidea;
@@ -34,17 +36,19 @@ public class ZinemaDAO {
 					tlf = lerroak.getInt("telefonoa");
 					emaila = lerroak.getString("email");
 
-					Zinema zinema = new Zinema(id, izena, helbidea, tlf, null, null, emaila); // Nota: aretoak y saioak
-																								// null porque no los
-																								// recuperamos aquí
-
-					zinemak[kont++] = zinema;
+					AretoDAO areto = new AretoDAO();
+					aretoak = areto.aretoakJaso();
+					
+					
+					Zinema zinema = new Zinema(id, izena, helbidea, tlf, aretoak, null, emaila); // Nota: aretoak y saioak															// recuperamos aqui
+					zinemak[kont] = zinema;
+					kont++;
 				}
-
 			} catch (SQLException e) {
 				e.printStackTrace();
+			} finally {
+				konexioa.deskonektatu();
 			}
-
 		}
 		return zinemak;
 	}

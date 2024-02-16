@@ -1,4 +1,4 @@
-package Modelo.DatuBasea;
+package Controlador;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -8,8 +8,9 @@ import java.sql.Statement;
 import Modelo.Karteldegia;
 import Modelo.Pelikula;
 import Modelo.Zinema;
+import Modelo.DatuBasea.ZinemaDAO;
 
-public class kk {
+public class Main {
 
 	// Ejemplo de cómo usar el método
 	public static void main(String[] args) {

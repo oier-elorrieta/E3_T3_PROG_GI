@@ -31,8 +31,8 @@ public class SaioaDAO {
 				ResultSet lerroak = s1.executeQuery(sql);
 				while (lerroak.next()) {
 					id_saioa = lerroak.getInt("id_filma");
-					//ordutegia = lerroak.getTime("ordutegia");
-					//saioEguna = lerroak.getDate("saioaren_eguna")
+					ordutegia = lerroak.getTime("ordutegia").toLocalTime();
+					saioEguna = lerroak.getDate("saioaren_eguna").toLocalDate();
 					//pelikula_id = ;
 
 					//pelikulak[kont] = new Pelikula(id, izena, generoa, iraupena);
@@ -45,6 +45,6 @@ public class SaioaDAO {
 				konexioa.deskonektatu();
 			}
 		}
-		return pelikulak;
+		return saioak;
 	}
 }

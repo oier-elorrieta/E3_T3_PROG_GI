@@ -1,4 +1,4 @@
-package Modelo.DatuBasea;
+ package Modelo.DatuBasea;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -14,14 +14,15 @@ public class AretoDAO {
     private int id_aretoa = 0;
     private String areto_izena = "";
     
-    public Aretoa[] bezeroakJaso() {
+    public Aretoa[] aretoakJaso() {
         Konexioa konexioa = new Konexioa();
         Connection konektatu = konexioa.konektatu();
 
         if (konektatu != null) {
             try {
                 Statement s1 = konektatu.createStatement();
-                String sql = "SELECT * FROM aretoa";
+                String sql = "select distinct id_aretoa, areto_izena\r\n"
+                		+ "from aretoa;";
                 ResultSet lerroak = s1.executeQuery(sql);
                 while (lerroak.next()) {
                     id_aretoa = lerroak.getInt("id_aretoa"); 
