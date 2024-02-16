@@ -45,6 +45,6 @@ public class SaioaDAO {
 				konexioa.deskonektatu();
 			}
 		}
-		return pelikulak;
+		return saioak;
 	}
 }
