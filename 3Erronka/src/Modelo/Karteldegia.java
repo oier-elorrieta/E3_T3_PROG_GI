@@ -2,10 +2,17 @@ package Modelo;
 
 import java.util.Arrays;
 
+import Modelo.DatuBasea.PelikulaDAO;
+
 public class Karteldegia {
 
-	private Pelikula[] pelikulak;
+	private PelikulaDAO peliak = new PelikulaDAO();
+	private Pelikula[] pelikulak = peliak.pelikulakJaso();
 
+	public Karteldegia() {
+		
+	}
+	
 	public Karteldegia(Pelikula[] pelikulak) {
 		this.pelikulak = pelikulak;
 	}
@@ -18,15 +25,15 @@ public class Karteldegia {
 		this.pelikulak = pelikulak;
 	}
 
-	public Pelikula getPelikulaId(int id) {
-		Pelikula p1 = null;
-		// Aqui buscas la peli dentro del array por id. Si la encuentra, la retornas.
-		for (int i = 0; i <this.pelikulak.length; i++) {
-			if (id == pelikulak[i].getId()) {
-				p1 = pelikulak[i];
+	public Pelikula getPelikulaId(int id) { // hay que hacer el test JUnit
+		if (pelikulak != null) {
+			for (int i = 0; i < pelikulak.length; i++) {
+				if (pelikulak[i].getId() == id) {
+					return pelikulak[i];
+				}
 			}
 		}
-		return p1;
+		return null; // Devuelve null si no se encuentra la película con la ID dada
 	}
 
 	@Override

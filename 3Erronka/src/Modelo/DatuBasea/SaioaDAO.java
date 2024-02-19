@@ -12,9 +12,10 @@ import Modelo.Pelikula;
 import Modelo.Saioa;
 
 public class SaioaDAO {
-	private Saioa[] saioak = null;
-	private Karteldegia karteldegi = new Karteldegia(null);
+	private Saioa[] saioak = new Saioa[4];
+	private Karteldegia karteldegi = new Karteldegia();
 	private Pelikula pelikula = null;
+	private Saioa saioa = null;
 	private int id_saioa = 0;
 	private LocalTime ordutegia;
 	private LocalDate saioEguna;
@@ -29,7 +30,7 @@ public class SaioaDAO {
 		if (konektatu != null) {
 			try {
 				Statement s1 = konektatu.createStatement();
-				String sql = "SELECT * FROM saioa";
+				String sql = "SELECT * FROM saioa limit 4";
 				ResultSet lerroak = s1.executeQuery(sql);
 				while (lerroak.next()) {
 					id_saioa = lerroak.getInt("id_saioa");
@@ -37,7 +38,10 @@ public class SaioaDAO {
 					saioEguna = lerroak.getDate("saioaren_eguna").toLocalDate();
 					pelikula_id = lerroak.getInt("id_filma");
 					pelikula = karteldegi.getPelikulaId(pelikula_id);
+					aretoa_id = lerroak.getInt("id_aretoa");
+					
 
+					// pelikula funciona, hacer los mismos pasos con Areto (preguntar si habria que hacer class de Areto para guardar Array)
 					saioak[kont] = new Saioa (id_saioa, ordutegia, saioEguna, pelikula, null);
 					kont++;
 				}

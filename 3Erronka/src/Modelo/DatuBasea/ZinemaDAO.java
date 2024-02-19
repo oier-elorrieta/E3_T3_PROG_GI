@@ -1,6 +1,7 @@
 package Modelo.DatuBasea;
 
 import Modelo.Aretoa;
+import Modelo.Saioa;
 import Modelo.Zinema;
 import Modelo.DatuBasea.Konexioa;
 
@@ -13,6 +14,7 @@ import java.sql.Statement;
 public class ZinemaDAO {
 	private Zinema[] zinemak = new Zinema[4];
 	private Aretoa[] aretoak = null;
+	private Saioa[] saioak = null;
 	
 	private String emaila;
 	private int tlf;
@@ -40,7 +42,9 @@ public class ZinemaDAO {
 					AretoDAO areto = new AretoDAO();
 					aretoak = areto.aretoakJaso();
 					
-	
+					//SaioaDAO saio = new SaioaDAO();
+					//saioak = saio.saioakJaso();
+					
 					
 					Zinema zinema = new Zinema(id, izena, helbidea, tlf, aretoak, null, emaila); // Nota: aretoak y saioak															// recuperamos aqui
 					zinemak[kont] = zinema;
