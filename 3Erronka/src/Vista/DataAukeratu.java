@@ -1,86 +1,81 @@
 package Vista;
 
-import javax.imageio.ImageIO;
+import org.jdatepicker.impl.DateComponentFormatter;
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
+
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import com.toedter.calendar.JCalendar;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Properties;
 
-/**
- * La clase MenuaG representa la interfaz gráfica para seleccionar un género de películas.
- * Extiende JFrame para crear la ventana principal.
- */
-public class DataAukeratu extends JFrame {
-
-    private JPanel contentPane; // Panel principal de la ventana
-    public String autatutakoGeneroa = ""; // Variable para almacenar el género seleccionado
-
-    /**
-     * Método principal que inicia la aplicación.
-     *
-     * @param args Los argumentos de la línea de comandos.
-     */
+public class DataAukeratu {
     public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                // Lógica para iniciar la aplicación
+        // Crear el frame
+        JFrame frame = new JFrame("Ejemplo de JDatePicker");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // Crear el modelo de fecha
+        UtilDateModel model = new UtilDateModel();
+        Properties properties = new Properties();
+        properties.put("text.today", "Hoy");
+        properties.put("text.month", "Mes");
+        properties.put("text.year", "Año");
+
+        // Configurar el modelo para no permitir fechas pasadas
+        model.setDate(2024, Calendar.FEBRUARY, 1);  // Configuramos la fecha mínima (1 de febrero de 2024)
+        model.setSelected(true);
+
+        // Crear el panel de fecha
+        JDatePanelImpl datePanel = new JDatePanelImpl(model, properties);
+
+        // Crear el picker de fecha con DateComponentFormatter
+        JDatePickerImpl datePicker = new JDatePickerImpl(datePanel, new DateComponentFormatter());
+
+        // Configurar el picker de fecha
+        datePicker.getJFormattedTextField().setEditable(true);
+
+        // Añadir un PropertyChangeListener al modelo para validar las fechas
+        model.addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                Date selectedDate = model.getValue();
+                Date currentDate = new Date();
+                if (selectedDate != null && selectedDate.before(currentDate)) {
+                    // Restablecer la fecha a la fecha mínima
+                    model.setDate(2024, Calendar.FEBRUARY, 1);
+                    model.setSelected(true);
+                }
             }
         });
-    }
 
-    /**
-     * Constructor de la clase MenuaG.
-     * Inicializa y configura la interfaz gráfica para seleccionar un género de películas.
-     */
-    public DataAukeratu() {
-        // Configuración de la ventana
-        ImageIcon icono = new ImageIcon("img/logo.jpg"); // Cambia la ruta por la de tu imagen
-        setIconImage(icono.getImage());
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 651, 368);
-        contentPane = new JPanel();
-        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-        setContentPane(contentPane);
-        contentPane.setLayout(new BorderLayout(0, 0));
-
-        // Configuración del encabezado
-        JLabel lblNewLabel_3 = new JLabel("Aukeratu nahi duzun eguna");
-        lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-        lblNewLabel_3.setFont(new Font("Times New Roman", Font.BOLD, 48));
-        contentPane.add(lblNewLabel_3, BorderLayout.NORTH);
-
-        // Configuración del panel inferior
-        JPanel panel = new JPanel();
-        contentPane.add(panel, BorderLayout.SOUTH);
-
-        JSplitPane splitPane = new JSplitPane();
-        panel.add(splitPane);
-
-        // Botón para avanzar
-        JButton btnGordeGeneroa = new JButton("Aurrera");
-  
-        splitPane.setRightComponent(btnGordeGeneroa);
-
-        // Botón para retroceder
-        JButton btnAtzera = new JButton("Atzera");
-       
-        splitPane.setLeftComponent(btnAtzera);
+        // Añadir el picker al frame
+        Container container = frame.getContentPane();
+        container.setLayout(new FlowLayout());
         
-        JCalendar calendar = new JCalendar();
-        contentPane.add(calendar, BorderLayout.CENTER);
+        JLabel lblNewLabel = new JLabel("Aukeratu data");
+        lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 36));
+        frame.getContentPane().add(lblNewLabel);
+        container.add(datePicker);
+        
+        JSplitPane splitPane_1 = new JSplitPane();
+        frame.getContentPane().add(splitPane_1);
+        
+        JButton btnNewButton_1 = new JButton("Aurrera");
+        splitPane_1.setRightComponent(btnNewButton_1);
+        btnNewButton_1.setVerticalAlignment(SwingConstants.BOTTOM);
+        
+        JButton btnNewButton = new JButton("Atzera");
+        splitPane_1.setLeftComponent(btnNewButton);
+        btnNewButton.setVerticalAlignment(SwingConstants.BOTTOM);
+        btnNewButton.setHorizontalAlignment(SwingConstants.LEFT);
 
-        // Cargar imagen desde la carpeta "imagenes"
-        String pathToImage = "img/imgGen.jpg"; // Ajusta la ruta de tu imagen
-        BufferedImage myPicture = null;
-        try {
-            myPicture = ImageIO.read(new File(pathToImage));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // Configurar el frame
+        frame.setSize(418, 278);
+        frame.setVisible(true);
     }
 }
