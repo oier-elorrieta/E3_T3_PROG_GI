@@ -1,48 +1,53 @@
 package Testak;
 
 import static org.junit.Assert.*;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.List;
-
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import Modelo.Bezeroa;
 import Modelo.DatuBasea.BezeroDAO;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class BezeroaDAOTest {
-    private Connection conexion;
-
-    @Before
-    public void setUp() throws SQLException {
-        // Establecer conexión con una base de datos en memoria (HSQLDB)
-        conexion = DriverManager.getConnection("jdbc:hsqldb:mem:testdb", "sa", "");
-        
-        // Crear la tabla de prueba y agregar algunos datos de prueba
-        try (Statement statement = conexion.createStatement()) {
-         
-        }
-    }
-
-    @After
-    public void tearDown() throws SQLException {
-        // Eliminar la tabla de prueba y cerrar la conexión
-        try (Statement statement = conexion.createStatement()) {
-            statement.execute("DROP TABLE bezeroa");
-        }
-        conexion.close();
-    }
 
     @Test
-    public void bezeroakJasoTest() {
-        BezeroDAO bezeroDAO = new BezeroDAO();
-        Bezeroa[] bezeroak = bezeroDAO.bezeroakJaso();
-        assertEquals(2, bezeroak.length);
+    public void testBezeroakJaso() {
+        // Crear una instancia del DAO
+        BezeroDAO bezeroaDAO = new BezeroDAO();
         
+        // Llamar al método para obtener los bezeroak
+        Bezeroa[] bezeroak = bezeroaDAO.bezeroakJaso();
+        
+        // Verificar que se obtuvo al menos un bezero
+        assertTrue("Gutxienez bezero bat espero zen", bezeroak.length > 0);
+        
+        // Conectar a la base de datos de prueba
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/E3", "root", "")) {
+            // Crear una sentencia SQL para obtener los resultados esperados
+            Statement statement = connection.createStatement();
+            String sql = "SELECT * FROM bezeroa";
+            ResultSet resultSet = statement.executeQuery(sql);
+            
+            // Comparar los resultados obtenidos con los resultados esperados de la base de datos
+            int index = 0;
+            while (resultSet.next() && index < bezeroak.length) {
+                assertEquals("bezeroaren NAN ez du bat egiten", resultSet.getString("NAN"), bezeroak[index].getNAN());
+                assertEquals("bezeroaren izena ez du bat egiten", resultSet.getString("bezero_izena"), bezeroak[index].getIzena());
+                assertEquals("bezeroaren abizena ez du bat egiten", resultSet.getString("abizena"), bezeroak[index].getAbizena());
+                assertEquals("bezeroaren sexua ez du bat egiten", resultSet.getString("sexua").charAt(0), bezeroak[index].getSexua());
+                assertEquals("bezeroaren erabiltzailea ez du bat egiten", resultSet.getString("erabiltzailea"), bezeroak[index].getErabiltzailea());
+                assertEquals("bezeroaren pasahitza ez du bat egiten", resultSet.getString("pasahitza"), bezeroak[index].getPasahitza());
+
+                index++;
+            }
+            
+            // Verificar que se han comparado todos los resultados
+            assertEquals("Jasotako bezeroen zenbakia ez da bat datu basean daudenekin", index, bezeroak.length);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
