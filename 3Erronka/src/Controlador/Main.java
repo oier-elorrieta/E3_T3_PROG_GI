@@ -19,9 +19,23 @@ import Vista.ZinemaMenu;
 public class Main {
 	
 	public static void main(String[] args) {
-		Zinema[] zinemak = null;
+		PelikulaDAO filmak = new PelikulaDAO();
+		Karteldegia karteldegi = new Karteldegia(filmak.pelikulakJaso());
+		Zinema[] zinemak = new Zinema[4];
 		ZinemaDAO zinem = new ZinemaDAO();
-		zinemak = zinem.zinemakJaso();
+		zinemak[0] = zinem.zinemaJaso(1);
+		zinemak[1] = zinem.zinemaJaso(2);
+		zinemak[2] = zinem.zinemaJaso(3);
+		zinemak[3] = zinem.zinemaJaso(4);
+		Saioa[] s1 = (zinemak[2].getSaioak());
+		for (int i=0;i<s1.length;i++) {
+			System.out.println(s1[i]);
+			}
+		System.out.println("------------------------------------------------------------------------------------");
+		Saioa[] s2 = (zinemak[3].getSaioak());
+		for (int i=0;i<s2.length;i++) {
+			System.out.println(s2[i]);
+			}
 		try {
 			OngiEtorri vOngiEtorri = new OngiEtorri();
 			vOngiEtorri.setVisible(true);
@@ -46,20 +60,21 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		/*Zinema[] zinemak = null;
-		ZinemaDAO zinem = new ZinemaDAO();
-		zinemak = zinem.zinemakJaso();
-		for (int i = 0; i < zinemak.length; i++) {
+		
+		/*for (int i = 0; i < zinemak.length; i++) {
 			System.out.println(zinemak[i]);
 		}*/
+		
+		
+		
+		//System.out.println(zinemak[1]);
 
-		Saioa[] saioak = null;
+		/*Saioa[] saioak = null;
 		SaioaDAO saio = new SaioaDAO();
 		saioak = saio.saioakJaso();
 		for (int i = 0; i < saioak.length; i++) {
 			System.out.println(saioak[i]);
-		}
+		}*/
 
 	}
 }

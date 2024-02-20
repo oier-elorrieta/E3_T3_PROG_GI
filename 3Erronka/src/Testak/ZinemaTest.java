@@ -70,14 +70,14 @@ public class ZinemaTest {
 	// ***** ARETOA TEST *****
 	@Test
 	public void getAretoaTest() {
-		Aretoa[] aretoak = new Aretoa[] { new Aretoa(1, "Areto1") };
+		Aretoa[] aretoak = new Aretoa[] { new Aretoa(1, 1, "Areto1") };
 		Zinema z1 = new Zinema(1, "Elorrieta Zinema", "San Ignazio", 658659874, aretoak, null, "elorrietazinema@gmail.com");
 		assertArrayEquals(aretoak, z1.getAretoak());
 	}
 
 	@Test
 	public void setAretoaTest() {
-		Aretoa[] aretoak = new Aretoa[] { new Aretoa(1, "Areto1") };
+		Aretoa[] aretoak = new Aretoa[] { new Aretoa(1, 1, "Areto1") };
 		Zinema z1 = new Zinema(1, "Elorrieta Zinema", "San Ignazio", 658659874, null, null, "elorrietazinema@gmail.com");
 		z1.setAretoak(aretoak);
 		assertArrayEquals(aretoak, z1.getAretoak());

@@ -5,14 +5,9 @@ import java.util.Arrays;
 import Modelo.DatuBasea.PelikulaDAO;
 
 public class Karteldegia {
-
-	private PelikulaDAO peliak = new PelikulaDAO();
-	private Pelikula[] pelikulak = peliak.pelikulakJaso();
-
-	public Karteldegia() {
-		
-	}
 	
+	private Pelikula[] pelikulak;
+
 	public Karteldegia(Pelikula[] pelikulak) {
 		this.pelikulak = pelikulak;
 	}

@@ -80,14 +80,14 @@ public class SaioaTest {
 	// ***** ARETOA TEST *****
 		@Test
 		public void getAretoaTest() {
-			Aretoa aretoa = new Aretoa (1, "Areto1");
+			Aretoa aretoa = new Aretoa (1, 1, "Areto1");
 			Saioa s1 = new Saioa(1, null, null, null, aretoa);
 			assertEquals(aretoa, s1.getAretoa());
 		}
 
 		@Test
 		public void setAretoaTest() {
-			Aretoa aretoa = new Aretoa (1, "Areto1");
+			Aretoa aretoa = new Aretoa (1, 1, "Areto1");
 			Saioa s1 = new Saioa(1, null, null, null, null);
 			s1.setAretoa(aretoa);
 			assertEquals(aretoa, s1.getAretoa());

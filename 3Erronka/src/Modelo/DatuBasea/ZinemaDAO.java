@@ -12,26 +12,26 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class ZinemaDAO {
-	private Zinema[] zinemak = new Zinema[4];
+	private Zinema zinema;
 	private Aretoa[] aretoak = null;
 	private Saioa[] saioak = null;
-	
+
 	private String emaila;
 	private int tlf;
 	private String helbidea;
 	private String izena;
 	private int id;
 
-	public Zinema[] zinemakJaso() {
+	public Zinema zinemaJaso(int id_zinema) {
 		Konexioa konexioa = new Konexioa();
 		Connection konektatu = konexioa.konektatu();
 		if (konektatu != null) {
 			try {
-				Statement z1 = konektatu.createStatement();
-				String sql = "SELECT id_zinema, zinema_izena, helbidea, telefonoa, email FROM Zinema;";
-				ResultSet lerroak = z1.executeQuery(sql);
+				String sql = "SELECT id_zinema, zinema_izena, helbidea, telefonoa, email FROM Zinema WHERE id_zinema = ?";
+				PreparedStatement preparedStatement = konektatu.prepareStatement(sql);
+				preparedStatement.setInt(1, id_zinema);
+				ResultSet lerroak = preparedStatement.executeQuery();
 
-				int kont = 0; // Honekin asegurtatzen dugu lehenengo posizioa 0 izango dela
 				while (lerroak.next()) {
 					id = lerroak.getInt("id_zinema");
 					izena = lerroak.getString("zinema_izena");
@@ -40,15 +40,13 @@ public class ZinemaDAO {
 					emaila = lerroak.getString("email");
 
 					AretoDAO areto = new AretoDAO();
-					aretoak = areto.aretoakJaso();
-					
-					//SaioaDAO saio = new SaioaDAO();
-					//saioak = saio.saioakJaso();
-					
-					
-					Zinema zinema = new Zinema(id, izena, helbidea, tlf, aretoak, null, emaila); // Nota: aretoak y saioak															// recuperamos aqui
-					zinemak[kont] = zinema;
-					kont++;
+					aretoak = areto.aretoakJaso(id_zinema);
+
+					SaioaDAO saio = new SaioaDAO();
+					saioak = saio.saioakJaso(id_zinema);
+
+					zinema = new Zinema(id, izena, helbidea, tlf, aretoak, saioak, emaila); // Nota: aretoak y saioak
+																								// // recuperamos aqui
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -56,7 +54,7 @@ public class ZinemaDAO {
 				konexioa.deskonektatu();
 			}
 		}
-		return zinemak;
+		return zinema;
 	}
 
 }

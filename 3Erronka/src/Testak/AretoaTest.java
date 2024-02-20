@@ -11,30 +11,44 @@ import Modelo.Aretoa;
 
 public class AretoaTest {
 
-	//***** ID TEST *****
+	//***** ID ZINEMA TEST *****
 	@Test
-	public void getIdTest() {
-		Aretoa a1 = new Aretoa(1, "Areto1");
-		assertEquals(1, a1.getId());
+	public void getIdZinemaTest() {
+		Aretoa a1 = new Aretoa(1, 2,"Areto1");
+		assertEquals(1, a1.getId_zinema());
 	}
 
 	@Test
-	public void setIdTest() {
-		Aretoa a1 = new Aretoa(1, "Areto1");
-		a1.setId(3);
-		assertEquals(3, a1.getId());
+	public void setIdZinemaTest() {
+		Aretoa a1 = new Aretoa(0, 1, "Areto1");
+		a1.setId_zinema(1);;
+		assertEquals(1, a1.getId_zinema());
 	}
+	
+	//***** ID ARETO TEST *****
+		@Test
+		public void getIdAretoTest() {
+			Aretoa a1 = new Aretoa(1, 1, "Areto1");
+			assertEquals(1, a1.getId_areto());
+		}
+
+		@Test
+		public void setIdAretoTest() {
+			Aretoa a1 = new Aretoa(1, 0, "Areto1");
+			a1.setId_areto(1);
+			assertEquals(1, a1.getId_areto());
+		}
 
 	//***** IZENA TEST *****
 	@Test
 	public void getIzenaTest() {
-		Aretoa a1 = new Aretoa(1, "Areto1");
+		Aretoa a1 = new Aretoa(1, 1, "Areto1");
 		assertEquals("Areto1", a1.getIzena());
 	}
 
 	@Test
 	public void setIzenaTest() {
-		Aretoa a1 = new Aretoa(1, "Areto1");
+		Aretoa a1 = new Aretoa(1, 1, "Areto1");
 		a1.setIzena("Areto77");
 		assertEquals("Areto77", a1.getIzena());
 	}
@@ -42,9 +56,9 @@ public class AretoaTest {
 	//***** TOSTRING TEST *****
 	@Test
 	public void toStringTest() {
-		Aretoa a1 = new Aretoa(1, "Areto1");
+		Aretoa a1 = new Aretoa(1, 1, "Areto1");
 
-		String esperotakoa = "Aretoa [id=1, izena=Areto1]";
+		String esperotakoa = "Aretoa [id_zinema=1, id_areto=1, izena=Areto1]";
 
 		assertEquals(esperotakoa, a1.toString());
 	}
@@ -53,9 +67,9 @@ public class AretoaTest {
 	@Test
     public void equalsTest() {
 
-        Aretoa aretoa1 = new Aretoa(1, "Areto1");
-        Aretoa aretoa2 = new Aretoa(1, "Areto1");
-        Aretoa aretoa3 = new Aretoa(2, "Areto1");
+        Aretoa aretoa1 = new Aretoa(1, 1, "Areto1");
+        Aretoa aretoa2 = new Aretoa(1, 1, "Areto1");
+        Aretoa aretoa3 = new Aretoa(2, 1, "Areto1");
 
         assertTrue(aretoa1.equals(aretoa2)); // balore berdinak, aretoak berdinak izan beharko dira
         assertFalse(aretoa1.equals(aretoa3)); // Id desberdinak, aretoak desberdinak izan beharko dira
