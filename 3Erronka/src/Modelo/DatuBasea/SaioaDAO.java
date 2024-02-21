@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import Modelo.Aretoa;
 import Modelo.Karteldegia;
 import Modelo.Pelikula;
 import Modelo.Saioa;
@@ -18,6 +19,7 @@ public class SaioaDAO {
 	private Karteldegia karteldegi = new Karteldegia(filmak.pelikulakJaso());
 	private Pelikula pelikula = null;
 	private int id_saioa = 0;
+	private Aretoa aretoa;
 	private LocalTime ordutegia;
 	private LocalDate saioEguna;
 	private int pelikula_id;
@@ -35,6 +37,9 @@ public class SaioaDAO {
 				preparedStatement.setInt(1, id_zinema);
 				ResultSet lerroak = preparedStatement.executeQuery();
 
+				AretoDAO areto = new AretoDAO();
+				Aretoa[] aretoak = areto.aretoakJaso(id_zinema);
+
 				while (lerroak.next()) {
 					id_saioa = lerroak.getInt("id_saioa");
 					ordutegia = lerroak.getTime("ordutegia").toLocalTime();
@@ -42,9 +47,9 @@ public class SaioaDAO {
 					pelikula_id = lerroak.getInt("id_filma");
 					pelikula = karteldegi.getPelikulaId(pelikula_id);
 					aretoa_id = lerroak.getInt("id_aretoa");
-					
-					// pelikula funciona, hacer los mismos pasos con Areto (preguntar si habria que hacer class de Areto para guardar Array)
-					saioak[kont] = new Saioa (id_saioa, ordutegia, saioEguna, pelikula, null);
+					aretoa = areto.getAretoaId(aretoa_id, aretoak);
+
+					saioak[kont] = new Saioa(id_saioa, ordutegia, saioEguna, pelikula, aretoa);
 					kont++;
 				}
 			} catch (SQLException e) {

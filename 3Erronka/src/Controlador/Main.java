@@ -27,15 +27,11 @@ public class Main {
 		zinemak[1] = zinem.zinemaJaso(2);
 		zinemak[2] = zinem.zinemaJaso(3);
 		zinemak[3] = zinem.zinemaJaso(4);
-		Saioa[] s1 = (zinemak[2].getSaioak());
+		Saioa[] s1 = (zinemak[0].getSaioak());
 		for (int i=0;i<s1.length;i++) {
 			System.out.println(s1[i]);
 			}
-		System.out.println("------------------------------------------------------------------------------------");
-		Saioa[] s2 = (zinemak[3].getSaioak());
-		for (int i=0;i<s2.length;i++) {
-			System.out.println(s2[i]);
-			}
+
 		try {
 			OngiEtorri vOngiEtorri = new OngiEtorri();
 			vOngiEtorri.setVisible(true);
