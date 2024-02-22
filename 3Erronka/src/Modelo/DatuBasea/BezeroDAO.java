@@ -12,7 +12,7 @@ public class BezeroDAO {
     private String NAN = "";
     private String bezero_izena = "";
     private String abizena = "";
-    private char sexua;
+    private char generoa;
     private String erabiltzailea = "";
     private String pasahitza = "";
     
@@ -28,11 +28,11 @@ public class BezeroDAO {
                 while (lerroak.next()) {
                     NAN = lerroak.getString("NAN"); 
                     abizena = lerroak.getString("abizena");
-                    sexua = lerroak.getString("generoa").charAt(0); 
+                    generoa = lerroak.getString("generoa").charAt(0); 
                     erabiltzailea = lerroak.getString("erabiltzailea");
                     pasahitza = lerroak.getString("pasahitza");
                     
-                    bezeroak[kont] =  new Bezeroa(NAN, bezero_izena, abizena, sexua, erabiltzailea, pasahitza);
+                    bezeroak[kont] =  new Bezeroa(NAN, bezero_izena, abizena, generoa, erabiltzailea, pasahitza);
                     kont++;
                 }
             } catch (SQLException e) {

@@ -53,16 +53,16 @@ public class BezeroaTest {
     
     //***** SEXUA TEST *****
     @Test
-    public void getSexuaTest() {
+    public void getGeneroaTest() {
         Bezeroa b1 = new Bezeroa("15852645K", "Laura", "Garcia", 'E', "lgar", "1234");
-        assertEquals('E', b1.getSexua());
+        assertEquals('E', b1.getGeneroa());
     }
     
     @Test
-    public void setSexuaTest() {
+    public void setGeneroaTest() {
         Bezeroa b1 = new Bezeroa("15852645K", "Laura", "Garcia", 'E', "lgar", "1234");
-        b1.setSexua('G');
-        assertEquals('G', b1.getSexua());
+        b1.setGeneroa('G');
+        assertEquals('G', b1.getGeneroa());
     }
     
     //***** ERABILTZAILEA TEST *****
@@ -97,7 +97,7 @@ public class BezeroaTest {
     @Test
     public void toStringTest() {
         Bezeroa bezeroa = new Bezeroa("12345678A", "Unai", "Souto", 'M', "lgar", "1234");
-        String esperotakoa = "Bezeroa [NAN=12345678A, izena=Unai, abizena=Souto, sexua=M, erabiltzailea=lgar, pasahitza=1234]";
+        String esperotakoa = "Bezeroa [NAN=12345678A, izena=Unai, abizena=Souto, generoa=M, erabiltzailea=lgar, pasahitza=1234]";
         assertEquals(esperotakoa, bezeroa.toString());
     }
 

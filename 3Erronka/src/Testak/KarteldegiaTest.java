@@ -34,7 +34,7 @@ public class KarteldegiaTest {
         };
 		Karteldegia karteldegia = new Karteldegia(pelikulak);
 
-		String expected = "Karteldegia [pelikulak=[Pelikula [id=1, izena=Hulk, generoa=Zientzia-fikzioa, iraupena=105]]]";
+		String expected = "Karteldegia [pelikulak=[\nPelikula [id=1, izena=Hulk, generoa=Zientzia-fikzioa, iraupena=105]]]";
 		assertEquals(expected, karteldegia.toString());
 	}
 
@@ -55,4 +55,44 @@ public class KarteldegiaTest {
 		assertFalse(karteldegia1.equals(karteldegia3));
 		assertFalse(karteldegia1.equals(null));
 	}
+	
+	@Test
+    public void testGetPelikulaId_PelikulakNull() {
+        Pelikula[] pelikulak = null;
+        Karteldegia karteldegia = new Karteldegia(pelikulak);
+        Pelikula result = karteldegia.getPelikulaId(1);
+        assertNull(result);
+    }
+
+    @Test
+    public void testGetPelikulaId_PelikulakHutzik() {
+        Pelikula[] pelikulak = new Pelikula[0];
+        Karteldegia karteldegia = new Karteldegia(pelikulak);
+        Pelikula result = karteldegia.getPelikulaId(1);
+        assertNull(result);
+    }
+
+    @Test
+    public void testGetPelikulaId_IdEzAurkitzen() {
+        Pelikula[] pelikulak = {
+            new Pelikula(1, "Pelikula1", "Generoa1", 90),
+            new Pelikula(2, "Pelikula2", "Generoa2", 120),
+            new Pelikula(3, "Pelikula3", "Generoa3", 105)
+        };
+        Karteldegia karteldegia = new Karteldegia(pelikulak);
+        Pelikula result = karteldegia.getPelikulaId(5);
+        assertNull(result);
+    }
+
+    @Test
+    public void testGetPelikulaId_IdAurkitzen() {
+        Pelikula[] pelikulak = {
+            new Pelikula(1, "Pelikula1", "Generoa1", 90),
+            new Pelikula(2, "Pelikula2", "Generoa2", 120),
+            new Pelikula(3, "Pelikula3", "Generoa3", 105)
+        };
+        Karteldegia karteldegia = new Karteldegia(pelikulak);
+        Pelikula result = karteldegia.getPelikulaId(2);
+        assertEquals("Pelikula2", result.getIzena());
+    }
 }

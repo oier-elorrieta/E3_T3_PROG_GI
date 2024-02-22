@@ -4,7 +4,11 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import Modelo.Bezeroa;
+import Modelo.Saioa;
 import Modelo.DatuBasea.BezeroDAO;
+import Modelo.DatuBasea.Konexioa;
+import Modelo.DatuBasea.SaioaDAO;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -13,41 +17,48 @@ import java.sql.Statement;
 
 public class BezeroaDAOTest {
 
-    @Test
-    public void testBezeroakJaso() {
-        // Crear una instancia del DAO
-        BezeroDAO bezeroaDAO = new BezeroDAO();
-        
-        // Llamar al método para obtener los bezeroak
-        Bezeroa[] bezeroak = bezeroaDAO.bezeroakJaso();
-        
-        // Verificar que se obtuvo al menos un bezero
-        assertTrue("Gutxienez bezero bat espero zen", bezeroak.length > 0);
-        
-        // Conectar a la base de datos de prueba
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/E3", "root", "")) {
-            // Crear una sentencia SQL para obtener los resultados esperados
-            Statement statement = connection.createStatement();
-            String sql = "SELECT * FROM bezeroa";
-            ResultSet resultSet = statement.executeQuery(sql);
-            
-            // Comparar los resultados obtenidos con los resultados esperados de la base de datos
-            int index = 0;
-            while (resultSet.next() && index < bezeroak.length) {
-                assertEquals("bezeroaren NAN ez du bat egiten", resultSet.getString("NAN"), bezeroak[index].getNAN());
-                assertEquals("bezeroaren izena ez du bat egiten", resultSet.getString("bezero_izena"), bezeroak[index].getIzena());
-                assertEquals("bezeroaren abizena ez du bat egiten", resultSet.getString("abizena"), bezeroak[index].getAbizena());
-                assertEquals("bezeroaren sexua ez du bat egiten", resultSet.getString("sexua").charAt(0), bezeroak[index].getSexua());
-                assertEquals("bezeroaren erabiltzailea ez du bat egiten", resultSet.getString("erabiltzailea"), bezeroak[index].getErabiltzailea());
-                assertEquals("bezeroaren pasahitza ez du bat egiten", resultSet.getString("pasahitza"), bezeroak[index].getPasahitza());
+	@Test
+	public void testBezeroakJaso() {
+		Bezeroa[] esperotakoa = new Bezeroa[4];
+		int kont = 0;
+		String NAN = "";
+		String bezero_izena = "";
+		String abizena = "";
+		char generoa;
+		String erabiltzailea = "";
+		String pasahitza = "";
 
-                index++;
-            }
-            
-            // Verificar que se han comparado todos los resultados
-            assertEquals("Jasotako bezeroen zenbakia ez da bat datu basean daudenekin", index, bezeroak.length);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+		Konexioa konexioa = new Konexioa();
+		Connection konektatu = konexioa.konektatu();
+
+		if (konektatu != null) {
+			try {
+				Statement s1 = konektatu.createStatement();
+				String sql = "SELECT * FROM bezeroa";
+				ResultSet lerroak = s1.executeQuery(sql);
+				while (lerroak.next()) {
+					NAN = lerroak.getString("NAN");
+					bezero_izena = lerroak.getString("bezero_izena");
+					abizena = lerroak.getString("abizena");
+					generoa = lerroak.getString("generoa").charAt(0);
+					erabiltzailea = lerroak.getString("erabiltzailea");
+					pasahitza = lerroak.getString("pasahitza");
+
+					esperotakoa[kont] = new Bezeroa(NAN, bezero_izena, abizena, generoa, erabiltzailea, pasahitza);
+					kont++;
+				}
+
+				BezeroDAO bezero = new BezeroDAO();
+				Bezeroa[] bezeroak = bezero.bezeroakJaso();
+
+				assertArrayEquals(esperotakoa, bezeroak);
+
+			} catch (SQLException e) {
+				System.err.println("Errorea: Ezin izan da kontsulta egin.");
+				e.printStackTrace();
+			} finally {
+				konexioa.deskonektatu();
+			}
+		}
+	}
 }

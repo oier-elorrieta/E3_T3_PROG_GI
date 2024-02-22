@@ -3,6 +3,7 @@ package Testak;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import Modelo.Pelikula;
+import Modelo.DatuBasea.Konexioa;
 import Modelo.DatuBasea.PelikulaDAO;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,41 +15,42 @@ public class PelikulaDAOTest {
 
    @Test
    public void testpelikulakJaso() {
-       // Crear una instancia del DAO
-       PelikulaDAO pelikulaDAO = new PelikulaDAO();
+         Pelikula[] esperotakoa = new Pelikula[16];
+         int id = 0;
+         String izena = "";
+         String generoa = "";
+         int iraupena = 0;
+         int kont = 0;
        
-       // Llamar al método para obtener los cines
-       Pelikula[] pelikulak = pelikulaDAO.pelikulakJaso();
+       Konexioa konexioa = new Konexioa();
+       Connection konektatu = konexioa.konektatu();
 
-       // Verificar que se obtuvo al menos un cine
-       assertTrue("Gutxienez pelikula bat espero zen", pelikulak.length > 0);
-
-       // Conectar a la base de datos de prueba
-       try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/E3", "root", "")) {
-
-           // Crear una sentencia SQL para obtener los resultados esperados
-           Statement statement = connection.createStatement();
-           String sql = "SELECT id_filma, film_izena, generoa, iraupena FROM filma";
-           ResultSet resultSet = statement.executeQuery(sql);
-       
-           // Comparar los resultados obtenidos con los resultados esperados de la base de datos
-           int index = 0;
-           while (resultSet.next() && index < pelikulak.length) {
-
-               assertEquals("pelikularen ID ez du bat egiten", resultSet.getInt("id_filma"), pelikulak[index].getId());
-               assertEquals("pelikularen izena ez du bat egiten", resultSet.getString("film_izena"), pelikulak[index].getIzena());
-               assertEquals("pelikularen izena ez du bat egiten", resultSet.getString("generoa"), pelikulak[index].getGeneroa());
-               assertEquals("pelikularen iraupena ez du bat egiten", resultSet.getInt("iraupena"), pelikulak[index].getIraupena());
+       if (konektatu != null) {
+           try {
+               Statement s1 = konektatu.createStatement();
+               String sql = "SELECT * FROM filma";
+               ResultSet lerroak = s1.executeQuery(sql);
+               while (lerroak.next()) {
+                   id = lerroak.getInt("id_filma");
+                   izena = lerroak.getString("film_izena");
+                   generoa = lerroak.getString("generoa");
+                   iraupena = lerroak.getInt("iraupena");
+                   
+                   esperotakoa[kont] =  new Pelikula(id, izena, generoa, iraupena);
+                   kont++;
+               }
                
-               index++;
+               PelikulaDAO pelikula = new PelikulaDAO();
+               Pelikula[] pelikulak = pelikula.pelikulakJaso();
+               
+               assertArrayEquals(esperotakoa, pelikulak);
+               
+           } catch (SQLException e) {
+               System.err.println("Errorea: Ezin izan da kontsulta egin.");
+               e.printStackTrace();
+           } finally {
+               konexioa.deskonektatu();
            }
-     
-           // Verificar que se han comparado todos los resultados
-           assertEquals("Jasotako pelikulen zenbakia ez dator bat datu basean daudenekin", index, pelikulak.length);
-           
-       } catch (SQLException e) {
-
-           e.printStackTrace();
        }
    }
 }

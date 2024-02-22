@@ -6,15 +6,15 @@ public class Bezeroa {
     private String NAN;
     private String izena;
     private String abizena;
-    private char sexua;
+    private char generoa;
     private String erabiltzailea;
     private String pasahitza;
     
-    public Bezeroa(String NAN, String izena, String abizena, char sexua, String erabiltzailea, String pasahitza) {
+    public Bezeroa(String NAN, String izena, String abizena, char generoa, String erabiltzailea, String pasahitza) {
         this.NAN = NAN;
         this.izena = izena;
         this.abizena = abizena;
-        this.sexua = sexua;
+        this.generoa = generoa;
         this.erabiltzailea = erabiltzailea;
         this.pasahitza = pasahitza;
     }
@@ -43,12 +43,12 @@ public class Bezeroa {
         this.abizena = abizena;
     }
 
-    public char getSexua() {
-        return sexua;
+    public char getGeneroa() {
+        return generoa;
     }
 
-    public void setSexua(char sexua) {
-        this.sexua = sexua;
+    public void setGeneroa(char generoa) {
+        this.generoa = generoa;
     }
     
     public String getErabiltzailea() {
@@ -69,7 +69,7 @@ public class Bezeroa {
 
     @Override
     public String toString() {
-        return "Bezeroa [NAN=" + NAN + ", izena=" + izena + ", abizena=" + abizena + ", sexua=" + sexua
+        return "Bezeroa [NAN=" + NAN + ", izena=" + izena + ", abizena=" + abizena + ", generoa=" + generoa
                 + ", erabiltzailea=" + erabiltzailea + ", pasahitza=" + pasahitza + "]";
     }
 
@@ -84,7 +84,7 @@ public class Bezeroa {
 		Bezeroa other = (Bezeroa) obj;
 		return Objects.equals(NAN, other.NAN) && Objects.equals(abizena, other.abizena)
 				&& Objects.equals(erabiltzailea, other.erabiltzailea) && Objects.equals(izena, other.izena)
-				&& Objects.equals(pasahitza, other.pasahitza) && sexua == other.sexua;
+				&& Objects.equals(pasahitza, other.pasahitza) && generoa == other.generoa;
 	}
 
     
