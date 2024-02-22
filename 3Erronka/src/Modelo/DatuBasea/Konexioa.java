@@ -17,16 +17,16 @@ public class Konexioa {
 
 	// DB-rekin konektatzeko funtzioa
 	public Connection konektatu() {
-		if(konektatu == null) {
+		if (konektatu == null) {
 			try {
 				// Establecer la conexión
 				konektatu = DriverManager.getConnection(url, erabiltzailea, pasahitza);
-				//System.out.println("Konektatuta!");
+				// System.out.println("Konektatuta!");
 			} catch (SQLException e) {
 				System.err.println("Ezin izan da Datu Basearekin konektatu: " + e.getMessage());
 			}
 		}
-		
+
 		return konektatu;
 	}
 
@@ -35,11 +35,11 @@ public class Konexioa {
 		if (konektatu != null) {
 			try {
 				konektatu.close();
-			//	System.out.println("Konexioa itxita");
+				// System.out.println("Konexioa itxita");
 			} catch (SQLException e) {
 				System.err.println("Konexioa ezin da itxi " + e.getMessage());
 			}
 		}
 	}
-	
+
 }

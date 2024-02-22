@@ -73,20 +73,19 @@ public class Bezeroa {
                 + ", erabiltzailea=" + erabiltzailea + ", pasahitza=" + pasahitza + "]";
     }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Bezeroa other = (Bezeroa) obj;
-		return Objects.equals(NAN, other.NAN) && Objects.equals(abizena, other.abizena)
-				&& Objects.equals(erabiltzailea, other.erabiltzailea) && Objects.equals(izena, other.izena)
-				&& Objects.equals(pasahitza, other.pasahitza) && generoa == other.generoa;
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Bezeroa other = (Bezeroa) obj;
+        return Objects.equals(NAN, other.NAN) && Objects.equals(abizena, other.abizena)
+                && Objects.equals(erabiltzailea, other.erabiltzailea) && Objects.equals(izena, other.izena)
+                && Objects.equals(pasahitza, other.pasahitza) && generoa == other.generoa;
+    }
 
-    
-    
+     
 }

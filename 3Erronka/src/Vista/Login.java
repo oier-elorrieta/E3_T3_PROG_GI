@@ -12,11 +12,9 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import Modelo.DatuBasea.BezeroDAO;
+import Modelo.Bezeroa;
 
-/**
- * La clase `iniciarsesion` representa la ventana de inicio de sesión.
- * Extiende JFrame para crear la interfaz gráfica que permite a los usuarios iniciar sesión.
- */
 public class Login extends JFrame {
 
     public static final long serialVersionUID = 1L;
@@ -25,10 +23,8 @@ public class Login extends JFrame {
     public JTextField txt_pass;
 
     /**
-     * Constructor de la clase `iniciarsesion`.
+     * Constructor de la clase `Login`.
      * Inicializa y configura la interfaz gráfica para la ventana de inicio de sesión.
-     *
-     * @param mDatuak La instancia del modelo de datos.
      */
     public Login() {
         ImageIcon icono = new ImageIcon("img/logo.jpg"); // Cambia la ruta por la de tu imagen
@@ -65,16 +61,19 @@ public class Login extends JFrame {
         // Botón de inicio de sesión
         JButton btnLogin = new JButton("Saioa hasi");
         btnLogin.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		try {
-                    ZinemaMenu frame = new ZinemaMenu();
-                    frame.setVisible(true);
-                } catch (Exception e1) {
-                    e1.printStackTrace();
+            public void actionPerformed(ActionEvent e) {
+                String erabiltzailea = txt_erabiltzailea.getText();
+                String pasahitza = txt_pass.getText();
+                if (loginaKonprobatu(erabiltzailea, pasahitza)) {
+                    // Login exitoso, ir a la siguiente pantalla
+                    JOptionPane.showMessageDialog(null, "Saioa hasi duzu.");
+                    // Hemen gehitu aplikazio nagusira sartzea
+                } else {
+                    // Login fallido, mostrar error
+                    JOptionPane.showMessageDialog(null, "Erabiltzailea edo pasahitza okerra.");
                 }
-        	}
+            }
         });
-       
         btnLogin.setBounds(221, 239, 118, 23);
         contentPane.add(btnLogin);
 
@@ -83,6 +82,24 @@ public class Login extends JFrame {
         lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 30));
         lblNewLabel_2.setBounds(202, 11, 178, 32);
         contentPane.add(lblNewLabel_2);
+    }
+
+    /**
+     * Verifica si el inicio de sesión es válido.
+     * 
+     * @param erabiltzailea El nombre de usuario ingresado.
+     * @param pasahitza     La contraseña ingresada.
+     * @return true si el inicio de sesión es válido, false de lo contrario.
+     */
+    private boolean loginaKonprobatu(String erabiltzailea, String pasahitza) {
+        BezeroDAO bezeroDAO = new BezeroDAO();
+        Bezeroa[] bezeroak = bezeroDAO.bezeroakJaso();
+        for (Bezeroa bezero : bezeroak) {
+            if (bezero != null && bezero.getErabiltzailea().equals(erabiltzailea) && bezero.getPasahitza().equals(pasahitza)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
