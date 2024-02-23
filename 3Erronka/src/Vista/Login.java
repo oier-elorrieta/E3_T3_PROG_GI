@@ -32,7 +32,7 @@ public class Login extends JFrame {
 
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 580, 330);
+        setBounds(100, 100, 800, 450);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -41,20 +41,20 @@ public class Login extends JFrame {
 
         // Etiquetas y campos de texto
         JLabel lblNewLabel = new JLabel("Sartu erabiltzailea");
-        lblNewLabel.setBounds(164, 108, 125, 14);
+        lblNewLabel.setBounds(277, 108, 125, 14);
         contentPane.add(lblNewLabel);
 
         JLabel lblNewLabel_1 = new JLabel("Sartu pasahitza");
-        lblNewLabel_1.setBounds(164, 164, 118, 14);
+        lblNewLabel_1.setBounds(277, 164, 118, 14);
         contentPane.add(lblNewLabel_1);
 
         txt_erabiltzailea = new JTextField();
-        txt_erabiltzailea.setBounds(306, 105, 118, 20);
+        txt_erabiltzailea.setBounds(412, 105, 226, 20);
         contentPane.add(txt_erabiltzailea);
         txt_erabiltzailea.setColumns(10);
 
         txt_pass = new JTextField();
-        txt_pass.setBounds(306, 161, 118, 20);
+        txt_pass.setBounds(412, 161, 226, 20);
         contentPane.add(txt_pass);
         txt_pass.setColumns(10);
 
@@ -67,6 +67,10 @@ public class Login extends JFrame {
                 if (loginaKonprobatu(erabiltzailea, pasahitza)) {
                     // Login exitoso, ir a la siguiente pantalla
                     JOptionPane.showMessageDialog(null, "Saioa hasi duzu.");
+
+
+            		dispose();
+
                     // Hemen gehitu aplikazio nagusira sartzea
                 } else {
                     // Login fallido, mostrar error
@@ -74,13 +78,17 @@ public class Login extends JFrame {
                 }
             }
         });
+
+        btnLogin.setBounds(371, 240, 118, 23);
+
         btnLogin.setBounds(221, 239, 118, 23);
+
         contentPane.add(btnLogin);
 
         // Etiqueta de título
         JLabel lblNewLabel_2 = new JLabel("Saio Hasiera");
         lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 30));
-        lblNewLabel_2.setBounds(202, 11, 178, 32);
+        lblNewLabel_2.setBounds(353, 11, 178, 32);
         contentPane.add(lblNewLabel_2);
     }
 

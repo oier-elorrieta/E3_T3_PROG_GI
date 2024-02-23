@@ -3,6 +3,10 @@ package Vista;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+
+import Modelo.Saioa;
+import Modelo.Zinema;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,7 +22,6 @@ public class MenuaFilma extends JFrame {
 
     private JPanel contentPane; // Panel principal de la ventana
     public String autatutakoGeneroa = ""; // Variable para almacenar el género seleccionado
-    public static JComboBox generoZerrenda; // Cuadro desplegable para la selección de género
 
     /**
      * Método principal que inicia la aplicación.
@@ -28,7 +31,7 @@ public class MenuaFilma extends JFrame {
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
-                // Lógica para iniciar la aplicación
+     
             }
         });
     }
@@ -37,7 +40,7 @@ public class MenuaFilma extends JFrame {
      * Constructor de la clase MenuaG.
      * Inicializa y configura la interfaz gráfica para seleccionar un género de películas.
      */
-    public MenuaFilma() {
+    public MenuaFilma(Zinema[] zinemak, int zineIndex) {
         // Configuración de la ventana
         ImageIcon icono = new ImageIcon("img/logo.jpg"); // Cambia la ruta por la de tu imagen
         setIconImage(icono.getImage());
@@ -54,44 +57,9 @@ public class MenuaFilma extends JFrame {
         lblNewLabel_3.setFont(new Font("Times New Roman", Font.BOLD, 48));
         contentPane.add(lblNewLabel_3, BorderLayout.NORTH);
 
-        // Configuración del panel inferior
-        JPanel panel = new JPanel();
-        contentPane.add(panel, BorderLayout.SOUTH);
-
-        JSplitPane splitPane = new JSplitPane();
-        panel.add(splitPane);
-
-        // Botón para avanzar
-        JButton btnGordeGeneroa = new JButton("Aurrera");
-  
-        splitPane.setRightComponent(btnGordeGeneroa);
-
-        // Botón para retroceder
-        JButton btnAtzera = new JButton("Atzera");
-       
-        splitPane.setLeftComponent(btnAtzera);
-
         JSplitPane splitPane_2 = new JSplitPane();
         splitPane_2.setOrientation(JSplitPane.VERTICAL_SPLIT);
         contentPane.add(splitPane_2, BorderLayout.CENTER);
-
-        JSplitPane splitPane_1 = new JSplitPane();
-        splitPane_2.setLeftComponent(splitPane_1);
-
-        // Etiqueta para indicar la selección de género
-        JLabel lblSartuNahiDuzun = new JLabel("Sartu nahi duzun pelikula:    ");
-        lblSartuNahiDuzun.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        splitPane_1.setLeftComponent(lblSartuNahiDuzun);
-
-        // Cuadro desplegable para la selección de género
-        generoZerrenda = new JComboBox();
-        generoZerrenda.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        /*generoZerrenda.setModel(new DefaultComboBoxModel;*/
-        splitPane_1.setRightComponent(generoZerrenda);
-
-        // Panel para mostrar la imagen
-        JPanel pnlImagen = new JPanel();
-        splitPane_2.setRightComponent(pnlImagen);
 
         // Cargar imagen desde la carpeta "imagenes"
         String pathToImage = "img/imgGen.jpg"; // Ajusta la ruta de tu imagen
@@ -101,9 +69,29 @@ public class MenuaFilma extends JFrame {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        
+        // Etiqueta para indicar la selección de género
+        JLabel lblSartuNahiDuzun = new JLabel("pelikulak:");
+        splitPane_2.setLeftComponent(lblSartuNahiDuzun);
+        lblSartuNahiDuzun.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        
+        JPanel panel_1 = new JPanel();
+        splitPane_2.setRightComponent(panel_1);
+        panel_1.setLayout(new GridLayout(1, 0, 0, 0));
+        
+        JButton btnAtzera = new JButton("ATZERA");
+        btnAtzera.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		dispose();
+        	}
+        });
+        contentPane.add(btnAtzera, BorderLayout.SOUTH);
+       
+        Saioa[] saioak = zinemak[zineIndex].getSaioak(); 
+        for (int i = 0; i < zinemak.length; i++) {
+            JButton btnFilm1 = new JButton(saioak[i].getPelikula().getIzena()); 
+            panel_1.add(btnFilm1);
+        }
 
-        // Mostrar la imagen en un JLabel
-        JLabel picLabel = new JLabel(new ImageIcon(myPicture));
-        pnlImagen.add(picLabel);
     }
 }

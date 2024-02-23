@@ -27,9 +27,10 @@ public class Main {
 		zinemak[1] = zinem.zinemaJaso(2);
 		zinemak[2] = zinem.zinemaJaso(3);
 		zinemak[3] = zinem.zinemaJaso(4);
-		Saioa[] s1 = (zinemak[0].getSaioak());
-		for (int i=0;i<s1.length;i++) {
-			System.out.println(s1[i]);
+		
+		
+		for (int i=0;i<zinemak.length;i++) {
+			System.out.println(zinemak[i].getIzena());
 			}
 
 		try {
@@ -37,40 +38,28 @@ public class Main {
 			vOngiEtorri.setVisible(true);
 
 			// Itxaron 3 segunduak
-			Thread.sleep(4000);
+			Thread.sleep(3000);
 
 			// lehioa itxi
 			vOngiEtorri.dispose();
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			
 		}
-
-		// ***************************
-		// LOGIN
-		// ***************************
-
+		
+			Login vLogin = new Login();
+			vLogin.setVisible(true);
+	
+		
 		try {
-			Login frame = new Login();
-			frame.setVisible(true);
+			ZinemaMenu vZinemaMenu = new ZinemaMenu(zinemak);
+			vZinemaMenu.setVisible(true);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		/*for (int i = 0; i < zinemak.length; i++) {
-			System.out.println(zinemak[i]);
-		}*/
-		
-		
-		
-		//System.out.println(zinemak[1]);
-
-		/*Saioa[] saioak = null;
-		SaioaDAO saio = new SaioaDAO();
-		saioak = saio.saioakJaso();
-		for (int i = 0; i < saioak.length; i++) {
-			System.out.println(saioak[i]);
-		}*/
-
 	}
 }
+
