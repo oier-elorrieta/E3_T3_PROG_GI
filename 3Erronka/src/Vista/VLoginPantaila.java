@@ -14,21 +14,23 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 import Modelo.DatuBasea.BezeroDAO;
 import Modelo.Bezeroa;
+import javax.swing.JPasswordField;
+import javax.swing.SwingConstants;
 
-public class Login extends JFrame {
+public class VLoginPantaila extends JFrame {
 
     public static final long serialVersionUID = 1L;
     public JPanel contentPane;
     public JTextField txt_erabiltzailea;
-    public JTextField txt_pass;
+    private JTextField txt_pass;
 
     /**
-     * Constructor de la clase `Login`.
-     * Inicializa y configura la interfaz gráfica para la ventana de inicio de sesión.
+     * Login klasearen konstruktorea.
+     * Interfaze grafikoa hasierako saioaren leihoa konfiguratzen du.
      */
-    public Login() {
-        ImageIcon icono = new ImageIcon("img/logo.jpg"); // Cambia la ruta por la de tu imagen
-        setIconImage(icono.getImage());
+    public VLoginPantaila() {
+        ImageIcon ikonoa = new ImageIcon("img/logo.jpg"); // Aldatu bidezko zure irudien bidea
+        setIconImage(ikonoa.getImage());
 
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -39,67 +41,74 @@ public class Login extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
-        // Etiquetas y campos de texto
+        // Etiketak eta testu eremuak
         JLabel lblNewLabel = new JLabel("Sartu erabiltzailea");
-        lblNewLabel.setBounds(277, 108, 125, 14);
+        lblNewLabel.setHorizontalAlignment(SwingConstants.TRAILING);
+        lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        lblNewLabel.setBounds(10, 109, 336, 14);
         contentPane.add(lblNewLabel);
 
         JLabel lblNewLabel_1 = new JLabel("Sartu pasahitza");
-        lblNewLabel_1.setBounds(277, 164, 118, 14);
+        lblNewLabel_1.setHorizontalAlignment(SwingConstants.TRAILING);
+        lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        lblNewLabel_1.setBounds(10, 205, 336, 14);
         contentPane.add(lblNewLabel_1);
 
         txt_erabiltzailea = new JTextField();
-        txt_erabiltzailea.setBounds(412, 105, 226, 20);
+        txt_erabiltzailea.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        txt_erabiltzailea.setBounds(373, 108, 226, 20);
         contentPane.add(txt_erabiltzailea);
         txt_erabiltzailea.setColumns(10);
 
-        txt_pass = new JTextField();
-        txt_pass.setBounds(412, 161, 226, 20);
-        contentPane.add(txt_pass);
-        txt_pass.setColumns(10);
-
-        // Botón de inicio de sesión
+        // Saioa hasi botoia
         JButton btnLogin = new JButton("Saioa hasi");
+        btnLogin.setBounds(10, 272, 764, 32);
         btnLogin.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String erabiltzailea = txt_erabiltzailea.getText();
                 String pasahitza = txt_pass.getText();
                 if (loginaKonprobatu(erabiltzailea, pasahitza)) {
-                    // Login exitoso, ir a la siguiente pantalla
-                    JOptionPane.showMessageDialog(null, "Saioa hasi duzu.");
+                    // Saioa ondo hasi da, hurrengo pantailara joan
 
+                    JOptionPane.showMessageDialog(null, "Saioa hasi duzu.");
 
             		dispose();
 
-                    // Hemen gehitu aplikazio nagusira sartzea
+                    // Hemen aplikazio nagusira joatea gehitu
                 } else {
-                    // Login fallido, mostrar error
+                    // Saioa hasi ez da, errorea erakutsi
                     JOptionPane.showMessageDialog(null, "Erabiltzailea edo pasahitza okerra.");
                 }
             }
         });
 
-        btnLogin.setBounds(371, 240, 118, 23);
+        
 
-        btnLogin.setBounds(221, 239, 118, 23);
+       
 
         contentPane.add(btnLogin);
 
-        // Etiqueta de título
+        // Titulu etiketa
         JLabel lblNewLabel_2 = new JLabel("Saio Hasiera");
+        lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
         lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 30));
-        lblNewLabel_2.setBounds(353, 11, 178, 32);
+        lblNewLabel_2.setBounds(10, 30, 764, 32);
         contentPane.add(lblNewLabel_2);
+        
+        txt_pass = new JTextField();
+        txt_pass.setBounds(373, 204, 226, 20);
+        contentPane.add(txt_pass);
+        txt_pass.setColumns(10);
     }
 
     /**
-     * Verifica si el inicio de sesión es válido.
+     * Saioaren sarreraren egiaztapena egiten duen metodoa.
      * 
-     * @param erabiltzailea El nombre de usuario ingresado.
-     * @param pasahitza     La contraseña ingresada.
-     * @return true si el inicio de sesión es válido, false de lo contrario.
+     * @param erabiltzailea Sartutako erabiltzaile izena.
+     * @param pasahitza     Sartutako pasahitza.
+     * @return Egiaztapen egokia bada true, bestela false.
      */
-    private boolean loginaKonprobatu(String erabiltzailea, String pasahitza) {
+    public boolean loginaKonprobatu(String erabiltzailea, String pasahitza) {
         BezeroDAO bezeroDAO = new BezeroDAO();
         Bezeroa[] bezeroak = bezeroDAO.bezeroakJaso();
         for (Bezeroa bezero : bezeroak) {
@@ -111,7 +120,7 @@ public class Login extends JFrame {
     }
 
     /**
-     * Método que introduce un retardo de 3 segundos.
+     * 3 segundo bateko atzerapen sartzen duen metodoa.
      */
     public void itxaron() {
         try {

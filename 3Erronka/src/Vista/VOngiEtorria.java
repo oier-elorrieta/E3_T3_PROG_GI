@@ -3,10 +3,6 @@ package Vista;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-
-import Modelo.Zinema;
-import Modelo.DatuBasea.ZinemaDAO;
-
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -14,19 +10,19 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class OngiEtorri extends JFrame {
+public class VOngiEtorria extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
     private JProgressBar progressBar;
     private JLabel lblKargatzen;
-    private Timer tiempo; // Temporizador para actualizar la ProgressBar
-    private boolean startProgress = false; // Variable para controlar el inicio de la ProgressBar
+    private Timer tiempo; // Progresu-barra eguneratzeko denbora-erraza
+    private boolean startProgress = false; // Progresu-barra hasierakoa kontrolatzeko aldagaia
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
             try {
-                OngiEtorri frame = new OngiEtorri();
+            	VOngiEtorria frame = new VOngiEtorria();
                 frame.setVisible(true);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -34,7 +30,7 @@ public class OngiEtorri extends JFrame {
         });
     }
 
-    public OngiEtorri() {
+    public VOngiEtorria() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 620, 400);
         contentPane = new JPanel();
@@ -84,23 +80,33 @@ public class OngiEtorri extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (!startProgress) {
-                    tiempo.start(); // Iniciar la ProgressBar
-                    startProgress = true;
+                    startProgressBar(); // Progresu-barra hasieratzeko metodoaren deia
                 }
             }
         });
     }
 
+    // Progresu-barra hasieratzeko metodoa
+    private void startProgressBar() {
+        tiempo.start(); // Progresu-barra hasi
+        startProgress = true;
+    }
+
+    // Progresu-barra eguneratzeko metodoa
     private void updateProgressBar() {
         int value = progressBar.getValue();
         if (value < progressBar.getMaximum()) {
             progressBar.setValue(value + 1);
         } else {
-            tiempo.stop(); // Detener el temporizador cuando se alcanza el máximo
+            tiempo.stop(); // Gehienezera iritsi denean denboragailua gelditu
             startProgress = false;
-            // Ocultar la ventana actual y mostrar la nueva ventana
+            // Uneko leihoa ezkutatu eta berrirako leihoa erakutsi
             setVisible(false);
-           
         }
+    }
+
+    // Progresu-barra egoera lortzeko metodoa
+    public boolean isStartProgress() {
+        return startProgress;
     }
 }

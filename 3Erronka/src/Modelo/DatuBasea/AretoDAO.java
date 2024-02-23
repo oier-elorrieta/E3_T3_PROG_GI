@@ -46,7 +46,7 @@ public class AretoDAO {
 
 	}
 
-	public Aretoa getAretoaId(int id, Aretoa[] aretoak) { // hay que hacer el test JUnit
+	public Aretoa getAretoaId(int id, Aretoa[] aretoak) { 
 		if (aretoak != null) {
 			for (int i = 0; i < aretoak.length; i++) {
 				if (aretoak[i].getId_areto() == id) {

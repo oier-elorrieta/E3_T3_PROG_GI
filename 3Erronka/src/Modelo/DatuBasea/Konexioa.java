@@ -19,7 +19,7 @@ public class Konexioa {
 	public Connection konektatu() {
 		if (konektatu == null) {
 			try {
-				// Establecer la conexión
+				// Konexioa ezarri
 				konektatu = DriverManager.getConnection(url, erabiltzailea, pasahitza);
 				// System.out.println("Konektatuta!");
 			} catch (SQLException e) {

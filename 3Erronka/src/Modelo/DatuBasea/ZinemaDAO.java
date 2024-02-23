@@ -45,8 +45,8 @@ public class ZinemaDAO {
 					SaioaDAO saio = new SaioaDAO();
 					saioak = saio.saioakJaso(id_zinema);
 
-					zinema = new Zinema(id, izena, helbidea, tlf, aretoak, saioak, emaila); // Nota: aretoak y saioak
-																								// // recuperamos aqui
+					zinema = new Zinema(id, izena, helbidea, tlf, aretoak, saioak, emaila); 
+																								
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
