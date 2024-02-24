@@ -6,8 +6,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Modelo.Zinema;
-import Modelo.DatuBasea.ZinemaDAO;
-
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;

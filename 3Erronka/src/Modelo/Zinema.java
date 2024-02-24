@@ -3,7 +3,7 @@ package Modelo;
 import java.util.Arrays;
 import java.util.Objects;
 
-import Modelo.DatuBasea.AretoDAO;
+import DatuBasea.AretoDAO;
 
 public class Zinema {
 	private int id;

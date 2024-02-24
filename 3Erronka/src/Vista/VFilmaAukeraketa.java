@@ -32,43 +32,43 @@ public class VFilmaAukeraketa extends JFrame {
         contentPane.setLayout(new BorderLayout(0, 0));
 
         // Goiburuko konfigurazioa
-        JLabel lblNewLabel_3 = new JLabel("Aukeratu nahi duzun pelikula");
-        lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-        lblNewLabel_3.setFont(new Font("Times New Roman", Font.BOLD, 48));
-        contentPane.add(lblNewLabel_3, BorderLayout.NORTH);
+        JLabel lblPelikulaAuk = new JLabel("Aukeratu nahi duzun pelikula");
+        lblPelikulaAuk.setHorizontalAlignment(SwingConstants.CENTER);
+        lblPelikulaAuk.setFont(new Font("Times New Roman", Font.BOLD, 48));
+        contentPane.add(lblPelikulaAuk, BorderLayout.NORTH);
 
         JSplitPane splitPane_2 = new JSplitPane();
         splitPane_2.setOrientation(JSplitPane.VERTICAL_SPLIT);
         contentPane.add(splitPane_2, BorderLayout.CENTER);
 
-        JLabel lblSartuNahiDuzun = new JLabel("pelikulak:");
-        splitPane_2.setLeftComponent(lblSartuNahiDuzun);
-        lblSartuNahiDuzun.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        JLabel lblPelikulaZerrenda = new JLabel("pelikulak:");
+        splitPane_2.setLeftComponent(lblPelikulaZerrenda);
+        lblPelikulaZerrenda.setFont(new Font("Tahoma", Font.PLAIN, 15));
 
         JPanel panel_1 = new JPanel();
         splitPane_2.setRightComponent(panel_1);
         panel_1.setLayout(new GridLayout(1, 0, 0, 0));
 
-        JButton btnAtzera = new JButton("ATZERA");
-        btnAtzera.addActionListener(new ActionListener() {
+        JButton btnAtzeraJoan = new JButton("ATZERA");
+        btnAtzeraJoan.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	VZinemaAukeraketa menuZinema = new VZinemaAukeraketa(zinemak, 0);
             	menuZinema.setVisible(true);
                 dispose();
             }
         });
-        contentPane.add(btnAtzera, BorderLayout.SOUTH);
+        contentPane.add(btnAtzeraJoan, BorderLayout.SOUTH);
 
         Saioa[] saioak = zinemak[zineIndex].getSaioak();
         for (int i = 0; i < zinemak.length; i++) {
-            JButton btnFilm = new JButton(saioak[i].getPelikula().getIzena());
-            panel_1.add(btnFilm);
+            JButton btnFilmaAukeratu = new JButton(saioak[i].getPelikula().getIzena());
+            panel_1.add(btnFilmaAukeratu);
 
             // Botoi baten klik egitean ekintza
-            btnFilm.addActionListener(new ActionListener() {
+            btnFilmaAukeratu.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                 	dispose();
-                	String aukPelikula = btnFilm.getText();
+                	String aukPelikula = btnFilmaAukeratu.getText();
                     VEgunaAukeraketa DataAukeratu = new VEgunaAukeraketa(zinemak, zineIndex, zinemaIzena, aukPelikula);
                     DataAukeratu.setVisible(true);
                 }

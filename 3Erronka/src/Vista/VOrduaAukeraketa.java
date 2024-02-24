@@ -37,10 +37,10 @@ public class VOrduaAukeraketa extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(new BorderLayout(0, 0));
 
-        JLabel lblNewLabel_3 = new JLabel("Aukeratu nahi duzun ordua");
-        lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-        lblNewLabel_3.setFont(new Font("Times New Roman", Font.BOLD, 48));
-        contentPane.add(lblNewLabel_3, BorderLayout.NORTH);
+        JLabel lblOrduaAuk = new JLabel("Aukeratu nahi duzun ordua");
+        lblOrduaAuk.setHorizontalAlignment(SwingConstants.CENTER);
+        lblOrduaAuk.setFont(new Font("Times New Roman", Font.BOLD, 48));
+        contentPane.add(lblOrduaAuk, BorderLayout.NORTH);
 
         JSplitPane splitPane_2 = new JSplitPane();
         splitPane_2.setOrientation(JSplitPane.VERTICAL_SPLIT);
@@ -96,14 +96,14 @@ public class VOrduaAukeraketa extends JFrame {
             });
         }
 
-        JButton btnAtzera = new JButton("Atzera");
-        btnAtzera.addActionListener(new ActionListener() {
+        JButton btnAtzeraJoan = new JButton("Atzera");
+        btnAtzeraJoan.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		VEgunaAukeraketa dataMenu = new VEgunaAukeraketa(zinemak, zineIndex, zinemaIzena, aukPelikula);
         		dataMenu.setVisible(true);
         		dispose();
         	}
         });
-        contentPane.add(btnAtzera, BorderLayout.SOUTH);
+        contentPane.add(btnAtzeraJoan, BorderLayout.SOUTH);
     }
 }

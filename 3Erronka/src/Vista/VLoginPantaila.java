@@ -5,6 +5,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import DatuBasea.BezeroDAO;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
@@ -12,7 +15,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
-import Modelo.DatuBasea.BezeroDAO;
+
 import Modelo.Bezeroa;
 import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
@@ -42,17 +45,17 @@ public class VLoginPantaila extends JFrame {
         contentPane.setLayout(null);
 
         // Etiketak eta testu eremuak
-        JLabel lblNewLabel = new JLabel("Sartu erabiltzailea");
-        lblNewLabel.setHorizontalAlignment(SwingConstants.TRAILING);
-        lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        lblNewLabel.setBounds(10, 109, 336, 14);
-        contentPane.add(lblNewLabel);
+        JLabel lblErabiltzailea = new JLabel("Sartu erabiltzailea");
+        lblErabiltzailea.setHorizontalAlignment(SwingConstants.TRAILING);
+        lblErabiltzailea.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        lblErabiltzailea.setBounds(10, 109, 336, 14);
+        contentPane.add(lblErabiltzailea);
 
-        JLabel lblNewLabel_1 = new JLabel("Sartu pasahitza");
-        lblNewLabel_1.setHorizontalAlignment(SwingConstants.TRAILING);
-        lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        lblNewLabel_1.setBounds(10, 205, 336, 14);
-        contentPane.add(lblNewLabel_1);
+        JLabel lblPasahitza = new JLabel("Sartu pasahitza");
+        lblPasahitza.setHorizontalAlignment(SwingConstants.TRAILING);
+        lblPasahitza.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        lblPasahitza.setBounds(10, 205, 336, 14);
+        contentPane.add(lblPasahitza);
 
         txt_erabiltzailea = new JTextField();
         txt_erabiltzailea.setFont(new Font("Tahoma", Font.PLAIN, 15));

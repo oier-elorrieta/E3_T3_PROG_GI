@@ -2,9 +2,11 @@ package Testak;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
+
+import DatuBasea.Konexioa;
+import DatuBasea.PelikulaDAO;
 import Modelo.Pelikula;
-import Modelo.DatuBasea.Konexioa;
-import Modelo.DatuBasea.PelikulaDAO;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;

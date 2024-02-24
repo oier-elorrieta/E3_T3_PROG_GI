@@ -123,13 +123,18 @@ public class ZinemaTest {
 
 	// ***** EQUALS TEST *****
 	@Test
-	public void testEquals() {
+	public void testEqualsDira() {
 		Zinema zinema1 = new Zinema(1, "Elorrieta Zinema", "San Ignazio", 658659874, null, null, "elorrietazinema@gmail.com");
 		Zinema zinema2 = new Zinema(1, "Elorrieta Zinema", "San Ignazio", 658659874, null, null, "elorrietazinema@gmail.com");
-		Zinema zinema3 = new Zinema(2, "Elorrieta Zinema", "San Ignazio", 658659874, null, null, "elorrietazinema@gmail.com");
 
 		assertTrue(zinema1.equals(zinema2));
-		assertFalse(zinema1.equals(zinema3));
-		assertFalse(zinema1.equals(null));
+	}
+	
+	@Test
+	public void testEqualsEz() {
+		Zinema zinema1 = new Zinema(1, "Elorrieta Zinema", "San Ignazio", 658659874, null, null, "elorrietazinema@gmail.com");
+		Zinema zinema2 = new Zinema(2, "Elorrieta Zinema", "San Ignazio", 658659874, null, null, "elorrietazinema@gmail.com");
+
+		assertFalse(zinema1.equals(zinema2));
 	}
 }

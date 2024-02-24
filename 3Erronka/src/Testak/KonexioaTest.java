@@ -9,7 +9,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import Modelo.DatuBasea.Konexioa;
+import DatuBasea.Konexioa;
 
 public class KonexioaTest {
 

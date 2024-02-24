@@ -1,9 +1,8 @@
-package Modelo.DatuBasea;
+package DatuBasea;
 
 import Modelo.Aretoa;
 import Modelo.Saioa;
 import Modelo.Zinema;
-import Modelo.DatuBasea.Konexioa;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

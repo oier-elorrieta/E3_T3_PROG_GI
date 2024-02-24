@@ -1,10 +1,10 @@
 package Controlador;
 
-import Modelo.DatuBasea.PelikulaDAO;
-import Modelo.DatuBasea.ZinemaDAO;
 import Vista.VLoginPantaila;
 import Vista.VOngiEtorria;
 import Vista.VZinemaAukeraketa;
+import DatuBasea.PelikulaDAO;
+import DatuBasea.ZinemaDAO;
 import Modelo.Zinema;
 
 public class Main {

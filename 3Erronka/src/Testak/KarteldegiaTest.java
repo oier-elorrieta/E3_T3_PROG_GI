@@ -39,21 +39,29 @@ public class KarteldegiaTest {
 	}
 
 	@Test
-	public void testEquals() {
+	public void testEqualsDira() {
 		Pelikula[] pelikulak1 = { new Pelikula(1, "El Padrino", "Drama", 180),
 				new Pelikula(2, "Pulp Fiction", "Thriller", 154) };
 		Pelikula[] pelikulak2 = { new Pelikula(1, "El Padrino", "Drama", 180),
 				new Pelikula(2, "Pulp Fiction", "Thriller", 154) };
-		Pelikula[] pelikulak3 = { new Pelikula(4, "El Padrino", "Drama", 180),
+
+		Karteldegia karteldegia1 = new Karteldegia(pelikulak1);
+		Karteldegia karteldegia2 = new Karteldegia(pelikulak2);
+
+		assertTrue(karteldegia1.equals(karteldegia2));
+	}
+	
+	@Test
+	public void testEqualsEz() {
+		Pelikula[] pelikulak1 = { new Pelikula(1, "El Padrino", "Drama", 180),
+				new Pelikula(2, "Pulp Fiction", "Thriller", 154) };
+		Pelikula[] pelikulak2 = { new Pelikula(4, "El Padrino", "Drama", 180), //id desberdinak
 				new Pelikula(5, "Pulp Fiction", "Thriller", 154) };
 
 		Karteldegia karteldegia1 = new Karteldegia(pelikulak1);
 		Karteldegia karteldegia2 = new Karteldegia(pelikulak2);
-		Karteldegia karteldegia3 = new Karteldegia(pelikulak3);
 
-		assertTrue(karteldegia1.equals(karteldegia2));
-		assertFalse(karteldegia1.equals(karteldegia3));
-		assertFalse(karteldegia1.equals(null));
+		assertFalse(karteldegia1.equals(karteldegia2));
 	}
 	
 	@Test

@@ -61,16 +61,16 @@ public class VEgunaAukeraketa extends JFrame {
         setSize(418, 278);
         getContentPane().setLayout(new FlowLayout());
 
-        JLabel lblNewLabel = new JLabel("Hautatu Data");
-        lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 36));
-        getContentPane().add(lblNewLabel);
+        JLabel lbldataHautaketa = new JLabel("Hautatu Data");
+        lbldataHautaketa.setFont(new Font("Tahoma", Font.PLAIN, 36));
+        getContentPane().add(lbldataHautaketa);
         getContentPane().add(datePicker);
 
         JSplitPane splitPane_1 = new JSplitPane();
         getContentPane().add(splitPane_1);
 
-        JButton btnNewButton_1 = new JButton("Aurrera");
-        btnNewButton_1.addActionListener(new ActionListener() {
+        JButton btnAurreraJoan = new JButton("Aurrera");
+        btnAurreraJoan.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Hautatutako data lortu
             	String aukData = (int) datePicker.getModel().getYear() + "-" + ((int) datePicker.getModel().getMonth() + 1) + "-" + (int) datePicker.getModel().getDay();
@@ -82,19 +82,19 @@ public class VEgunaAukeraketa extends JFrame {
                 dispose();
             }
         });
-        splitPane_1.setRightComponent(btnNewButton_1);
-        btnNewButton_1.setVerticalAlignment(SwingConstants.BOTTOM);
+        splitPane_1.setRightComponent(btnAurreraJoan);
+        btnAurreraJoan.setVerticalAlignment(SwingConstants.BOTTOM);
 
-        JButton btnNewButton = new JButton("Atzera");
-        btnNewButton.addActionListener(new ActionListener() {
+        JButton btnAtzeraJoan = new JButton("Atzera");
+        btnAtzeraJoan.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 VFilmaAukeraketa menuFilm = new VFilmaAukeraketa(zinemak, zineIndex, zinemaIzena);
                 menuFilm.setVisible(true);
                 dispose();
             }
         });
-        splitPane_1.setLeftComponent(btnNewButton);
-        btnNewButton.setVerticalAlignment(SwingConstants.BOTTOM);
-        btnNewButton.setHorizontalAlignment(SwingConstants.LEFT);
+        splitPane_1.setLeftComponent(btnAtzeraJoan);
+        btnAtzeraJoan.setVerticalAlignment(SwingConstants.BOTTOM);
+        btnAtzeraJoan.setHorizontalAlignment(SwingConstants.LEFT);
     }
 }

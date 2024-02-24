@@ -3,13 +3,13 @@ package Testak;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import DatuBasea.AretoDAO;
+import DatuBasea.Konexioa;
+import DatuBasea.SaioaDAO;
+import DatuBasea.ZinemaDAO;
 import Modelo.Aretoa;
 import Modelo.Saioa;
 import Modelo.Zinema;
-import Modelo.DatuBasea.AretoDAO;
-import Modelo.DatuBasea.Konexioa;
-import Modelo.DatuBasea.SaioaDAO;
-import Modelo.DatuBasea.ZinemaDAO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;

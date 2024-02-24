@@ -3,11 +3,11 @@ package Testak;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import DatuBasea.BezeroDAO;
+import DatuBasea.Konexioa;
+import DatuBasea.SaioaDAO;
 import Modelo.Bezeroa;
 import Modelo.Saioa;
-import Modelo.DatuBasea.BezeroDAO;
-import Modelo.DatuBasea.Konexioa;
-import Modelo.DatuBasea.SaioaDAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

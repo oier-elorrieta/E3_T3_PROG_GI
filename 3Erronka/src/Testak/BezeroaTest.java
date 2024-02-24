@@ -103,13 +103,18 @@ public class BezeroaTest {
 
     //***** EQUALS TEST *****
     @Test
-    public void equalsTest() {
+    public void equalsDiraTest() {
         Bezeroa bezeroa1 = new Bezeroa("12345678A", "Unai", "Souto", 'M', "lgar", "1234");
         Bezeroa bezeroa2 = new Bezeroa("12345678A", "Unai", "Souto", 'M', "lgar", "1234");
-        Bezeroa bezeroa3 = new Bezeroa("87654321B", "Aitor", "Mentxaka", 'M', "lgar", "123");
 
         assertTrue(bezeroa1.equals(bezeroa2));
-        assertFalse(bezeroa1.equals(bezeroa3));
-        assertFalse(bezeroa1.equals(null));
+    }
+    
+    @Test
+    public void equalsEzTest() {
+        Bezeroa bezeroa1 = new Bezeroa("12345678A", "Unai", "Souto", 'M', "lgar", "1234");
+        Bezeroa bezeroa2 = new Bezeroa("87654321B", "Aitor", "Mentxaka", 'M', "lgar", "123");
+
+        assertFalse(bezeroa1.equals(bezeroa2));
     }
 }

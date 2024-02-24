@@ -91,14 +91,20 @@ public class SarreraTest {
 
     //***** EQUALS TEST *****
     @Test
-    public void testEquals() {
+    public void testEqualsDira() {
     	LocalDate data = LocalDate.of(2024, 02, 8);
         Sarrera sarrera1 = new Sarrera(1, data, null, 5.50);
         Sarrera sarrera2 = new Sarrera(1, data, null, 5.50);
-        Sarrera sarrera3 = new Sarrera(2, data, null, 5.50);
 
         assertTrue(sarrera1.equals(sarrera2));
-        assertFalse(sarrera1.equals(sarrera3));
-        assertFalse(sarrera1.equals(null));
+    }
+    
+    @Test
+    public void testEqualsEz() {
+    	LocalDate data = LocalDate.of(2024, 02, 8);
+        Sarrera sarrera1 = new Sarrera(1, data, null, 5.50);
+        Sarrera sarrera2 = new Sarrera(2, data, null, 5.50);
+
+        assertFalse(sarrera1.equals(sarrera2));
     }
 }

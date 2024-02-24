@@ -2,7 +2,7 @@ package Modelo;
 
 import java.util.Arrays;
 
-import Modelo.DatuBasea.PelikulaDAO;
+import DatuBasea.PelikulaDAO;
 
 public class Karteldegia {
 	

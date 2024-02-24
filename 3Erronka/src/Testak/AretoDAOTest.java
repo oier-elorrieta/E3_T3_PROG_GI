@@ -10,11 +10,11 @@ import java.sql.Statement;
 
 import org.junit.Test;
 
+import DatuBasea.AretoDAO;
+import DatuBasea.BezeroDAO;
+import DatuBasea.Konexioa;
 import Modelo.Aretoa;
 import Modelo.Bezeroa;
-import Modelo.DatuBasea.AretoDAO;
-import Modelo.DatuBasea.BezeroDAO;
-import Modelo.DatuBasea.Konexioa;
 
 public class AretoDAOTest {
 
