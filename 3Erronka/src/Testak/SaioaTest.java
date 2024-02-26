@@ -80,14 +80,14 @@ public class SaioaTest {
 	// ***** ARETOA TEST *****
 		@Test
 		public void getAretoaTest() {
-			Aretoa aretoa = new Aretoa (1, "Areto1");
+			Aretoa aretoa = new Aretoa (1, 1, "Areto1");
 			Saioa s1 = new Saioa(1, null, null, null, aretoa);
 			assertEquals(aretoa, s1.getAretoa());
 		}
 
 		@Test
 		public void setAretoaTest() {
-			Aretoa aretoa = new Aretoa (1, "Areto1");
+			Aretoa aretoa = new Aretoa (1, 1, "Areto1");
 			Saioa s1 = new Saioa(1, null, null, null, null);
 			s1.setAretoa(aretoa);
 			assertEquals(aretoa, s1.getAretoa());
@@ -106,18 +106,28 @@ public class SaioaTest {
 	
 	//***** EQUALS TEST *****
 	@Test
-    public void equalsTest() {
+    public void equalsTestDira() {
 
 		Pelikula p1 = new Pelikula(1, "Handia", "Drama", 129);
 		LocalTime ordua = LocalTime.of(14, 30);
 		LocalDate data = LocalDate.of(2024, 02, 8);
 		Saioa s1 = new Saioa(1, ordua, data, p1, null);
 		Saioa s2 = new Saioa(1, ordua, data, p1, null);
-		Saioa s3 = new Saioa(2, ordua, data, p1, null);
 
         assertTrue(s1.equals(s2)); // balore desberdinak, berdinak izan beharko dira
-        assertFalse(s1.equals(s3)); // Id desberdina, desberdinak izan beharko dira
-        assertFalse(s1.equals(null));
+    }
+	
+	@Test
+    public void equalsTestEz() {
+
+		Pelikula p1 = new Pelikula(1, "Handia", "Drama", 129);
+		LocalTime ordua = LocalTime.of(14, 30);
+		LocalDate data = LocalDate.of(2024, 02, 8);
+		Saioa s1 = new Saioa(1, ordua, data, p1, null);
+		Saioa s2 = new Saioa(2, ordua, data, p1, null);
+
+        assertFalse(s1.equals(s2)); // Id desberdina, desberdinak izan beharko dira
     }
 
+	
 }

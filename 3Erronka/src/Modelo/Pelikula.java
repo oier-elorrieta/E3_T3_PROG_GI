@@ -49,7 +49,7 @@ public class Pelikula {
 
 	@Override
 	public String toString() {
-		return "Pelikula [id=" + id + ", izena=" + izena + ", generoa=" + generoa + ", iraupena=" + iraupena + "]";
+		return "\nPelikula [id=" + id + ", izena=" + izena + ", generoa=" + generoa + ", iraupena=" + iraupena + "]";
 	}
 
 	@Override

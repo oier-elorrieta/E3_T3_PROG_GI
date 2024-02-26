@@ -2,11 +2,13 @@ package Modelo;
 
 import java.util.Arrays;
 
-public class Karteldegia {
+import DatuBasea.PelikulaDAO;
 
-	private Pelikula[] pelikulak;
+public class Karteldegia {
 	
-	public Karteldegia(Pelikula [] pelikulak) {
+	private Pelikula[] pelikulak;
+
+	public Karteldegia(Pelikula[] pelikulak) {
 		this.pelikulak = pelikulak;
 	}
 
@@ -16,6 +18,17 @@ public class Karteldegia {
 
 	public void setPelikulak(Pelikula[] pelikulak) {
 		this.pelikulak = pelikulak;
+	}
+
+	public Pelikula getPelikulaId(int id) { // hay que hacer el test JUnit
+		if (pelikulak != null) {
+			for (int i = 0; i < pelikulak.length; i++) {
+				if (pelikulak[i].getId() == id) {
+					return pelikulak[i];
+				}
+			}
+		}
+		return null; // Devuelve null si no se encuentra la película con la ID dada
 	}
 
 	@Override
@@ -34,6 +47,5 @@ public class Karteldegia {
 		Karteldegia other = (Karteldegia) obj;
 		return Arrays.equals(pelikulak, other.pelikulak);
 	}
-	
-	
+
 }

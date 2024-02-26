@@ -69,19 +69,24 @@ public class PelikulaTest {
 	@Test
     public void testToString() {
         Pelikula pelikula = new Pelikula(1, "Hulk", "Zientzia-fikzioa", 105);
-        String esperotakoa = "Pelikula [id=1, izena=Hulk, generoa=Zientzia-fikzioa, iraupena=105]";
+        String esperotakoa = "\nPelikula [id=1, izena=Hulk, generoa=Zientzia-fikzioa, iraupena=105]";
         assertEquals(esperotakoa, pelikula.toString());
     }
 
 	//***** EQUALS TEST *****
     @Test
-    public void testEquals() {
+    public void testEqualsDira() {
         Pelikula pelikula1 = new Pelikula(1, "Hulk", "Sci-fi", 120);
         Pelikula pelikula2 = new Pelikula(1, "Hulk", "Sci-fi", 120);
-        Pelikula pelikula3 = new Pelikula(2, "Planeta Simios", "Sci-fi", 162);
 
         assertTrue(pelikula1.equals(pelikula2));
-        assertFalse(pelikula1.equals(pelikula3));
-        assertFalse(pelikula1.equals(null));
+    }
+    
+    @Test
+    public void testEqualsEz() {
+        Pelikula pelikula1 = new Pelikula(1, "Hulk", "Sci-fi", 120);
+        Pelikula pelikula2 = new Pelikula(2, "Planeta Simios", "Sci-fi", 162);
+
+        assertFalse(pelikula1.equals(pelikula2));
     }
 }

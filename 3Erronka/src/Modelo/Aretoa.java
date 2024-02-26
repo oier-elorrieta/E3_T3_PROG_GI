@@ -1,23 +1,32 @@
 package Modelo;
 
-import java.util.Arrays;
 import java.util.Objects;
 
 public class Aretoa {
-	private int id;
+	private int id_zinema;
+	private int id_areto;
 	private String izena;
 	
-	public Aretoa (int id, String izena) {
-		this.id = id;
+	public Aretoa (int id_zinema, int id_areto, String izena) {
+		this.id_zinema = id_zinema;
+		this.id_areto = id_areto;
 		this.izena = izena;
 	}
 
-	public int getId() {
-		return id;
+	public int getId_zinema() {
+		return id_zinema;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setId_zinema(int id_zinema) {
+		this.id_zinema = id_zinema;
+	}
+	
+	public int getId_areto() {
+		return id_areto;
+	}
+
+	public void setId_areto(int id_areto) {
+		this.id_areto = id_areto;
 	}
 
 	public String getIzena() {
@@ -27,9 +36,10 @@ public class Aretoa {
 	public void setIzena(String izena) {
 		this.izena = izena;
 	}
+
 	@Override
 	public String toString() {
-		return "Aretoa [id=" + id + ", izena=" + izena + "]";
+		return "Aretoa [id_zinema=" + id_zinema + ", id_areto=" + id_areto + ", izena=" + izena + "]";
 	}
 
 	@Override
@@ -41,8 +51,10 @@ public class Aretoa {
 		if (getClass() != obj.getClass())
 			return false;
 		Aretoa other = (Aretoa) obj;
-		return id == other.id && Objects.equals(izena, other.izena);
+		return id_areto == other.id_areto && id_zinema == other.id_zinema && Objects.equals(izena, other.izena);
 	}
+	
+	
 
 		
 }

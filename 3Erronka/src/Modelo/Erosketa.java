@@ -1,5 +1,6 @@
 package Modelo;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Erosketa {
@@ -14,6 +15,7 @@ public class Erosketa {
 	public Erosketa(int id, int kant, Sarrera[] sarrerak, String data, String desk, double diru_totala) {
 		this.id = id;
 		this.kant = kant;
+		this.sarrerak = sarrerak;
 		this.data = data;
 		this.desk = desk;
 		this.diru_totala = diru_totala;
@@ -69,7 +71,7 @@ public class Erosketa {
 
 	@Override
 	public String toString() {
-		return "Erosketa [id_erosketa=" + id + ", kant=" + kant + ", data=" + data + ", desk=" + desk
+		return "Erosketa [id_erosketa=" + id + ", kant=" + kant + ", sarrerak=" + sarrerak + ", data=" + data + ", desk=" + desk
 				+ ", diru_totala=" + diru_totala + "]";
 	}
 
@@ -83,9 +85,11 @@ public class Erosketa {
 			return false;
 		Erosketa other = (Erosketa) obj;
 		return Objects.equals(data, other.data) && Objects.equals(desk, other.desk)
-				&& Double.doubleToLongBits(diru_totala) == Double.doubleToLongBits(other.diru_totala)
-				&& id == other.id && kant == other.kant;
+				&& Double.doubleToLongBits(diru_totala) == Double.doubleToLongBits(other.diru_totala) && id == other.id
+				&& kant == other.kant && Arrays.equals(sarrerak, other.sarrerak);
 	}
+
+	
 	
 	
 	
