@@ -11,13 +11,13 @@ public class Main {
 
 	public static void main(String[] args) {
 		PelikulaDAO filmak = new PelikulaDAO();
-		Zinema[] zinemak = new Zinema[4];
 		ZinemaDAO zinem = new ZinemaDAO();
-		zinemak[0] = zinem.zinemaJaso(1);
-		zinemak[1] = zinem.zinemaJaso(2);
-		zinemak[2] = zinem.zinemaJaso(3);
-		zinemak[3] = zinem.zinemaJaso(4);
-
+		// Funtzioari deitzen diot jakiteko zenbat zinema dauden datu basean
+		int zenbatZinema = zinem.zenbatZinema();
+		Zinema[] zinemak = new Zinema[zenbatZinema];
+		for (int i = 0; i < zinemak.length; i++) {
+			zinemak[i] = zinem.zinemaJaso(i + 1);
+		}
 		// OngiEtorri lehioa hasieratu, baina ez erakutsi oraindik
 		VOngiEtorria vOngiEtorri = new VOngiEtorria();
 
