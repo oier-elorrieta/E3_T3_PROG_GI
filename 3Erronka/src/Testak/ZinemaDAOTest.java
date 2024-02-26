@@ -54,17 +54,43 @@ public class ZinemaDAOTest {
 
 					esperotakoa = new Zinema(id, izena, helbidea, tlf, aretoak, saioak, emaila);
 				}
-				
+
 				ZinemaDAO zinem = new ZinemaDAO();
 				Zinema zinema = zinem.zinemaJaso(1);
-				
+
 				assertEquals(esperotakoa, zinema);
-				
+
 			} catch (SQLException e) {
 				e.printStackTrace();
 			} finally {
 				konexioa.deskonektatu();
 			}
 		}
+	}
+
+	@Test
+	public void zenbatZinemaTest() {
+		int zinemaKont = 0;
+		int zinemakDatuBasean = 4;
+		Konexioa konexioa = new Konexioa();
+		Connection konektatu = konexioa.konektatu();
+
+		if (konektatu != null) {
+			try {
+				String sql = "SELECT COUNT(*) AS zenbat FROM Zinema";
+				PreparedStatement preparedStatement = konektatu.prepareStatement(sql);
+				ResultSet resultSet = preparedStatement.executeQuery();
+
+				if (resultSet.next()) {
+					zinemaKont = resultSet.getInt("zenbat");
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				konexioa.deskonektatu();
+			}
+
+		}
+		assertEquals(zinemaKont, zinemakDatuBasean);
 	}
 }

@@ -55,5 +55,30 @@ public class ZinemaDAO {
 		}
 		return zinema;
 	}
+	
+	// Método para obtener la cantidad de cines desde la base de datos
+    public int zenbatZinema() {
+		int zinemaKont = 0;
+		Konexioa konexioa = new Konexioa();
+		Connection konektatu = konexioa.konektatu();
+
+		if (konektatu != null) {
+			try {
+				String sql = "SELECT COUNT(*) AS zenbat FROM Zinema";
+				PreparedStatement preparedStatement = konektatu.prepareStatement(sql);
+				ResultSet resultSet = preparedStatement.executeQuery();
+
+				if (resultSet.next()) {
+					zinemaKont = resultSet.getInt("zenbat");
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				konexioa.deskonektatu();
+			}
+		}
+        
+        return zinemaKont;
+    }
 
 }

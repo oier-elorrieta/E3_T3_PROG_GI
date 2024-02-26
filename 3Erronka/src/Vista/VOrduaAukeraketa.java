@@ -20,7 +20,7 @@ import java.util.*;
 public class VOrduaAukeraketa extends JFrame {
 
     private JPanel contentPane;
-    public String autatutakoGeneroa = "";
+    private String autatutakoGeneroa = "";
     private Zinema[] zinemak;
     private int zineIndex;
 
