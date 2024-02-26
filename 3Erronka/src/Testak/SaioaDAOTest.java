@@ -25,8 +25,7 @@ public class SaioaDAOTest {
 
     @Test
     public void testsaioakJaso() {
-        
-         Saioa[] esperotakoa = new Saioa[32];
+         Saioa[] saioak;
          PelikulaDAO filmak = new PelikulaDAO();
          Karteldegia karteldegi = new Karteldegia(filmak.pelikulakJaso());
          Pelikula pelikula = null;
@@ -43,14 +42,22 @@ public class SaioaDAOTest {
 
          if (konektatu != null) {
              try {
-                 String sql = "SELECT * FROM saioa where id_zinema = ?";
+                 String sql = "SELECT * FROM saioa WHERE id_zinema = ?";
                  PreparedStatement preparedStatement = konektatu.prepareStatement(sql);
                  preparedStatement.setInt(1, 1);
                  ResultSet lerroak = preparedStatement.executeQuery();
 
-                 AretoDAO areto = new AretoDAO();
-                 Aretoa[] aretoak = areto.aretoakJaso(1);
+                 // Datuen errenkaden kopurua kontatu
+                 int zenbat = 0;
+                 while (lerroak.next()) {
+                     zenbat++;
+                 }
+                 lerroak.beforeFirst(); // ResultSet-aren hasierara bueltatu
 
+                 // Errenkada kopurua erabiliz, arraya hasieratu
+                 saioak = new Saioa[zenbat];
+
+                 // ResultSet-era joan eta Saioa objektuak sortu
                  while (lerroak.next()) {
                      id_saioa = lerroak.getInt("id_saioa");
                      ordutegia = lerroak.getTime("ordutegia").toLocalTime();
@@ -58,15 +65,16 @@ public class SaioaDAOTest {
                      pelikula_id = lerroak.getInt("id_filma");
                      pelikula = karteldegi.getPelikulaId(pelikula_id);
                      aretoa_id = lerroak.getInt("id_aretoa");
-                     aretoa = areto.getAretoaId(aretoa_id, aretoak);
+                     AretoDAO aretoDAO = new AretoDAO();
+                     Aretoa[] aretoak = aretoDAO.aretoakJaso(1);
+                     aretoa = aretoDAO.getAretoaId(aretoa_id, aretoak);
 
-                     esperotakoa[kont] = new Saioa(id_saioa, ordutegia, saioEguna, pelikula, aretoa);
-                     
+                     saioak[kont] = new Saioa(id_saioa, ordutegia, saioEguna, pelikula, aretoa);
                      kont++;
                  }
                  
                  SaioaDAO saio = new SaioaDAO();
-                 Saioa[] saioak = saio.saioakJaso(1);
+                 Saioa[] esperotakoa = saio.saioakJaso(1);
                  
                  assertArrayEquals(esperotakoa, saioak);
                  
