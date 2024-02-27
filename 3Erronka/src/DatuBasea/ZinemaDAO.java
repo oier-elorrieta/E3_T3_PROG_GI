@@ -45,8 +45,8 @@ public class ZinemaDAO {
 					SaioaDAO saio = new SaioaDAO();
 					saioak = saio.saioakJaso(id_zinema);
 
-					zinema = new Zinema(id, izena, helbidea, tlf, aretoak, saioak, emaila); 
-																								
+					zinema = new Zinema(id, izena, helbidea, tlf, aretoak, saioak, emaila);
+
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -56,9 +56,9 @@ public class ZinemaDAO {
 		}
 		return zinema;
 	}
-	
+
 	// Método para obtener la cantidad de cines desde la base de datos
-    public int zenbatZinema() {
+	public int zenbatZinema() {
 		int zinemaKont = 0;
 		Konexioa konexioa = new Konexioa();
 		Connection konektatu = konexioa.konektatu();
@@ -78,8 +78,8 @@ public class ZinemaDAO {
 				konexioa.deskonektatu();
 			}
 		}
-        
-        return zinemaKont;
-    }
+
+		return zinemaKont;
+	}
 
 }

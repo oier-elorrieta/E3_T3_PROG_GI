@@ -25,7 +25,7 @@ public class AretoDAOTest {
 		int id_zinem = 0;
 		int id_aretoa = 0;
 		String areto_izena = "";
-		
+
 		Konexioa konexioa = new Konexioa();
 		Connection konektatu = konexioa.konektatu();
 		if (konektatu != null) {
@@ -35,7 +35,7 @@ public class AretoDAOTest {
 				PreparedStatement preparedStatement = konektatu.prepareStatement(sql);
 				preparedStatement.setInt(1, 1);
 				ResultSet lerroak = preparedStatement.executeQuery();
-				
+
 				while (lerroak.next()) {
 					id_zinem = lerroak.getInt("id_zinema");
 					id_aretoa = lerroak.getInt("id_aretoa");
@@ -45,56 +45,48 @@ public class AretoDAOTest {
 				}
 				AretoDAO areto = new AretoDAO();
 				Aretoa[] aretoak = areto.aretoakJaso(1);
-				
+
 				assertArrayEquals(esperotakoa, aretoak);
-				
+
 			} catch (SQLException e) {
 				System.err.println("Errorea: Ezin izan da kontsulta egin.");
 				e.printStackTrace();
 			} finally {
 				konexioa.deskonektatu();
 			}
-	    }
+		}
 	}
-	
+
 	@Test
-    public void testGetAretoaId_AretoakNull() {
-        Aretoa[] aretoak = null;
-        AretoDAO aretoaDAO = new AretoDAO();
-        Aretoa aretoa = aretoaDAO.getAretoaId(1, aretoak);
-        assertNull(aretoa);
-    }
+	public void testGetAretoaId_AretoakNull() {
+		Aretoa[] aretoak = null;
+		AretoDAO aretoaDAO = new AretoDAO();
+		Aretoa aretoa = aretoaDAO.getAretoaId(1, aretoak);
+		assertNull(aretoa);
+	}
 
-    @Test
-    public void testGetAretoaId_AretoakHutzik() {
-        Aretoa[] aretoak = new Aretoa[0];
-        AretoDAO aretoaDAO = new AretoDAO();
-        Aretoa aretoa = aretoaDAO.getAretoaId(1, aretoak);
-        assertNull(aretoa);
-    }
+	@Test
+	public void testGetAretoaId_AretoakHutzik() {
+		Aretoa[] aretoak = new Aretoa[0];
+		AretoDAO aretoaDAO = new AretoDAO();
+		Aretoa aretoa = aretoaDAO.getAretoaId(1, aretoak);
+		assertNull(aretoa);
+	}
 
-    @Test
-    public void testGetAretoaId_IdEzAurkitzen() {
-        Aretoa[] aretoak = {
-            new Aretoa(1, 10, "Aretoa1"),
-            new Aretoa(1, 20, "Aretoa2"),
-            new Aretoa(1, 30, "Aretoa3")
-        };
-        AretoDAO aretoaDAO = new AretoDAO();
-        Aretoa aretoa = aretoaDAO.getAretoaId(5, aretoak);
-        assertNull(aretoa);
-    }
+	@Test
+	public void testGetAretoaId_IdEzAurkitzen() {
+		Aretoa[] aretoak = { new Aretoa(1, 10, "Aretoa1"), new Aretoa(1, 20, "Aretoa2"), new Aretoa(1, 30, "Aretoa3") };
+		AretoDAO aretoaDAO = new AretoDAO();
+		Aretoa aretoa = aretoaDAO.getAretoaId(5, aretoak);
+		assertNull(aretoa);
+	}
 
-    @Test
-    public void testGetAretoaId_IdAurkitzen() {
-        Aretoa[] aretoak = {
-            new Aretoa(1, 10, "Aretoa1"),
-            new Aretoa(1, 20, "Aretoa2"),
-            new Aretoa(1, 30, "Aretoa3")
-        };
-        AretoDAO aretoaDAO = new AretoDAO();
-        Aretoa aretoa = aretoaDAO.getAretoaId(20, aretoak);
-        assertEquals("Aretoa2", aretoa.getIzena());
-    }
+	@Test
+	public void testGetAretoaId_IdAurkitzen() {
+		Aretoa[] aretoak = { new Aretoa(1, 10, "Aretoa1"), new Aretoa(1, 20, "Aretoa2"), new Aretoa(1, 30, "Aretoa3") };
+		AretoDAO aretoaDAO = new AretoDAO();
+		Aretoa aretoa = aretoaDAO.getAretoaId(20, aretoak);
+		assertEquals("Aretoa2", aretoa.getIzena());
+	}
 
 }

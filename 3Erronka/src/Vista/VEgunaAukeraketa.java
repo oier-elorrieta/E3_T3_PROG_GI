@@ -19,82 +19,85 @@ import java.awt.event.ActionEvent;
 
 public class VEgunaAukeraketa extends JFrame {
 
-    public VEgunaAukeraketa(Zinema[] zinemak, int zineIndex, String zinemaIzena, String aukPelikula) {
-    	SortuDataAukerlea(zinemak, zineIndex, zinemaIzena, aukPelikula);
-    }
-    private void SortuDataAukerlea(Zinema[] zinemak, int zineIndex, String zinemaIzena, String aukPelikula) {
-        // Dataren modeloa konfiguratu
-        UtilDateModel model = new UtilDateModel();
-        Properties properties = new Properties();
-        properties.put("text.today", "Gaur");
-        properties.put("text.month", "Hilabetea");
-        properties.put("text.year", "Urtea");
+	public VEgunaAukeraketa(Zinema[] zinemak, int zineIndex, String zinemaIzena, String aukPelikula) {
+		SortuDataAukerlea(zinemak, zineIndex, zinemaIzena, aukPelikula);
+	}
 
-        // Pasatutako egunetako datarik atzera ez uzteko modeloa konfiguratu
-        model.setSelected(true); // Data gaurkoa hautatu
+	private void SortuDataAukerlea(Zinema[] zinemak, int zineIndex, String zinemaIzena, String aukPelikula) {
+		// Dataren modeloa konfiguratu
+		UtilDateModel model = new UtilDateModel();
+		Properties properties = new Properties();
+		properties.put("text.today", "Gaur");
+		properties.put("text.month", "Hilabetea");
+		properties.put("text.year", "Urtea");
 
-        // Data aukeratzeko panela sortu
-        JDatePanelImpl datePanel = new JDatePanelImpl(model, properties);
+		// Pasatutako egunetako datarik atzera ez uzteko modeloa konfiguratu
+		model.setSelected(true); // Data gaurkoa hautatu
 
-        // Data aukeratzailea sortu DateComponentFormatter erabiliz
-        JDatePickerImpl datePicker = new JDatePickerImpl(datePanel, new DateComponentFormatter());
+		// Data aukeratzeko panela sortu
+		JDatePanelImpl datePanel = new JDatePanelImpl(model, properties);
 
-        // Data aukeratzailea konfiguratu
-        datePicker.getJFormattedTextField().setEditable(true);
+		// Data aukeratzailea sortu DateComponentFormatter erabiliz
+		JDatePickerImpl datePicker = new JDatePickerImpl(datePanel, new DateComponentFormatter());
 
-        // Modeloari PropertyChangeListener bat gehitu datak balidatzeko
-        model.addPropertyChangeListener(new PropertyChangeListener() {
-            @Override
-            public void propertyChange(PropertyChangeEvent evt) {
-                Date selectedDate = model.getValue();
-                Date currentDate = new Date();
-                if (selectedDate != null && selectedDate.before(currentDate)) {
-                    // Data minimoan berreskuratu
-                    model.setValue(currentDate); // Hautatutako data gaurkoa izan behar da
-                }
-            }
-        });
+		// Data aukeratzailea konfiguratu
+		datePicker.getJFormattedTextField().setEditable(true);
 
-        // Frame-a sortu eta konfiguratu
-        setTitle("JDatePicker-en Adibidea");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(418, 278);
-        getContentPane().setLayout(new FlowLayout());
+		// Modeloari PropertyChangeListener bat gehitu datak balidatzeko
+		model.addPropertyChangeListener(new PropertyChangeListener() {
+			@Override
+			public void propertyChange(PropertyChangeEvent evt) {
+				Date selectedDate = model.getValue();
+				Date currentDate = new Date();
+				if (selectedDate != null && selectedDate.before(currentDate)) {
+					// Data minimoan berreskuratu
+					model.setValue(currentDate); // Hautatutako data gaurkoa izan behar da
+				}
+			}
+		});
 
-        JLabel lbldataHautaketa = new JLabel("Hautatu Data");
-        lbldataHautaketa.setFont(new Font("Tahoma", Font.PLAIN, 36));
-        getContentPane().add(lbldataHautaketa);
-        getContentPane().add(datePicker);
+		// Frame-a sortu eta konfiguratu
+		setTitle("JDatePicker-en Adibidea");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(418, 278);
+		getContentPane().setLayout(new FlowLayout());
 
-        JSplitPane splitPane_1 = new JSplitPane();
-        getContentPane().add(splitPane_1);
+		JLabel lbldataHautaketa = new JLabel("Hautatu Data");
+		lbldataHautaketa.setFont(new Font("Tahoma", Font.PLAIN, 36));
+		getContentPane().add(lbldataHautaketa);
+		getContentPane().add(datePicker);
 
-        JButton btnAurreraJoan = new JButton("Aurrera");
-        btnAurreraJoan.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                // Hautatutako data lortu
-            	String aukData = (int) datePicker.getModel().getYear() + "-" + ((int) datePicker.getModel().getMonth() + 1) + "-" + (int) datePicker.getModel().getDay();
-                
-                // OrduaAukeratu eraikitzeko hautatutako data pasatu
-                VOrduaAukeraketa orduaAukera = new VOrduaAukeraketa(zinemak, zineIndex, zinemaIzena, aukPelikula, aukData);
-                orduaAukera.setVisible(true);
-                
-                dispose();
-            }
-        });
-        splitPane_1.setRightComponent(btnAurreraJoan);
-        btnAurreraJoan.setVerticalAlignment(SwingConstants.BOTTOM);
+		JSplitPane splitPane_1 = new JSplitPane();
+		getContentPane().add(splitPane_1);
 
-        JButton btnAtzeraJoan = new JButton("Atzera");
-        btnAtzeraJoan.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                VFilmaAukeraketa menuFilm = new VFilmaAukeraketa(zinemak, zineIndex, zinemaIzena);
-                menuFilm.setVisible(true);
-                dispose();
-            }
-        });
-        splitPane_1.setLeftComponent(btnAtzeraJoan);
-        btnAtzeraJoan.setVerticalAlignment(SwingConstants.BOTTOM);
-        btnAtzeraJoan.setHorizontalAlignment(SwingConstants.LEFT);
-    }
+		JButton btnAurreraJoan = new JButton("Aurrera");
+		btnAurreraJoan.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// Hautatutako data lortu
+				String aukData = (int) datePicker.getModel().getYear() + "-"
+						+ ((int) datePicker.getModel().getMonth() + 1) + "-" + (int) datePicker.getModel().getDay();
+
+				// OrduaAukeratu eraikitzeko hautatutako data pasatu
+				VOrduaAukeraketa orduaAukera = new VOrduaAukeraketa(zinemak, zineIndex, zinemaIzena, aukPelikula,
+						aukData);
+				orduaAukera.setVisible(true);
+
+				dispose();
+			}
+		});
+		splitPane_1.setRightComponent(btnAurreraJoan);
+		btnAurreraJoan.setVerticalAlignment(SwingConstants.BOTTOM);
+
+		JButton btnAtzeraJoan = new JButton("Atzera");
+		btnAtzeraJoan.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VFilmaAukeraketa menuFilm = new VFilmaAukeraketa(zinemak, zineIndex, zinemaIzena);
+				menuFilm.setVisible(true);
+				dispose();
+			}
+		});
+		splitPane_1.setLeftComponent(btnAtzeraJoan);
+		btnAtzeraJoan.setVerticalAlignment(SwingConstants.BOTTOM);
+		btnAtzeraJoan.setHorizontalAlignment(SwingConstants.LEFT);
+	}
 }

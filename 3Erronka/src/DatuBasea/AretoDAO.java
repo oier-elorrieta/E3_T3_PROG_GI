@@ -1,4 +1,5 @@
 package DatuBasea;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -46,7 +47,7 @@ public class AretoDAO {
 
 	}
 
-	public Aretoa getAretoaId(int id, Aretoa[] aretoak) { 
+	public Aretoa getAretoaId(int id, Aretoa[] aretoak) {
 		if (aretoak != null) {
 			for (int i = 0; i < aretoak.length; i++) {
 				if (aretoak[i].getId_areto() == id) {

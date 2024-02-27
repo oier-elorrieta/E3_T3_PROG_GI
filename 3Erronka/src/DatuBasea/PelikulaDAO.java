@@ -9,7 +9,7 @@ import Modelo.Karteldegia;
 import Modelo.Pelikula;
 
 public class PelikulaDAO {
-	private Pelikula[] pelikulak = new Pelikula[16];
+	private Pelikula[] pelikulak = new Pelikula[17];
 	private int id = 0;
 	private String izena = "";
 	private String generoa = "";

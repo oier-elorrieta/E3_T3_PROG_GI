@@ -16,97 +16,97 @@ import java.awt.event.ActionEvent;
 
 public class VZinemaAukeraketa extends JFrame {
 
-    private static final long serialVersionUID = 1L;
-    private JPanel contentPane;
-    private String zinemaIzena = "";
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private String zinemaIzena = "";
 
-    public VZinemaAukeraketa(Zinema[] zinemak, int zineIndex) {
+	public VZinemaAukeraketa(Zinema[] zinemak, int zineIndex) {
 
-        setTitle("Botoiak Duena Leihoa");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 800, 450);
-        contentPane = new JPanel();
-        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-        setContentPane(contentPane);
-        contentPane.setLayout(new BorderLayout(0, 0));
+		setTitle("Botoiak Duena Leihoa");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 800, 450);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(new BorderLayout(0, 0));
 
-        JLabel lblTitulua = new JLabel("Aukeratu zinema!");
-        lblTitulua.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
-        lblTitulua.setHorizontalAlignment(JLabel.CENTER);
-        contentPane.add(lblTitulua, BorderLayout.NORTH);
+		JLabel lblTitulua = new JLabel("Aukeratu zinema!");
+		lblTitulua.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
+		lblTitulua.setHorizontalAlignment(JLabel.CENTER);
+		contentPane.add(lblTitulua, BorderLayout.NORTH);
 
-        JPanel botoiPanela = new JPanel();
-        contentPane.add(botoiPanela, BorderLayout.CENTER);
-        botoiPanela.setLayout(new GridLayout(2, 2, 10, 10));
+		JPanel botoiPanela = new JPanel();
+		contentPane.add(botoiPanela, BorderLayout.CENTER);
+		botoiPanela.setLayout(new GridLayout(2, 2, 10, 10));
 
-        // ----------- ELORRIETA -----------
-        JButton btnEZinema = new JButton(zinemak[0].getIzena());
+		// ----------- ELORRIETA -----------
+		JButton btnEZinema = new JButton(zinemak[0].getIzena());
 
-        btnEZinema.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                try {
-                    zinemaIzena = zinemak[0].getIzena();
-                    VFilmaAukeraketa frame = new VFilmaAukeraketa(zinemak, 0, zinemaIzena);
-                    frame.setVisible(true);
-                } catch (Exception e1) {
-                    e1.printStackTrace();
-                }
-            }
-        });
-        botoiPanela.add(btnEZinema);
+		btnEZinema.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				try {
+					zinemaIzena = zinemak[0].getIzena();
+					VFilmaAukeraketa frame = new VFilmaAukeraketa(zinemak, 0, zinemaIzena);
+					frame.setVisible(true);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		botoiPanela.add(btnEZinema);
 
-        // ----------- MEGA PARK -----------
-        JButton btnMegaPark = new JButton(zinemak[1].getIzena());
+		// ----------- MEGA PARK -----------
+		JButton btnMegaPark = new JButton(zinemak[1].getIzena());
 
-        btnMegaPark.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                try {
-                    zinemaIzena = zinemak[1].getIzena();
-                    VFilmaAukeraketa frame = new VFilmaAukeraketa(zinemak, 1, zinemaIzena);
-                    frame.setVisible(true);
-                } catch (Exception e1) {
-                    e1.printStackTrace();
-                }
-            }
-        });
-        botoiPanela.add(btnMegaPark);
+		btnMegaPark.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				try {
+					zinemaIzena = zinemak[1].getIzena();
+					VFilmaAukeraketa frame = new VFilmaAukeraketa(zinemak, 1, zinemaIzena);
+					frame.setVisible(true);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		botoiPanela.add(btnMegaPark);
 
-        // ----------- CINESA -----------
+		// ----------- CINESA -----------
 
-        JButton btnCMaxCenter = new JButton(zinemak[2].getIzena());
+		JButton btnCMaxCenter = new JButton(zinemak[2].getIzena());
 
-        btnCMaxCenter.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                try {
-                    zinemaIzena = zinemak[2].getIzena();
-                    VFilmaAukeraketa frame = new VFilmaAukeraketa(zinemak, 2, zinemaIzena); 
-                    frame.setVisible(true);
-                } catch (Exception e1) {
-                    e1.printStackTrace();
-                }
-            }
-        });
-        botoiPanela.add(btnCMaxCenter);
+		btnCMaxCenter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				try {
+					zinemaIzena = zinemak[2].getIzena();
+					VFilmaAukeraketa frame = new VFilmaAukeraketa(zinemak, 2, zinemaIzena);
+					frame.setVisible(true);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		botoiPanela.add(btnCMaxCenter);
 
-        // ----------- ARTEA -----------
+		// ----------- ARTEA -----------
 
-        JButton btnYArtea = new JButton(zinemak[3].getIzena());
+		JButton btnYArtea = new JButton(zinemak[3].getIzena());
 
-        btnYArtea.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                try {
-                    zinemaIzena = zinemak[3].getIzena();
-                    VFilmaAukeraketa frame = new VFilmaAukeraketa(zinemak, 3, zinemaIzena);
-                    frame.setVisible(true);
-                } catch (Exception e1) {
-                    e1.printStackTrace();
-                }
-            }
-        });
-        botoiPanela.add(btnYArtea);
-    }
+		btnYArtea.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				try {
+					zinemaIzena = zinemak[3].getIzena();
+					VFilmaAukeraketa frame = new VFilmaAukeraketa(zinemak, 3, zinemaIzena);
+					frame.setVisible(true);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		botoiPanela.add(btnYArtea);
+	}
 }

@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
 
 public class VOrduaAukeraketa extends JFrame {
@@ -85,10 +86,12 @@ public class VOrduaAukeraketa extends JFrame {
 		lblLaburpenData.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLaburpenData.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		panel.add(lblLaburpenData);
-
-		for (Saioa saioa : horasSet) {
-			JButton btnOrdu = new JButton(saioa.getOrdutegia().toString());
-			panelBotoiak.add(btnOrdu); // Gehitu botoia panelBotoiak-era
+		LocalDate dia = LocalDate.parse("2024-03-16");
+		 for (int i=0;i<saioak.length;i++){
+			 
+			 if (aukPelikula.equals(saioak[i].getPelikula().getIzena())&&(saioak[i].getData().isEqual(dia))) {
+				 JButton btnOrdu = new JButton(saioak[i].getOrdutegia().toString());
+				 panelBotoiak.add(btnOrdu); // Gehitu botoia panelBotoiak-era
 
 			btnOrdu.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -104,6 +107,7 @@ public class VOrduaAukeraketa extends JFrame {
 					}
 				}
 			});
+			 }
 		}
 
 		JButton btnAtzeraJoan = new JButton("Atzera");
